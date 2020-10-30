@@ -1,0 +1,13 @@
+看到shell.php/jsp等考虑要不要删
+cd ~/.ssh，看下公钥里面有没有flag之类的东西
+注意开放的端口，无意义端口可能为后门
+tmp文件夹查看
+看全部文件务必使用ls -a
+拿到web服务记得扫其他端口
+tcpdump tcp -i ens33 -s 0 -w ./target.cap #抓包
+ps aux|grep python
+cat /etc/passwd
+find / -name "*.php"
+d盾扫描源码
+find / -name "*apache2.conf" #需要service apache2 restart
+cat /etc/rsyncd.conf #rsync

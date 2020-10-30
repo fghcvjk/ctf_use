@@ -1,0 +1,12 @@
+一大串类似的东西注意看能否挨个提取
+搞不定访问192.168.174.134:8000看wiki
+一大串字符串直接提试试，不解了
+不管key怎么变换，如果最后和目标只异或一次，就不用关注之前是怎么算的，因为给定key后最后和目标运算的东西是不变的
+文件挂载：mount -o loop forensic100 /tmp/forensic
+发现多个疑似flag第一个和最后一个先试试
+空格用%20和+替换，+优先级高（linux读文件环境下）
+爆破出来的结果不对，考虑替换爆破库（全字符、带数字、纯字母、大写、小写字母）
+逆向算法看不懂，但是可以一位一位确认结果的，重写算法爆破走起就好
+base64标准编码表：ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=
+vim -r恢复.swo和.swp文件
+.raw文件取证：volatility notepad -f 8.raw --profile=WinXPSP2x86

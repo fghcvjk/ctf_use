@@ -1,0 +1,11 @@
+.bin:routerpassview、binwalk
+.cap:Wireshark、aircrack-ng（linux，用于破解wifi密码）
+.mp3:MP3Stego
+md5:MD5Crack3
+.jar:XJad
+.vmdk:WinImage、7zip解压
+.class:JD-GUI
+.squashfs:firmware-mod-kit
+.vmem:volatility取证
+.raw:volatility取证
+.vhd：7z解压、winhex检查ntfs流、DiskGenius
