@@ -1,8 +1,3 @@
-21：2020-11-20 20:30 ~ 2020-11-21 20:30:https://www.cyphersec.net/【CypHer CTF 2020】
-21：2020-11-20 01:00 ~ 2020-11-22 01:00：https://ctf.jordaninfosec.com/challenges【JISCTF 2020 Qualifications】
-22：2020年11月21日09:00-11月22日21:00：https://www.ichunqiu.com/2020xiangyuncup【2020 首届"祥云杯"网络安全技能大赛 - 初赛】
-22：2020年11月21日 9：30至2020年11月22日 21：30：https://hectf.hsca.org.cn/【2020 HECTF 河北高校联盟网络安全挑战赛 - 线上初赛】
-22：11月21日09:00 ~ 11月22日21:00：https://nctf.x1ct34m.com/notice
 29：2020-11-28 10:00 ~ 2020-11-29 22:00：https://ctf.hitcon.org/【HITCON CTF 2020】
 29：2020-11-28 00:00 ~ 2020-11-30 00:00：https://ctf.hack2g2.fr/【CTF InterIUT 2020】
 05：2020-12-04 20:30 ~ 2020-12-05 20:30：https://teamshakti.in/teaser/teaser.html【Shakti CTF】

@@ -2132,6 +2132,52 @@ base64处理两次：
 
 ![img](/clip_image007.jpg)
 
+###### 从娃娃抓起
+
+题目描述：伟人的一句话，标志着一个时代的开始。那句熟悉的话，改变了许多人的一生，为中国三十年来计算机产业发展铺垫了道路。两种不同的汉字编码分别代表了汉字信息化道路上的两座伟大里程碑。请将你得到的话转为md5提交，md5统一为32位小写。
+
+```
+0086 1562 2535 5174
+bnhn s wwy vffg vffg rrhy fhnv
+
+请将你得到的这句话转为md5提交，md5统一为32位小写。
+提交格式：flag{md5}
+```
+
+分别是中文电码表和五笔码表
+
+中文电码表：
+
+人0086
+
+工1562
+
+智2535
+
+能5174
+
+五笔码表：
+
+也 BN（BNHN）
+
+要 S
+
+从 WW（WWY）
+
+娃 VFF（VFFG）
+
+娃 VFF（VFFG）
+
+抓 RRHY
+
+起 FHN（FHNV）
+
+ ```python
+#'%08.f'
+import hashlib
+print(hashlib.md5(bytes('人工智能也要从娃娃抓起', encoding='utf-8')).hexdigest())
+ ```
+
 ## crypto
 
 ###### Url编码
@@ -2410,3 +2456,263 @@ F12查看前端源码发现获取flag的js逻辑：
 ![image-20201026202816988](/image-20201026202816988.png)
 
 没关注没粉丝没动态还被禁封了可还行。
+
+# Hackergame 2020
+
+###### 从零开始的火星文生活
+
+一年一度的 Hackergame 就要到了，L 同学打算叫上 Q 同学一起去参加，却一连几天都见不到 Q 同学的人影。然而在比赛开始的前一天晚上却收到了来自 Q 同学的邮件：
+
+```
+Subject: 绝密！不要外传！！！
+Body: 详情见附件
+From: Q
+```
+
+L 同学打开附件一看，傻眼了，全都是意义不明的汉字。机智的 L 同学想到 Q 同学平时喜欢使用 **GBK 编码**，也许是打开方式不对。结果用 GBK 打开却看到了一堆夹杂着日语和数字的**火星文**……
+
+L 同学彻底懵逼了，几经周折，TA 找到了科大最负盛名的火星文专家 (你)。依靠多年的字符编码解码的经验，你可以破译 Q 同学发来的火星文是什么意思吗？
+
+注：正确的 flag 全部由 **ASCII** 字符组成！
+
+```
+脦脪鹿楼脝脝脕脣 拢脠拢谩拢茫拢毛拢氓拢貌拢莽拢谩拢铆拢氓 碌脛路镁脦帽脝梅拢卢脥碌碌陆脕脣脣眉脙脟碌脛 拢忙拢矛拢谩拢莽拢卢脧脰脭脷脦脪掳脩 拢忙拢矛拢谩拢莽 路垄赂酶脛茫拢潞
+拢忙拢矛拢谩拢莽拢没拢脠拢麓拢枚拢鲁拢脽拢脝拢玫拢脦拢脽拢梅拢卤拢脭拢猫拢脽拢鲁拢卯拢茫拢掳拢盲拢卤拢卯拢莽拢脽拢麓拢脦拢盲拢脽拢盲拢鲁拢茫拢掳拢脛拢卤拢卯拢脟拢脽拢鹿拢帽拢脛拢虏拢脪拢赂拢猫拢贸拢媒
+驴矛脠楼卤脠脠眉脝陆脤篓脤谩陆禄掳脡拢隆
+虏禄脪陋脭脵掳脩脮芒路脻脨脜脧垄脳陋路垄赂酶脝盲脣没脠脣脕脣拢卢脪陋脢脟卤禄路垄脧脰戮脥脭茫赂芒脕脣拢隆
+```
+
+这种乱码是gbk使用utf-8打开导致的，用vscode转为gbk保存，再把保存的文件用utf-8打开：
+
+```
+ÎÒ¹¥ÆÆÁË £È£á£ã£ë£å£ò£ç£á£í£å µÄ·þÎñÆ÷£¬Íµµ½ÁËËüÃÇµÄ £æ£ì£á£ç£¬ÏÖÔÚÎÒ°Ñ £æ£ì£á£ç ·¢¸øÄã£º
+£æ£ì£á£ç£û£È£´£ö£³£ß£Æ£õ£Î£ß£÷£±£Ô£è£ß£³£î£ã£°£ä£±£î£ç£ß£´£Î£ä£ß£ä£³£ã£°£Ä£±£î£Ç£ß£¹£ñ£Ä£²£Ò£¸£è£ó£ý
+¿ìÈ¥±ÈÈüÆ½Ì¨Ìá½»°É£¡
+²»ÒªÔÙ°ÑÕâ·ÝÐÅÏ¢×ª·¢¸øÆäËûÈËÁË£¬ÒªÊÇ±»·¢ÏÖ¾ÍÔã¸âÁË£¡
+```
+
+这种乱码是ISO88591使用utf-8打开导致的，用vscode转为ISO88591保存，再把保存的文件用GBK打开：
+
+```
+我攻破了 Ｈａｃｋｅｒｇａｍｅ 的服务器，偷到了它们的 ｆｌａｇ，现在我把 ｆｌａｇ 发给你：
+ｆｌａｇ｛Ｈ４ｖ３＿ＦｕＮ＿ｗ１Ｔｈ＿３ｎｃ０ｄ１ｎｇ＿４Ｎｄ＿ｄ３ｃ０Ｄ１ｎＧ＿９ｑＤ２Ｒ８ｈｓ｝
+快去比赛平台提交吧！
+不要再把这份信息转发给其他人了，要是被发现就糟糕了！
+```
+
+把全角转换成半角：
+
+```python
+def DBC2SBC(input_string):
+    ret_string = ""
+    for uchar in input_string:
+        char_code = ord(uchar)
+        if char_code == 0x3000:
+            char_code = 0x0020
+        else:
+            char_code -= 0xfee0
+        if not (0x0021 <= char_code and char_code <= 0x7e):
+            ret_string += uchar
+        else:
+            ret_string += chr(char_code)
+    return ret_string
+
+message = '''
+
+我攻破了 Ｈａｃｋｅｒｇａｍｅ 的服务器，偷到了它们的 ｆｌａｇ，现在我把 ｆｌａｇ 发给你：
+ｆｌａｇ｛Ｈ４ｖ３＿ＦｕＮ＿ｗ１Ｔｈ＿３ｎｃ０ｄ１ｎｇ＿４Ｎｄ＿ｄ３ｃ０Ｄ１ｎＧ＿９ｑＤ２Ｒ８ｈｓ｝
+快去比赛平台提交吧！
+不要再把这份信息转发给其他人了，要是被发现就糟糕了！
+'''
+print(DBC2SBC(message))
+```
+
+```
+我攻破了 Hackergame 的服务器,偷到了它们的 flag,现在我把 flag 发给你:
+flag{H4v3_FuN_w1Th_3nc0d1ng_4Nd_d3c0D1nG_9qD2R8hs}
+快去比赛平台提交吧!
+不要再把这份信息转发给其他人了,要是被发现就糟糕了!
+```
+
+###### 自复读的复读机
+
+能够复读其他程序输出的程序只是普通的复读机。
+
+顶尖的复读机还应该能复读出自己的源代码。
+
+什么是国际复读机啊（战术后仰）
+
+你现在需要编写两个只有一行 Python 代码的顶尖复读机：
+
+- 其中一个要输出代码本身的逆序（即所有字符从后向前依次输出）
+- 另一个是输出代码本身的 sha256 哈希值，十六进制小写
+
+满足两个条件分别对应了两个 flag。
+
+快来开始你的复读吧~
+
+```
+Your one line python code to exec(): print(1+1)
+
+Your code is:
+'print(1+1)'
+
+Output of your code is:
+'2\n'
+
+Checking reversed(code) == output
+Failed!
+
+Checking sha256(code) == output
+Failed!
+
+Connection closed
+```
+
+python复读的两种定式：
+
+exec(s:='print("exec(s:=%r)"%s)')
+
+s='s=%r;print(s%%s)';print(s%s)
+
+需要注意自带换行，需要用end=’’处理掉
+
+第一问：
+
+```
+exec(s:='print(("exec(s:=%r)"%s)[::-1],end="")')
+或
+s='s=%r;print((s%%s)[::-1],end="")';print((s%s)[::-1],end="")
+```
+
+第二问：
+
+```
+exec(s:='print(__import__("hashlib").sha256(("exec(s:=%r)"%s).encode()).hexdigest(),end="")')
+```
+
+###### 233同学的字符串工具
+
+233 同学最近刚刚学会了 Python 的字符串操作，于是写了两个小程序运行在自己的服务器上。这个工具提供两个功能：
+
+- 字符串大写工具
+- UTF-7 到 UTF-8 转换工具
+
+除了点击下方的打开题目按钮使用网页终端，你也可以通过 `nc 202.38.93.111 10233` 命令连接到 233 同学的服务上。你可以在这里看到 233 同学的源代码: [string_tool.py](https://hack.lug.ustc.edu.cn/media/74a200cb-3449-5707-b7f9-ceb74cb437a6/string_tool.py)。
+
+如果你不知道 `nc` 是什么，或者在使用上面的命令时遇到了困难，可以参考我们编写的 [萌新入门手册：如何使用 nc/ncat？](https://lug.ustc.edu.cn/planet/2019/09/how-to-use-nc/)
+
+读了代码之后，你惊讶地发现自己似乎可以通过构造特殊输入，使得 233 同学的工具返回 flag。
+
+
+
+简单测试一下发现应该要输入flag：
+
+```
+Welcome to the best string tool here!
+Brought to you by 233 PROUDLY
+
+Which tool do you want?
+1. Convert my string to UPPERCASE!!
+2. Convert my UTF-7 string to UTF-8!!
+1
+Welcome to the capitalizer tool, please input your string: 
+f
+F
+
+Connection closed
+```
+
+```
+Welcome to the best string tool here!
+Brought to you by 233 PROUDLY
+
+Which tool do you want?
+1. Convert my string to UPPERCASE!!
+2. Convert my UTF-7 string to UTF-8!!
+1
+Welcome to the capitalizer tool, please input your string: 
+flag
+how dare you
+
+Connection closed
+```
+
+可用的大小写变换替换字符有：
+
+Uppercase
+
+| Char | Code Point | Output Char |
+| ---- | ---------- | ----------- |
+| ß    | 0x00DF     | `SS`        |
+| ı    | 0x0131     | `I`         |
+| ſ    | 0x017F     | `S`         |
+| ﬀ    | 0xFB00     | `FF`        |
+| ﬁ    | 0xFB01     | `FI`        |
+| ﬂ    | 0xFB02     | `FL`        |
+| ﬃ    | 0xFB03     | `FFI`       |
+| ﬄ    | 0xFB04     | `FFL`       |
+| ﬅ    | 0xFB05     | `ST`        |
+| ﬆ    | 0xFB06     | `ST`        |
+
+Lowercase
+
+| Char | Code Point | Output Char |
+| ---- | ---------- | ----------- |
+| K    | 0x212A     | `k`         |
+
+第一问利用0xFB02输入ﬂag即可。
+
+第二问利用不同utf-7转换utf-8可能相同的原理处理。
+
+1. `f` 的 Unicode 码位是 0x66
+2. 将 0x66 写成 16 位二进制数：`0000 0000 0110 0110`
+3. 重新分组：`000000 000110 011000`
+4. 使用 base64 的编码表，将每组变成一个字符：`AGY`
+
+Base64编码表  
+
+| 码值 | 字符 | 码值 | 字符 | 码值 | 字符 | 码值 | 字符 |
+| :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
+|  0   |  A   |  16  |  Q   |  32  |  g   |  48  |  w   |
+|  1   |  B   |  17  |  R   |  33  |  h   |  49  |  x   |
+|  2   |  C   |  18  |  S   |  34  |  i   |  50  |  y   |
+|  3   |  D   |  19  |  T   |  35  |  j   |  51  |  z   |
+|  4   |  E   |  20  |  U   |  36  |  k   |  52  |  0   |
+|  5   |  F   |  21  |  V   |  37  |  i   |  53  |  1   |
+|  6   |  G   |  22  |  W   |  38  |  m   |  54  |  2   |
+|  7   |  H   |  23  |  X   |  39  |  n   |  55  |  3   |
+|  8   |  I   |  24  |  Y   |  40  |  o   |  56  |  4   |
+|  9   |  J   |  25  |  Z   |  41  |  p   |  57  |  5   |
+|  10  |  K   |  26  |  a   |  42  |  q   |  58  |  6   |
+|  11  |  L   |  27  |  b   |  43  |  r   |  59  |  7   |
+|  12  |  M   |  28  |  c   |  44  |  s   |  60  |  8   |
+|  13  |  N   |  29  |  d   |  45  |  t   |  61  |  9   |
+|  14  |  O   |  30  |  e   |  46  |  u   |  62  |  +   |
+|  15  |  P   |  31  |  f   |  47  |  v   |  63  |  /   |
+
+最后输入+AGY-lag
+
+###### 来自一教的图片
+
+小 P 在一教做**傅里叶光学**实验时，在实验室电脑的模拟程序里发现了这么一张的图片：
+
+![image-20201122142119511](/image-20201122142119511.png)
+
+数理基础并不扎实的小 P 并不知道什么东西成像会是这个样子：又或许什么东西都不是，毕竟这只是模拟 ... 但可以确定的是，这些看似奇怪的花纹里确实隐藏着一些信息，或许是地下金矿的藏宝图也未可知。
+
+
+
+傅里叶变换即可：
+
+```python
+import numpy as np
+import cv2 as cv
+from matplotlib import pyplot as plt
+img = cv.imread(r'C:\Users\hp430\Desktop\1.bmp', 0)
+f = np.fft.fft2(img)
+logf = 20*np.log(np.abs(f))
+plt.imshow(logf, 'gray')
+plt.show()
+```
+

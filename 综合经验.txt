@@ -10,3 +10,7 @@
 base64标准编码表：ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=
 vim -r恢复.swo和.swp文件
 .raw文件取证：volatility notepad -f 8.raw --profile=WinXPSP2x86
+utf-8打开发现类似：脦脪鹿楼，转成GBK（保存后再用utf-8或者gbk打开）
+utf-8打开发现类似：“ÎÒ¹¥ÆÆÁË”，转成ISO88591（保存后再用utf-8或者gbk打开）
+utf-7转换utf-8结果不唯一
+执行命令利用find / -name "*flag*"搜索flag
