@@ -1,7 +1,7 @@
-29：2020-11-28 10:00 ~ 2020-11-29 22:00：https://ctf.hitcon.org/【HITCON CTF 2020】
-29：2020-11-28 00:00 ~ 2020-11-30 00:00：https://ctf.hack2g2.fr/【CTF InterIUT 2020】
 05：2020-12-04 20:30 ~ 2020-12-05 20:30：https://teamshakti.in/teaser/teaser.html【Shakti CTF】
 06：2020-12-05 08:00 ~ 2020-12-07 08:00：https://ctf.perfect.blue/【pbctf 2020】
+06：2020-12-06 03:00 ~ 2020-12-07 03:00：https://www.shellmates.club/【BSides Algiers 2021 CTF Quals】
+07：2020-12-05 17:00 ~ 2020-12-07 17:00：https://dctf2020.cyberedu.ro/【DefCamp CTF 2020 Online】
 13：2020-12-11 23:00 ~ 2020-12-13 23:00：https://asisctf.com/【ASIS CTF Finals 2020】
 11：2021年1月9日10：00 PM-11日10：00 PM：https://realworldctf.com/【RealWorldCTF 2020】
 ed：开始时间：2020-11-16 12:00结束时间：2020-12-17 12:00：https://ctf.pediy.com/，每天都要看一下
