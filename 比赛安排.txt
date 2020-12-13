@@ -1,5 +1,7 @@
-07：2020-12-05 17:00 ~ 2020-12-07 17:00：https://dctf2020.cyberedu.ro/【DefCamp CTF 2020 Online】
-13：2020-12-11 23:00 ~ 2020-12-13 23:00：https://asisctf.com/【ASIS CTF Finals 2020】
 13：2020-12-12 17:00 ~ 2020-12-13 17:00：https://open.kksctf.ru/【kksctf open 2020】
 16：开始时间：2020-11-16 12:00结束时间：2020-12-17 12:00：https://ctf.pediy.com/
+20：2020-12-20 04:00 ~ 2020-12-20 16:00：https://wectf.io/【WeCTF 2020+】
+20：2020-12-19 18:00 ~ 2020-12-20 18:00：https://pase.ca/【PASECA CTF 2020】
+20：2020-12-19 18:30 ~ 2020-12-20 18:30：https://noobarmy.org/vulncon/【VULNCON CTF 2020】
+20：2020-12-18 23:00 ~ 2020-12-20 23:00：https://2020.ctf.link/：【hxp CTF 2020】
 11：2021年1月9日10：00 PM-11日10：00 PM：https://realworldctf.com/【RealWorldCTF 2020】

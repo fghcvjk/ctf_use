@@ -11,3 +11,4 @@ find / -name "*.php"
 d盾扫描源码
 find / -name "*apache2.conf" #需要service apache2 restart
 cat /etc/rsyncd.conf #rsync
+env #查看环境变量

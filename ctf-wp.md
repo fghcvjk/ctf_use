@@ -2178,6 +2178,145 @@ import hashlib
 print(hashlib.md5(bytes('人工智能也要从娃娃抓起', encoding='utf-8')).hexdigest())
  ```
 
+###### [安洵杯 2019]Attack
+
+给了一个流量包，追踪http流发现一个dmp文件，lsass.dmp。
+
+lsass.exe保存着系统密码，可以用mimikatz从dump中提取：
+
+```
+privilege::debug
+sekurlsa::minidump lsass.dmp
+sekurlsa::logonpasswords full
+```
+
+foremost处理流量包，得到一个压缩文件，用刚刚得到的系统密码解压得到flag。
+
+###### [MRCTF2020]千层套路
+
+给了一个压缩包，解压密码是文件名，明显是套娃解压：
+
+```python
+import zipfile
+import re
+import os
+
+file_dir = r'C:\Users\hp430\Desktop\attachment\\'
+get_files = []
+
+# ts1.getinfo('data.txt').CRC
+while True:
+    get = False
+    for i in os.listdir(file_dir):
+        if i not in get_files:
+            get = True
+            ts1 = zipfile.ZipFile(file_dir + i)
+            #ts1.namelist()[0].split('.')[0]
+            # res = re.search('[0-9]*',ts1.namelist()[0])
+            # passwd = res.group()
+            passwd = i.split('.')[0]
+            print(passwd)
+            ts1.extractall(file_dir,pwd=bytes(passwd, encoding='utf-8'))
+            # cmd = '"D:\\Program Files\\7-Zip\\7z.exe" x %s%s -o"%s" -p%s' % (file_dir, i, file_dir, passwd)
+	        # subprocess.Popen(cmd)
+            zipname = file_dir + ts1.namelist()[0]
+            # get_files.append(i)
+            ts1 = ''
+            while True:
+                try:
+                    os.remove(file_dir + i)
+                    break
+                except:
+                    pass
+    if not get:
+        break
+```
+
+得到一个内容为(255, 255, 255)形式的txt，像素值转图片即可：
+
+```python
+from PIL import Image
+
+x = 200
+y = 200
+im = Image.new('RGB', (x, y))
+with open(r'C:\\Users\\hp430\\Desktop\\attachment\\qr.txt') as f:
+    for i in range(x):
+        for j in range(y):
+            line = f.readline()
+            s = line[1:-2].split(', ')
+            im.putpixel((i, j), (int(s[0]), int(s[1]), int(s[2])))
+im.save(r'C:\\Users\\hp430\\Desktop\\attachment\\rgb.jpg')
+```
+
+最后扫描二维码得到flag。
+
+###### 蜘蛛侠呀
+
+提取流量包隐写：
+
+```
+tshark -r out.pcap -T fields -e data >out.txt
+```
+
+得到一堆16进制hex字符串，解码后是base64，解码成字符串失败。
+
+于是转换成二进制看下：
+
+```python
+import base64
+
+f = open(r'C:\\Users\\hp430\Desktop\\fa90d5eb-201d-4c43-a8d5-49731a2ebffe\\out.txt', encoding='utf-8')
+f1 = open(r'C:\\Users\\hp430\Desktop\\fa90d5eb-201d-4c43-a8d5-49731a2ebffe\\result.txt', 'w')
+for i in f.readlines():
+    i = i.strip()
+    if i:
+        i1 = (bytes().fromhex(i).decode('utf-8').split('$')[-1]) #.decode('utf-8')
+        try:
+            f1.write(str(base64.b64decode(i1[:-1])))
+        except:
+            print(i1)
+f1.close()
+```
+
+发现PK头，同时发现4行一组内容相同，于是用脚本生成压缩包：
+
+```python
+import base64
+i_max = 4
+index = 0
+f = open(r'C:\\Users\\hp430\Desktop\\fa90d5eb-201d-4c43-a8d5-49731a2ebffe\\out.txt', encoding='utf-8')
+f1 = open(r'C:\\Users\\hp430\Desktop\\fa90d5eb-201d-4c43-a8d5-49731a2ebffe\\result.zip', 'wb')
+for i in f.readlines():
+    if index != 0:
+        index += 1
+        if index >= 4:
+            index = 0
+        continue
+    index += 1
+    i = i.strip()
+    if i:
+        i1 = (bytes().fromhex(i).decode('utf-8').split('$')[-1]) #.decode('utf-8')
+        try:
+            f1.write(base64.b64decode(i1[:-1]))
+            
+        except:
+            print(i1)
+f1.close()
+```
+
+010editor打开，去掉pk前面的内容即可正常解压，得到一个gif文件。
+
+用identify得到隐藏的信息：
+
+```
+identify -format “%T” flag.gif
+
+“20”“50”“50”“20”“50”“50”“20”“50”“20”“50”“20”“20”“20”“50”“20”“20”“20”“20”“50”“50”“20”“50”“20”“50”“20”“50”“20”“50”“50”“50”“50”“50”“20”“20”“50”“50”“20”“20”“20”“50”“20”“50”“50”“50”“20”“50”“20”“20”“66”“66”r
+```
+
+20换0，50换1，转成字符串md5后得到flag。
+
 ## crypto
 
 ###### Url编码
@@ -3283,5 +3422,120 @@ for i in range(int(len(s)/5)):
         print(code_datas[s[i*5:i*5+5]], end='')
     else:
         print(code_datas_num[s[i*5:i*5+5]], end='')
+```
+
+#### misc
+
+###### Make Steg Great Again
+
+给了一张Steg.jpg，010editor查看二进制发现尾部有个密码P@SsW00000。
+
+steghide得到一个压缩包。
+
+```
+steghide extract -sf Steg.jpg -p P@SsW00000
+```
+
+解压得到一个pyc文件和一个txt文件，pyc文件可以用stegosaurus获得隐写信息：
+
+```
+python3 stegosaurus.py GitHacker.pyc -x
+
+Extracted payload: Your_key_is:'PPPPasword'_And_do_you_love_winter
+```
+
+winter？猜测snow隐写，把该密码用snow隐写处理txt文件得到flag：
+
+```
+SNOW -C -p PPPPasword white.txt
+
+DASCTF{2741590dbe55ead7f2bfc50abb2d73e3}
+```
+
+# Affinity-CTF-Lite2020
+
+#### forensics
+
+###### wholeisbetter
+
+给了一个pdf文件，用PdfStreamDumper检查发现一堆数据：
+
+```
+<?xpacket begin='???' id='W5M0MpCehiHzreSzNTczkc9d'?>
+<x:xmpmeta xmlns:x='adobe:ns:meta/' x:xmptk='Image::ExifTool 10.80'>
+<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'>
+
+ <rdf:Description rdf:about=''
+  xmlns:dc='http://purl.org/dc/elements/1.1/'>
+  <dc:creator>
+   <rdf:Seq>
+    <rdf:li>Li4tLS0tLi4uLS0tLS0tLi4tLS0tLS0uLi4tLS0tLi4uLS0tLS0tLi4tLS0tLS0uLi4uLS0tLS4uLS0tLS0tLi4tLS4uLS0uLi4tLS0tLi4uLS0tLS0tLi4tLS0tLS0uLi0tLi4uLS0uLi0tLS0tLS4uLS0tLS0tLi4uLS0tLS4uLi0tLS0tLi4uLi0tLS0uLi4tLS0tLS0uLi4tLS0tLi4uLS0tLS4uLgo=#1</rdf:li>
+   </rdf:Seq>
+  </dc:creator>
+  <dc:subject>
+   <rdf:Bag>
+    <rdf:li>Li0tLS0tLS4uLS0tLS4uLi4tLS0tLi4uLi0tLi4uLi4uLi4tLS4uLi4tLS0tLi4uLi0tLS4uLi4uLi4tLS4uLi4tLS0tLS0uLi0tLS0tLS4uLi4tLS4uLi4tLS0tLi4uLi0tLi0uLS0uLi0tLS0uLi4uLi4tLS4uLi4tLS0tLS0uLi0tLi4tLS4uLS0tLS0tLi4uLi0tLi4uLi0tLS0tLS4uLi4uLS0tLgo=#3</rdf:li>
+   </rdf:Bag>
+  </dc:subject>
+ </rdf:Description>
+
+ <rdf:Description rdf:about=''
+  xmlns:pdf='http://ns.adobe.com/pdf/1.3/'>
+  <pdf:Author>Li0tLi4tLS4uLS0uLi4uLi4tLS4uLi4uLi0tLi4tLS4uLi4tLS4uLi4tLS4uLi4uLi4uLS0uLi4uLi4tLS4uLi4tLS4uLS0uLi0tLi4tLS4uLi4tLS4uLi4tLS4uLi4uLi0tLi4uLS0uLi0tLi4uLi4uLi4tLS4uLi4tLS4uLS0uLi0tLi4tLS4uLS0uLi0tLi4uLi0tLi4uLi0tLi4tLS4uLi4tLS4uLgo=#4</pdf:Author>
+  <pdf:Keywords>Li0tLi4tLS4uLS0uLi4uLi4tLS4uLi4uLi0tLi4tLS4uLi4tLS4uLi4tLS4uLi4uLi4uLS0uLi4uLi4tLS4uLi4tLS4uLS0uLi0tLi4tLS4uLi4tLS4uLi4tLS4uLi4uLi0tLS4tLS0uLi0tLi4uLi4uLi4tLS4uLi4tLS4uLS0uLi0tLi4tLS4uLS0uLi0tLi4uLi0tLi4uLi0tLi4tLS4uLi4tLS4uLgo=#2</pdf:Keywords>
+  <pdf:Producer>Li0tLi4tLS4uLS0uLi4uLi4tLS4uLi4uLi4tLS0tLi4uLi4tLS4uLi4tLS4uLi4uLi4uLS0tLS4uLS0tLS0tLi4tLS4uLS0uLi0tLi4tLS4uLi4tLS4uLi4tLS0tLS0uLi0tLi4uLS0uLi0tLS0tLS4uLi4tLS4uLi4tLS4uLS0uLi0tLS0tLi4uLS0uLi0tLi4uLi0tLi4uLi0tLi4tLS4uLS0tLS4uLgo=#5</pdf:Producer>
+ </rdf:Description>
+</rdf:RDF>
+</x:xmpmeta>
+```
+
+一共五条，发现能够base64解密，解密后会得到摩斯密码，但是摩斯密码解码出来后没有得到flag。
+
+仔细观察发现每串结尾都有序号，而且base64解密出来的摩斯密码最后有换行符，猜测是需要叠起来看。
+
+最后把模式密码的-替换成0后发现能拼接成flag：
+
+```python
+import base64
+
+a1='Li4tLS0tLi4uLS0tLS0tLi4tLS0tLS0uLi4tLS0tLi4uLS0tLS0tLi4tLS0tLS0uLi4uLS0tLS4uLS0tLS0tLi4tLS4uLS0uLi4tLS0tLi4uLS0tLS0tLi4tLS0tLS0uLi0tLi4uLS0uLi0tLS0tLS4uLS0tLS0tLi4uLS0tLS4uLi0tLS0tLi4uLi0tLS0uLi4tLS0tLS0uLi4tLS0tLi4uLS0tLS4uLgo='
+a3='Li0tLS0tLS4uLS0tLS4uLi4tLS0tLi4uLi0tLi4uLi4uLi4tLS4uLi4tLS0tLi4uLi0tLS4uLi4uLi4tLS4uLi4tLS0tLS0uLi0tLS0tLS4uLi4tLS4uLi4tLS0tLi4uLi0tLi0uLS0uLi0tLS0uLi4uLi4tLS4uLi4tLS0tLS0uLi0tLi4tLS4uLS0tLS0tLi4uLi0tLi4uLi0tLS0tLS4uLi4uLS0tLgo='
+a4='Li0tLi4tLS4uLS0uLi4uLi4tLS4uLi4uLi0tLi4tLS4uLi4tLS4uLi4tLS4uLi4uLi4uLS0uLi4uLi4tLS4uLi4tLS4uLS0uLi0tLi4tLS4uLi4tLS4uLi4tLS4uLi4uLi0tLi4uLS0uLi0tLi4uLi4uLi4tLS4uLi4tLS4uLS0uLi0tLi4tLS4uLS0uLi0tLi4uLi0tLi4uLi0tLi4tLS4uLi4tLS4uLgo='
+a2='Li0tLi4tLS4uLS0uLi4uLi4tLS4uLi4uLi0tLi4tLS4uLi4tLS4uLi4tLS4uLi4uLi4uLS0uLi4uLi4tLS4uLi4tLS4uLS0uLi0tLi4tLS4uLi4tLS4uLi4tLS4uLi4uLi0tLS4tLS0uLi0tLi4uLi4uLi4tLS4uLi4tLS4uLS0uLi0tLi4tLS4uLS0uLi0tLi4uLi0tLi4uLi0tLi4tLS4uLi4tLS4uLgo='
+a5='Li0tLi4tLS4uLS0uLi4uLi4tLS4uLi4uLi4tLS0tLi4uLi4tLS4uLi4tLS4uLi4uLi4uLS0tLS4uLS0tLS0tLi4tLS4uLS0uLi0tLi4tLS4uLi4tLS4uLi4tLS0tLS0uLi0tLi4uLS0uLi0tLS0tLS4uLi4tLS4uLi4tLS4uLS0uLi0tLS0tLi4uLS0uLi0tLi4uLi0tLi4uLi0tLi4tLS4uLS0tLS4uLgo='
+s1=(str(base64.b64decode(a1), encoding='utf-8'))
+s2=(str(base64.b64decode(a2), encoding='utf-8'))
+s3=(str(base64.b64decode(a3), encoding='utf-8'))
+s4=(str(base64.b64decode(a4), encoding='utf-8'))
+s5=(str(base64.b64decode(a5), encoding='utf-8'))
+s1 = s1.replace('-', '0')
+s2 = s2.replace('-', '0')
+s3 = s3.replace('-', '0')
+s4 = s4.replace('-', '0')
+s5 = s5.replace('-', '0')
+s1 = s1.replace('\n', '')
+s2 = s2.replace('\n', '')
+s3 = s3.replace('\n', '')
+s4 = s4.replace('\n', '')
+s5 = s5.replace('\n', '')
+print(s1)
+print(s2)
+print(s3)
+print(s4)
+print(s5)
+```
+
+###### Aether plane take off
+
+题目提示31，Fldigi解码BPSK-31：
+
+![image-20201211162634629](/image-20201211162634629.png)![image-20201211162646808](/image-20201211162646808.png)
+
+###### BreakMe
+
+给了encrypted.txt和public.pem，用RsaCtfTool即可。
+
+```
+python3 RsaCtfTool.py --publickey public.pem --uncipherfile encrypted.txt
 ```
 
