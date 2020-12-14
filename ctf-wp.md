@@ -3539,3 +3539,57 @@ print(s5)
 python3 RsaCtfTool.py --publickey public.pem --uncipherfile encrypted.txt
 ```
 
+# 祥云杯2020
+
+#### misc
+
+###### 到点了
+
+第一个word，全选→字体→隐藏，发现隐藏字符串：
+
+```
+宝贝，8位字母数字，你懂的
+```
+
+用Accent OFFICE Password Recovery爆破第二个word获得密码。
+
+打开后全选改色，发现一串字符串：
+
+```
+AABBAABBBAABBBAAAABBABBABABAAAAABBAAABBBBAABBBAABABABBAAABAAAABAABAABBABAAAAABAA
+```
+
+培根解密后得到：
+
+```
+GOODNIGHTSWEETIE
+goodnightsweetie
+```
+
+第三个word，改后缀名为rar后解压得到4.zip，解压后得到一个bmp图片。
+
+用wbStego43open得到flag，密码为word2的密码。
+
+###### 带音乐家
+
+file查看没有后缀名的文件，发现是MIDI文件，用Velato处理后得到
+
+```
+Hello, World!
+```
+
+检查另一个压缩文件，发现该文件注释里有大段空白，短的转为.，长的转为-变为摩斯密码：
+
+```
+.- . ... -.- . -.-- ----. ..--- .---- ----. ..--- ...-- ..--- ...-- ..--- ..---
+
+AESKEY9219232322
+```
+
+Hello, World!解压该压缩包得到一个word文件，，全选→字体→隐藏，发现隐藏字符串：
+
+```
+nvPrjrss1PyqAZB/14lkvJGTJ9l4rOfwJeqSqSHSqXU=
+```
+
+aes解密得到flag。
