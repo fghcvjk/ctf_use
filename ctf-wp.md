@@ -2490,6 +2490,187 @@ decrypt(dp,dq,p,q,c)
 
 flag{IMKNIGHTSTENPLAR}
 
+###### 异性相吸
+
+两个文件异或：
+
+```python
+with open(r'C:\Users\hp430\Desktop\b8c1caee-43d6-42ee-aecc-d72502a5ade2\密文.txt' )as a:
+    a=a.read()
+with open(r'C:\Users\hp430\Desktop\b8c1caee-43d6-42ee-aecc-d72502a5ade2\key.txt' )as b:
+    b=b.read()
+d=''
+for i in range(0,len(b)):
+    c=chr(ord(a[i])^ord(b[i]))
+    d+=c
+print(d)
+```
+
+###### [GKCTF2020]汉字的秘密
+
+```
+王壮 夫工 王中 王夫 由由井 井人 夫中 夫夫 井王 土土 夫由
+土夫 井中 士夫 王工 王人 土由 由口夫
+```
+
+当铺密码了，笔画中有几个出头的就对应着数字几：
+
+```python
+dh = '田口由中人工大土士王夫井羊壮'
+ds = '00123455567899'
+
+cip = '王壮 夫工 王中 王夫 由由井 井人 夫中 夫夫 井王 土土 夫由 土夫 井中 士夫 王工 王人 土由 由口夫'
+s = ''
+for i in cip:
+	if i in dh:
+		s += ds[dh.index(i)]
+	else:
+		s += ' '
+#print(s)
+
+ll = s.split(" ")
+t = ''
+for i in range(0,len(ll)):
+	t += chr(int(ll[i])+i+1)
+print('t=', t)
+```
+
+###### Unencode
+
+uuencode：
+
+```python
+from codecs import decode
+
+print(decode(b'begin 666 <data>\n%s\n \nend\n'%(b'89FQA9WMD<V1A<V1S83DY.#<W3$Q,2TM]'), 'uu'))
+```
+
+###### Dangerous RSA
+
+```
+#n:  0x52d483c27cd806550fbe0e37a61af2e7cf5e0efb723dfc81174c918a27627779b21fa3c851e9e94188eaee3d5cd6f752406a43fbecb53e80836ff1e185d3ccd7782ea846c2e91a7b0808986666e0bdadbfb7bdd65670a589a4d2478e9adcafe97c6ee23614bcb2ecc23580f4d2e3cc1ecfec25c50da4bc754dde6c8bfd8d1fc16956c74d8e9196046a01dc9f3024e11461c294f29d7421140732fedacac97b8fe50999117d27943c953f18c4ff4f8c258d839764078d4b6ef6e8591e0ff5563b31a39e6374d0d41c8c46921c25e5904a817ef8e39e5c9b71225a83269693e0b7e3218fc5e5a1e8412ba16e588b3d6ac536dce39fcdfce81eec79979ea6872793L
+#e:  0x3
+#c:0x10652cdfaa6b63f6d7bd1109da08181e500e5643f5b240a9024bfa84d5f2cac9310562978347bb232d63e7289283871efab83d84ff5a7b64a94a79d34cfbd4ef121723ba1f663e514f83f6f01492b4e13e1bb4296d96ea5a353d3bf2edd2f449c03c4a3e995237985a596908adc741f32365
+so,how to get the message?
+```
+
+e很小，知道n、c，低指数攻击：
+
+```python
+# -*- coding: utf-8 -*-#
+# 打开题目，发现e很小为3，则可以确定使用小指数明文爆破
+# #python2
+from Crypto.Util.number import long_to_bytes
+import primefac
+def modinv(a,n):
+    return primefac.modinv(a,n)%n
+n=0x52d483c27cd806550fbe0e37a61af2e7cf5e0efb723dfc81174c918a27627779b21fa3c851e9e94188eaee3d5cd6f752406a43fbecb53e80836ff1e185d3ccd7782ea846c2e91a7b0808986666e0bdadbfb7bdd65670a589a4d2478e9adcafe97c6ee23614bcb2ecc23580f4d2e3cc1ecfec25c50da4bc754dde6c8bfd8d1fc16956c74d8e9196046a01dc9f3024e11461c294f29d7421140732fedacac97b8fe50999117d27943c953f18c4ff4f8c258d839764078d4b6ef6e8591e0ff5563b31a39e6374d0d41c8c46921c25e5904a817ef8e39e5c9b71225a83269693e0b7e3218fc5e5a1e8412ba16e588b3d6ac536dce39fcdfce81eec79979ea6872793
+e=0x3
+c=0x10652cdfaa6b63f6d7bd1109da08181e500e5643f5b240a9024bfa84d5f2cac9310562978347bb232d63e7289283871efab83d84ff5a7b64a94a79d34cfbd4ef121723ba1f663e514f83f6f01492b4e13e1bb4296d96ea5a353d3bf2edd2f449c03c4a3e995237985a596908adc741f32365
+import gmpy2
+i=0
+while 1:
+    if(gmpy2.iroot(c+i*n,3)[1]==1):
+        print long_to_bytes(gmpy2.iroot(c+i*n,3)[0])
+        break
+    i+=1
+```
+
+###### Cipher
+
+```
+还能提示什么呢？公平的玩吧（密钥自己找） Dncnoqqfliqrpgeklwmppu 注意：得到的 flag 请包上 flag{} 提交, flag{小写字母}
+```
+
+“公平的玩吧”翻译成英文为 playfair，即为普莱费尔密码。密钥为playfair。
+
+###### rsa2
+
+```
+
+N = 101991809777553253470276751399264740131157682329252673501792154507006158434432009141995367241962525705950046253400188884658262496534706438791515071885860897552736656899566915731297225817250639873643376310103992170646906557242832893914902053581087502512787303322747780420210884852166586717636559058152544979471
+e = 46731919563265721307105180410302518676676135509737992912625092976849075262192092549323082367518264378630543338219025744820916471913696072050291990620486581719410354385121760761374229374847695148230596005409978383369740305816082770283909611956355972181848077519920922059268376958811713365106925235218265173085
+
+import hashlib
+flag = "flag{" + hashlib.md5(hex(d)).hexdigest() + "}"
+```
+
+N和e求d，wiener-attack：
+
+```
+'''
+Created on Dec 14, 2011
+
+@author: pablocelayes
+'''
+
+import ContinuedFractions, Arithmetic, RSAvulnerableKeyGenerator
+import hashlib
+
+def hack_RSA(e,n):
+    '''
+    Finds d knowing (e,n)
+    applying the Wiener continued fraction attack
+    '''
+    frac = ContinuedFractions.rational_to_contfrac(e, n)
+    convergents = ContinuedFractions.convergents_from_contfrac(frac)
+    
+    for (k,d) in convergents:
+        
+        #check if d is actually the key
+        if k!=0 and (e*d-1)%k == 0:
+            phi = (e*d-1)//k
+            s = n - phi + 1
+            # check if the equation x^2 - s*x + n = 0
+            # has integer roots
+            discr = s*s - 4*n
+            if(discr>=0):
+                t = Arithmetic.is_perfect_square(discr)
+                if t!=-1 and (s+t)%2==0:
+                    print("Hacked!")
+                    return d
+
+# TEST functions
+
+def test_hack_RSA():
+    print("Testing Wiener Attack")
+    times = 5
+    
+    while(times>0):
+        e,n,d = RSAvulnerableKeyGenerator.generateKeys(1024)
+        print("(e,n) is (", e, ", ", n, ")")
+        print("d = ", d)
+    
+        hacked_d = hack_RSA(e, n)
+    
+        if d == hacked_d:
+            print("Hack WORKED!")
+        else:
+            print("Hack FAILED")
+        
+        print("d = ", d, ", hacked_d = ", hacked_d)
+        print("-------------------------")
+        times -= 1
+    
+if __name__ == "__main__":
+    #test_is_perfect_square()
+    #print("-------------------------")
+    # test_hack_RSA()
+    N = 101991809777553253470276751399264740131157682329252673501792154507006158434432009141995367241962525705950046253400188884658262496534706438791515071885860897552736656899566915731297225817250639873643376310103992170646906557242832893914902053581087502512787303322747780420210884852166586717636559058152544979471
+    e = 46731919563265721307105180410302518676676135509737992912625092976849075262192092549323082367518264378630543338219025744820916471913696072050291990620486581719410354385121760761374229374847695148230596005409978383369740305816082770283909611956355972181848077519920922059268376958811713365106925235218265173085
+    print("Testing Wiener Attack")
+    times = 10
+    while (times > 0):
+        hacked_d = hack_RSA(e, N)
+        print("hacked_d = %d" % hacked_d)
+        print("-------------------------")
+        flag = "flag{" + hashlib.md5(hex(hacked_d)).hexdigest() + "}"
+        print(flag)
+        times -= 1
+```
+
+
+
 # 2020哔哩哔哩安全挑战赛
 
 ###### 第一题：页面的背后是什么？

