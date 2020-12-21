@@ -2,7 +2,7 @@ web：检查页面是否有帮助文档之类的东西可以下载→打开网�
 
 密码：看到一个可以算法先找个例子跑一下，看是否能缩短爆破范围→纯字母+单一特殊符号，考虑按个数对应字母（aaa!aa=cb)→双写特殊符号考虑为空格→根据结果长度分组（7位长度01010可能为ascii的二进制）→一组16进制数据考虑两位一组经过移位构造flag（有移位脚本，考虑128）→CyberChef→base64考虑转换为文件，太长也考虑转换为换文件→01010为平方数考虑黑白像素点（25*25=625）→base64隐写→md5爆破→01空格考虑摩斯密码→栅栏使用文字资料-栅栏密码加密_解密弄→培根密码（尤其ab模式）用文字资料-培根密码加解密弄→很长的数据注意头尾是否有无效数据→md5可能为aes→rsa文件+公钥使用openssl得到Modulus，转换为10进制作为N，Exponent为E→一串数字，中间有0，二进制幂数加密脚本跑一下→rabbit密码有离线网页→rsa爆破脚本→考虑变异密码，只有三个不同符号（!.?）考虑ook或者Brainfuck→base64转图片data:image/png;base64,xxxxx→RsaCtfTool（虚拟机内）→rockstar脚本→摩斯密码有/的，分割开解→类似base64的也可能是des加密（U2FsdGVkX1开头）→openssl→带密码需要解密key长得很像正常(类似fftu{xxx})的考虑维吉尼亚解密和AutoKey→点.和杠/组成的除了是摩斯密码还可能是敲击码→假flag也有可能当做真flag的解密key→QWE，abc键盘解密→mht文件邮件编码用Quoted Printable转换→乱码转拼音→windows、shadow密码用john解→图片密码可能是圣堂武士密码→1-4位字母混合可能为五笔码→4位数字一组可能为中文电码→提示0或零考虑Zero-Width Characters→tupper塔珀自指公式→Windings字体→摩斯密码考虑博多密码和International Telegraph Alphabet No. 2 (ITA2)→多行密码有换行符可能需要叠起来看→多个文件异或→中文可能是当铺密码→uuencode→类似AD GX之类的可能是ADFGX加密→公平的玩吧，playfair，普莱费尔密码
 
-杂项：010edit直接搜flag→file警告（中途导出不知道是啥格式的也看一下，一定要看），strings警告（不管啥文件都搞一下，筛选base、flag、http等），binwalk警告，foremost警告（两者一定要都跑一下）→看文件头，考虑改头→右键文件信息→纯数字、纯字母、定长度、日期爆破搞起→文件挂载→文件头不对考虑0xff异或→swf文件用视频播放器拖进度条按帧查看→VeraCrypt→看010editor报错信息→010editor关注二进制分块，特别短或特别长的考虑zib接压缩→exe文件考虑是否需要取证+GIMP→xortool分析文件词频后进行异或处理，或者用来分析密码（linux配合python脚本）→看到flag、ctf之类的东西主动加{}→O、0、o之类的大量出现试着替换成_等符号构造flag→得到flag不对考虑转换大写小写大小写→OurSecret（我们的秘密）工具（不光图片，视频音频文件也可用）→tar -xjvf看下是不是git文件→flag提交密码不对尝试账号→ads流隐写尝试winhex搜索，可能在提示下面→snow→steghide→拼图用montage+gaps→ext3等linux文件恢复使用extundelete→excel注意看隐藏内容→pyc文件可能是stegosaurus加密→lsass考虑mimikatz取到密码(该工具也可用来取得windows系统密码)→wbStego43open→MIDI文件用Velato
+杂项：010edit直接搜flag→file警告（中途导出不知道是啥格式的也看一下，一定要看），strings警告（不管啥文件都搞一下，筛选base、flag、http等），binwalk警告，foremost警告（两者一定要都跑一下）→看文件头，考虑改头→右键文件信息→纯数字、纯字母、定长度、日期爆破搞起→文件挂载→文件头不对考虑0xff异或→swf文件用视频播放器拖进度条按帧查看→VeraCrypt→看010editor报错信息→010editor关注二进制分块，特别短或特别长的考虑zib接压缩→exe文件考虑是否需要取证+GIMP→xortool分析文件词频后进行异或处理，或者用来分析密码（linux配合python脚本）→看到flag、ctf之类的东西主动加{}→O、0、o之类的大量出现试着替换成_等符号构造flag→得到flag不对考虑转换大写小写大小写→OurSecret（我们的秘密）工具（不光图片，视频音频文件也可用）→tar -xjvf看下是不是git文件→flag提交密码不对尝试账号→ads流隐写尝试winhex搜索，可能在提示下面→snow→steghide→拼图用montage+gaps→ext3等linux文件恢复使用extundelete→excel注意看隐藏内容→pyc文件可能是stegosaurus加密→lsass考虑mimikatz取到密码(该工具也可用来取得windows系统密码)→wbStego43open→MIDI文件用Velato→js解密
 
 word:doc可以藏文字不显示（右键字体，隐藏），注意特殊标记附近的解压文件信息（严格注意标点包含内容完整），丢到浏览器里面看→全选改颜色→Accent OFFICE Password Recovery爆破
 
@@ -12,7 +12,7 @@ word:doc可以藏文字不显示（右键字体，隐藏），注意特殊标记
 
 视频：逐帧提取→是否其他地方有提示具体多少分多少秒（播放、定位、手动定位）→闪光可能拼接成二进制相关东西→OurSecret→帧拼接可以用convert
 
-压缩：没事用winrar修复一下→也当png文件试着分离一下→非rar和zip压缩文件看下文件头，改下后缀名试试→zip伪加密→明文攻击(压缩可能用的不同压缩软件，7zip试下)→压缩包套娃压缩包解压密码可能是里面那个压缩包的文件名→foremost出来的压缩包解压要密码用binwalk -e再跑一次→ntfsstreamseditor→存在注释但是是空白选中看一下是否是空白字符→rar伪加密：010打开，struct FileHeadFlags HEAD_FLAGS的ubyte PASSWORD_ENCRYPTED改为0
+压缩：没事用winrar修复一下→也当png文件试着分离一下→非rar和zip压缩文件看下文件头，改下后缀名试试→zip伪加密→明文攻击(压缩可能用的不同压缩软件，7zip试下)→压缩包套娃压缩包解压密码可能是里面那个压缩包的文件名→foremost出来的压缩包解压要密码用binwalk -e再跑一次→ntfsstreamseditor→存在注释但是是空白选中看一下是否是空白字符→rar伪加密：010打开，struct FileHeadFlags HEAD_FLAGS的ubyte PASSWORD_ENCRYPTED改为0→bkcrack
 
 数据包：FlagShark→strings→数据包按协议类型牌序看看→数据包协议类型带log可能只是普通日志→tcp看flag标记（参考长亭ppt,urgent）→wifi通信802.11使用airdecap-ng→追踪tcp流→tcpxtract→蓝牙关注obex协议，鼠标拖到包内容上可以直接分块看→扫描先icmp探测存在，后tcp扫描端口，可以用icmp协议区分扫描开始→
 https（编辑，首选项，proto，TLS，pro，导入解密文件）→关注ftp-data类型数据，可用tcp流导出ftp文件且能看到文件名称→同种流量过多，按长度和info排序，观察异常→binwalk、foremost搞一下→ctrl+f搜字符串→icmp拼接可能是长度，也可能是data长度→数据包也有隐写

@@ -2317,6 +2317,131 @@ identify -format “%T” flag.gif
 
 20换0，50换1，转成字符串md5后得到flag。
 
+###### [安洵杯 2019]easy misc
+
+给了一堆txt，一张图片和一个压缩包。
+
+打开压缩包，注释提示：
+
+```
+FLAG IN ((√2524921X85÷5+2)÷15-1794)+NNULLULL,
+```
+
+计算出来得到7，应该是7个数字+NNULLUL,，使用???????NNULLULL,作为掩码爆破得到密码。解压得到密码表：
+
+```
+a = dIW
+b = sSD
+c = adE 
+d = jVf
+e = QW8
+f = SA=
+g = jBt
+h = 5RE
+i = tRQ
+j = SPA
+k = 8DS
+l = XiE
+m = S8S
+n = MkF
+o = T9p
+p = PS5
+q = E/S
+r = -sd
+s = SQW
+t = obW
+u = /WS
+v = SD9
+w = cw=
+x = ASD
+y = FTa
+z = AE7
+```
+
+接着处理图片，foremost得到两张一样的图片，盲水印处理后得到：
+
+```
+in 11.txt
+```
+
+检查那堆txt文件，发现hint.txt中写着：
+
+```
+hint:取前16个字符
+```
+
+取频率在前16的字符，再通过密码表得到base64，最后ascii85得到flag：
+
+```python
+import re
+import base64
+
+dec = '''a = dIW
+b = sSD
+c = adE 
+d = jVf
+e = QW8
+f = SA=
+g = jBt
+h = 5RE
+i = tRQ
+j = SPA
+k = 8DS
+l = XiE
+m = S8S
+n = MkF
+o = T9p
+p = PS5
+q = E/S
+r = -sd
+s = SQW
+t = obW
+u = /WS
+v = SD9
+w = cw=
+x = ASD
+y = FTa
+z = AE7'''
+go_path = {}
+for i in dec.split('\n'):
+	d1, d2 = i.split(' = ')
+	go_path[d1] = d2
+
+file = open(r'C:\Users\hp430\Desktop\read\11.txt', 'r', encoding='gbk')
+line = file.readlines()
+file.seek(0,0)
+file.close()
+
+result = {}
+for i in range(97,123):
+	count = 0
+	for j in line:
+		find_line = re.findall(chr(i),j)
+		count += len(find_line)
+	result[chr(i)] = count
+res = sorted(result.items(),key=lambda item:item[1],reverse=True)
+
+num = 1
+result = ['']*16
+for x in res:
+		print('频数第{0}: '.format(num),x)
+		try:
+			result[int(format(num))-1] = x[0]
+		except:
+			break
+		num += 1 
+print(''.join(result))
+vv = ''
+for r in result:
+	if r in go_path:
+		vv += go_path[r]
+print(vv)
+vvv = print(str(base64.b64decode(vv), encoding='utf-8'))
+print(str(base64.a85decode(vvv), encoding='utf-8'))
+```
+
+
+
 ## crypto
 
 ###### Url编码

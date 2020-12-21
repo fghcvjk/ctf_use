@@ -9,7 +9,7 @@ ps aux|grep python
 cat /etc/passwd
 find / -name "*apachectl"
 d盾扫描源码
-find / -name "*apache2.conf" #需要service apache2 restart
+find / -name "*apache2*" #需要service apache2 restart
 cat /etc/rsyncd.conf #rsync
 env #查看环境变量
 ls -l

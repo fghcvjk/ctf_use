@@ -1,8 +1,3 @@
-20：2020-12-20 04:00 ~ 2020-12-20 16:00：https://wectf.io/【WeCTF 2020+】
-20：2020-12-19 18:00 ~ 2020-12-20 18:00：https://pase.ca/【PASECA CTF 2020】
-20：2020-12-19 18:30 ~ 2020-12-20 18:30：https://noobarmy.org/vulncon/【VULNCON CTF 2020】
-20：2020-12-18 23:00 ~ 2020-12-20 23:00：https://2020.ctf.link/【hxp CTF 2020】
-20：2020-12-20 08:00 ~ 2020-12-21 00:00：https://huaweictf2020.xctf.org.cn/【huaweictf2020 XCTF 高校网络安全专题挑战赛 - 华为云专场】
 22：12月11日 10:00-12月22日 18:00：https://www.ichunqiu.com/2020zongheng?t=1607860511746【纵横杯网络安全竞赛报名】
 23：2020-12-23 08:00 ~ 2020-12-24 00:00 00:00：https://huaweictf2020.xctf.org.cn/【huaweictf2020 XCTF 高校网络安全专题挑战赛 - 鲲鹏计算专场】
 27：2020-12-27 08:00 ~ 2020-12-28 00:00：https://huaweictf2020.xctf.org.cn/【huaweictf2020 XCTF 高校网络安全专题挑战赛 - HarmonyOS和HMS专场】
