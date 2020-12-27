@@ -3899,3 +3899,85 @@ nvPrjrss1PyqAZB/14lkvJGTJ9l4rOfwJeqSqSHSqXU=
 ```
 
 aes解密得到flag。
+
+# 纵横杯
+
+###### 签到
+
+```
+[0146, 0154, 0141, 0147, 0173, 0167, 063, 0154, 0143, 0157, 0155, 0145, 0137, 0164, 0157, 0137, 062, 0157, 0156, 0147, 0137, 0150, 063, 0156, 0147, 0137, 0142, 0145, 061, 0175]
+```
+
+八进制转ascii转字符串：
+
+```python
+s='0146, 0154, 0141, 0147, 0173, 0167, 063, 0154, 0143, 0157, 0155, 0145, 0137, 0164, 0157, 0137, 062, 0157, 0156, 0147, 0137, 0150, 063, 0156, 0147, 0137, 0142, 0145, 061, 0175'
+for i in s.split(', '):
+    print(chr(int(i,8)), end='')
+```
+
+# \#kksctf open 2020
+
+###### bson
+
+```
+{"task_name":"bson","message_pack_data":"82a36b65795ca4666c6167dc003137372f27362f6c3203352f033f6c6c30033e292803343d2a6f0325332903282e35393803316f2f2f1c3b39032c3d3f3721"}
+```
+
+bson加密，可用脚本解密：
+
+```
+import msgpack
+
+s = '82a36b65795ca4666c6167dc003137372f27362f6c3203352f033f6c6c30033e292803343d2a6f0325332903282e35393803316f2f2f1c3b39032c3d3f3721'
+data = bytes().fromhex(s)
+print(msgpack.loads(data))
+```
+
+```
+{'key': 92, 'flag': [55, 55, 47, 39, 54, 47, 108, 50, 3, 53, 47, 3, 63, 108, 108, 48, 3, 62, 41, 40, 3, 52, 61, 42, 111, 3, 37, 51, 41, 3, 40, 46, 53, 57, 56, 3, 49, 111, 47, 47, 28, 59, 57, 3, 44, 61, 63, 55, 33]}
+```
+
+ascii异或得到flag：
+
+```
+flag = [55, 55, 47, 39, 54, 47, 108, 50, 3, 53, 47, 3, 63, 108, 108, 48, 3, 62, 41, 40, 3, 52, 61, 42, 111, 3, 37, 51, 41, 3, 40, 46, 53, 57, 56, 3, 49, 111, 47, 47, 28, 59, 57, 3, 44, 61, 63, 55, 33]
+key = 92
+
+for s_flag in flag:
+    print(chr(s_flag^key), end = '')
+```
+
+###### мааааленькая_задачечка
+
+```
+N = 0x7e6a1e6b2e98af9067483629b3cbe204d251b81d6bc26e169a2bae14c3b7f682c0c3a50d373df3b281c5676db53422056b9442db547e4e3a96dd6276aaf538ef78f80702bad7d57e93f696962debc11803118bc8636e4aa2ccfe326800ae52c0eff7f5354a37b6cb883dab2b257ae2e76475783adcd9a16740be87cb27777e17	
+e = 7
+
+pad = superpadding
+C = 0x52308125663a67f608502c240323b039837735806197b60b9c8bab582f2eb7d2c6b2e51b7cc7e9d56ec900c6f5a11d964b096b437bad2002f4e299ca6afd2dbec78d9b1b5e58bd8d5c4bf918b23506ef8c9fb2f6282de8892d8adb8e6d09c3ec3538e0a5d9a1cd84506846e4f4c1aaef2ac9a03872df6cc7b262592e58351dab
+```
+
+带pad的rsa，sage脚本一把梭：
+
+```
+from sage.all import *
+from Crypto.Util.number import bytes_to_long, long_to_bytes, getPrime
+
+def solve(m, e, n, c):
+    P.<x> = PolynomialRing(Zmod(n))
+    f = (m + x)^e - c
+    f = f.monic()
+    m = f.small_roots(epsilon=1/30)
+    print(long_to_bytes(int(m[0])))
+
+n = 0x7e6a1e6b2e98af9067483629b3cbe204d251b81d6bc26e169a2bae14c3b7f682c0c3a50d373df3b281c5676db53422056b9442db547e4e3a96dd6276aaf538ef78f80702bad7d57e93f696962debc11803118bc8636e4aa2ccfe326800ae52c0eff7f5354a37b6cb883dab2b257ae2e76475783adcd9a16740be87cb27777e17  
+e = 7
+c = 0x52308125663a67f608502c240323b039837735806197b60b9c8bab582f2eb7d2c6b2e51b7cc7e9d56ec900c6f5a11d964b096b437bad2002f4e299ca6afd2dbec78d9b1b5e58bd8d5c4bf918b23506ef8c9fb2f6282de8892d8adb8e6d09c3ec3538e0a5d9a1cd84506846e4f4c1aaef2ac9a03872df6cc7b262592e58351dab
+pad = b'superpadding'
+m = pad + b'\x00'*13
+m = bytes_to_long(m)
+
+solve(m, e, n, c)
+```
+
