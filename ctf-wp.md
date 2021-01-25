@@ -2468,6 +2468,364 @@ FreeFileCamouflage，下载的文件可能显示乱码
 
 打开发现每行行间距不一样，有1倍的有1.5倍的，猜测二进制。把1.5倍行间距的作为0，1倍行间距的作为1，md5后挨个提交，第三个文件为正确的flag
 
+###### [SCTF2019]电单车
+
+给了一个wav文件，查看波形发现由两种组成：
+
+![image-20210117215358913](/image-20210117215358913.png)
+
+猜测是二进制，但是处理后得到的数据提交不对。
+
+题目是电单车，查了相关材料也没发现啥。
+
+去查原题，发现原题题目要求提交地址位的全部信息，于是根据相关相关材料获得flag：
+
+https://www.freebuf.com/articles/wireless/191534.html
+
+![image-20210117215710405](/image-20210117215710405.png)
+
+###### hashcat
+
+给了一个没后缀名的文件，用file查看没结果，查看二进制头发现是d0cf11e0开头，为excel/word/ppt文件，挨个尝试发现ppt用后缀名可以打开，但是需要密码。
+
+于是用Accent OFFICE Password Recovery爆破，由于没有提示，而且excel/word/ppt爆破比较慢，一般都是4位数字/小写字母/大写字母比较多，爆破得到密码9919。打开ppt在倒数第二页全选把字的颜色换了后发现flag。
+
+###### [*CTF2019]otaku
+
+给了一个伪加密zip文件，ZipCenOp处理得到一个压缩文件和一个word文件。zip文件里面有一个txt，猜测word的内容可以作为明文攻击数据。
+
+word文件全选→字体→隐藏，发现隐藏字符串，写入txt文件中（需要用GBK编码保存，否则crc32不对），压缩后明文爆破得到flag.png。最后Stegsolve查看rgb的0通道LSB获得flag。
+
+###### voip
+
+VoIP数据包，用Wireshark打开，点击电话→VoIP通话进行播放得到flag。
+
+###### [GWCTF2019]huyao
+
+给了两张长得一样的图片，猜测是盲水印，但是尝试常规盲水印隐写无效，查阅资料后发现有个频域盲水印隐写：
+
+```python
+# coding=utf-8
+import cv2
+import numpy as np
+import random
+import os
+from argparse import ArgumentParser
+ALPHA = 5
+
+
+def build_parser():
+    parser = ArgumentParser()
+    parser.add_argument('--original', dest='ori', required=True)
+    parser.add_argument('--image', dest='img', required=True)
+    parser.add_argument('--result', dest='res', required=True)
+    parser.add_argument('--alpha', dest='alpha', default=ALPHA)
+    return parser
+
+
+def main():
+    parser = build_parser()
+    # options = parser.parse_args()
+    ori = r'C:\Users\hp430\Desktop\huyao.png'
+    img = r'C:\Users\hp430\Desktop\stillhuyao.png'
+    res = r'C:\Users\hp430\Desktop\r.png'
+    alpha = ALPHA
+    if not os.path.isfile(ori):
+        parser.error("original image %s does not exist." % ori)
+    if not os.path.isfile(img):
+        parser.error("image %s does not exist." % img)
+    decode(ori, img, res, alpha)
+
+
+def decode(ori_path, img_path, res_path, alpha):
+    ori = cv2.imread(ori_path)
+    img = cv2.imread(img_path)
+    ori_f = np.fft.fft2(ori)
+    img_f = np.fft.fft2(img)
+    height, width = ori.shape[0], ori.shape[1]
+    watermark = (ori_f - img_f) / alpha
+    watermark = np.real(watermark)
+    res = np.zeros(watermark.shape)
+    random.seed(height + width)
+    x = range(height / 2)
+    y = range(width)
+    random.shuffle(x)
+    random.shuffle(y)
+    for i in range(height / 2):
+        for j in range(width):
+            res[x[i]][y[j]] = watermark[i][j]
+    cv2.imwrite(res_path, res, [int(cv2.IMWRITE_JPEG_QUALITY), 100])
+
+
+if __name__ == '__main__':
+    main()
+```
+
+###### Business Planning Group
+
+```
+看图吧。
+
+请将 bsides_delhi{} 换成 flag{} 提交。
+
+由 15h3na0 师傅提供。
+```
+
+给了一张png图片，丢到010editor里面用插件看发现结尾存在其他数据：
+
+![image-20210124211558801](/image-20210124211558801.png)
+
+bpg开头是一种不常见的图片格式，导出结尾部分用bpgview查看发现base字符串，处理得到flag：
+
+![image-20210124211746952](/image-20210124211746952.png)
+
+```
+root@ubuntu:/home/ctf/misc/basecrack# python3 basecrack.py
+
+██████╗  █████╗ ███████╗███████╗ ██████╗██████╗  █████╗  ██████╗██╗  ██╗
+██╔══██╗██╔══██╗██╔════╝██╔════╝██╔════╝██╔══██╗██╔══██╗██╔════╝██║ ██╔╝
+██████╔╝███████║███████╗█████╗  ██║     ██████╔╝███████║██║     █████╔╝
+██╔══██╗██╔══██║╚════██║██╔══╝  ██║     ██╔══██╗██╔══██║██║     ██╔═██╗
+██████╔╝██║  ██║███████║███████╗╚██████╗██║  ██║██║  ██║╚██████╗██║  ██╗
+╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝ v3.0
+
+                python basecrack.py -h [FOR HELP]
+
+[>] Enter Encoded Base: YnNpZGVzX2RlbGhpe0JQR19pNV9iM3R0M3JfN2g0bl9KUEd9Cg==
+
+[>] Decoding as Base64: bsides_delhi{BPG_i5_b3tt3r_7h4n_JPG}
+
+
+[-] The Encoding Scheme Is Base64
+```
+
+###### 我爱Linux
+
+```
+你知道Linux下面有哪些好玩的命令吗？比如sl，还有哪些呢？ 注意：得到的 flag 请包上 flag{} 提交
+```
+
+给了一张png图片，打不开，查看二进制信息搜索发现FFD9。在FFD9后面的数据明显是隐藏的数据。
+
+导出后用pickle处理得到原始数据：
+
+```python
+import pickle
+
+f = open(r'C:\Users\hp430\Desktop\1', 'rb')
+a = pickle.load(f)
+
+out = open(r'C:\Users\hp430\Desktop\result.txt', 'w')
+out.write(str(a))
+out.close()
+```
+
+```
+[[(3, 'm'), (4, '"'), (5, '"'), (8, '"'), (9, '"'), (10, '#'), (31, 'm'), (32, '"'), (33, '"'), (44, 'm'), (45, 'm'), (46, 'm'), (47, 'm'), (50, 'm'), (51, 'm'), (52, 'm'), (53, 'm'), (54, 'm'), (55, 'm'), (58, 'm'), (59, 'm'), (60, 'm'), (61, 'm'), (66, 'm'), (67, '"'), (68, '"'), (75, '#')], [(1, 'm'), (2, 'm'), (3, '#'), (4, 'm'), (5, 'm'), (10, '#'), (16, 'm'), (17, 'm'), (18, 'm'), (23, 'm'), (24, 'm'), (25, 'm'), (26, 'm'), (31, '#'), (37, 'm'), (38, 'm'), (39, 'm'), (43, '"'), (47, '"'), (48, '#'), (54, '#'), (55, '"'), (57, '"'), (61, '"'), (62, '#'), (64, 'm'), (65, 'm'), (66, '#'), (67, 'm'), (68, 'm'), (72, 'm'), (73, 'm'), (74, 'm'), (75, '#')], [(3, '#'), (10, '#'), (15, '"'), (19, '#'), (22, '#'), (23, '"'), (25, '"'), (26, '#'), (29, 'm'), (30, 'm'), (31, '"'), (36, '"'), (40, '#'), (47, 'm'), (48, '"'), (53, 'm'), (54, '"'), (59, 'm'), (60, 'm'), (61, 'm'), (62, '"'), (66, '#'), (71, '#'), (72, '"'), (74, '"'), (75, '#')], [(3, '#'), (10, '#'), (15, 'm'), (16, '"'), (17, '"'), (18, '"'), (19, '#'), (22, '#'), (26, '#'), (31, '#'), (36, 'm'), (37, '"'), (38, '"'), (39, '"'), (40, '#'), (45, 'm'), (46, '"'), (52, 'm'), (53, '"'), (61, '"'), (62, '#'), (66, '#'), (71, '#'), (75, '#')], [(3, '#'), (10, '"'), (11, 'm'), (12, 'm'), (15, '"'), (16, 'm'), (17, 'm'), (18, '"'), (19, '#'), (22, '"'), (23, '#'), (24, 'm'), (25, '"'), (26, '#'), (31, '#'), (36, '"'), (37, 'm'), (38, 'm'), (39, '"'), (40, '#'), (43, 'm'), (44, '#'), (45, 'm'), (46, 'm'), (47, 'm'), (48, 'm'), (51, 'm'), (52, '"'), (57, '"'), (58, 'm'), (59, 'm'), (60, 'm'), (61, '#'), (62, '"'), (66, '#'), (71, '"'), (72, '#'), (73, 'm'), (74, '#'), (75, '#')], [(23, 'm'), (26, '#'), (32, '"'), (33, '"')], [(24, '"'), (25, '"')], [], [(12, '#'), (17, 'm'), (18, '"'), (19, '"'), (23, 'm'), (24, 'm'), (25, 'm'), (26, 'm'), (33, '#'), (36, 'm'), (37, 'm'), (38, 'm'), (39, 'm'), (40, 'm'), (41, 'm'), (46, 'm'), (47, 'm'), (52, 'm'), (53, 'm'), (54, 'm'), (65, 'm'), (66, 'm'), (67, 'm'), (68, 'm'), (71, 'm'), (72, 'm'), (73, 'm'), (74, 'm'), (75, 'm'), (76, 'm')], [(2, 'm'), (3, 'm'), (4, 'm'), (9, 'm'), (10, 'm'), (11, 'm'), (12, '#'), (15, 'm'), (16, 'm'), (17, '#'), (18, 'm'), (19, 'm'), (22, '"'), (26, '"'), (27, '#'), (30, 'm'), (31, 'm'), (32, 'm'), (33, '#'), (40, '#'), (41, '"'), (45, 'm'), (46, '"'), (47, '#'), (50, 'm'), (51, '"'), (55, '"'), (58, 'm'), (59, 'm'), (60, 'm'), (64, '#'), (65, '"'), (68, '"'), (69, 'm'), (75, '#'), (76, '"')], [(1, '#'), (2, '"'), (5, '#'), (8, '#'), (9, '"'), (11, '"'), (12, '#'), (17, '#'), (24, 'm'), (25, 'm'), (26, 'm'), (27, '"'), (29, '#'), (30, '"'), (32, '"'), (33, '#'), (39, 'm'), (40, '"'), (44, '#'), (45, '"'), (47, '#'), (50, '#'), (51, 'm'), (52, '"'), (53, '"'), (54, '#'), (55, 'm'), (57, '#'), (58, '"'), (61, '#'), (64, '#'), (65, 'm'), (68, 'm'), (69, '#'), (74, 'm'), (75, '"')], [(1, '#'), (2, '"'), (3, '"'), (4, '"'), (5, '"'), (8, '#'), (12, '#'), (17, '#'), (26, '"'), (27, '#'), (29, '#'), (33, '#'), (38, 'm'), (39, '"'), (43, '#'), (44, 'm'), (45, 'm'), (46, 'm'), (47, '#'), (48, 'm'), (50, '#'), (55, '#'), (57, '#'), (58, '"'), (59, '"'), (60, '"'), (61, '"'), (65, '"'), (66, '"'), (67, '"'), (69, '#'), (73, 'm'), (74, '"')], [(1, '"'), (2, '#'), (3, 'm'), (4, 'm'), (5, '"'), (8, '"'), (9, '#'), (10, 'm'), (11, '#'), (12, '#'), (17, '#'), (22, '"'), (23, 'm'), (24, 'm'), (25, 'm'), (26, '#'), (27, '"'), (29, '"'), (30, '#'), (31, 'm'), (32, '#'), (33, '#'), (37, 'm'), (38, '"'), (47, '#'), (51, '#'), (52, 'm'), (53, 'm'), (54, '#'), (55, '"'), (57, '"'), (58, '#'), (59, 'm'), (60, 'm'), (61, '"'), (64, '"'), (65, 'm'), (66, 'm'), (67, 'm'), (68, '"'), (72, 'm'), (73, '"')], [], [], [], [(5, '#'), (8, '#'), (16, 'm'), (17, 'm'), (18, 'm'), (19, 'm'), (23, 'm'), (24, 'm'), (25, 'm'), (26, 'm'), (30, 'm'), (31, 'm'), (32, 'm'), (33, 'm'), (38, 'm'), (39, 'm'), (40, 'm'), (50, '#'), (57, '#'), (64, '#'), (71, 'm'), (72, 'm'), (73, 'm')], [(2, 'm'), (3, 'm'), (4, 'm'), (5, '#'), (8, '#'), (9, 'm'), (10, 'm'), (11, 'm'), (15, '#'), (16, '"'), (19, '"'), (20, 'm'), (22, 'm'), (23, '"'), (26, '"'), (27, 'm'), (29, '#'), (34, '#'), (36, 'm'), (37, '"'), (41, '"'), (44, 'm'), (45, 'm'), (46, 'm'), (50, '#'), (51, 'm'), (52, 'm'), (53, 'm'), (57, '#'), (58, 'm'), (59, 'm'), (60, 'm'), (64, '#'), (65, 'm'), (66, 'm'), (67, 'm'), (73, '#')], [(1, '#'), (2, '"'), (4, '"'), (5, '#'), (8, '#'), (9, '"'), (11, '"'), (12, '#'), (15, '#'), (16, 'm'), (19, 'm'), (20, '#'), (22, '#'), (25, 'm'), (27, '#'), (29, '"'), (30, 'm'), (31, 'm'), (32, 'm'), (33, 'm'), (34, '"'), (36, '#'), (37, 'm'), (38, '"'), (39, '"'), (40, '#'), (41, 'm'), (43, '#'), (44, '"'), (47, '#'), (50, '#'), (51, '"'), (53, '"'), (54, '#'), (57, '#'), (58, '"'), (60, '"'), (61, '#'), (64, '#'), (65, '"'), (67, '"'), (68, '#'), (73, '#')], [(1, '#'), (5, '#'), (8, '#'), (12, '#'), (16, '"'), (17, '"'), (18, '"'), (20, '#'), (22, '#'), (27, '#'), (29, '#'), (33, '"'), (34, '#'), (36, '#'), (41, '#'), (43, '#'), (44, '"'), (45, '"'), (46, '"'), (47, '"'), (50, '#'), (54, '#'), (57, '#'), (61, '#'), (64, '#'), (68, '#'), (73, '#')], [(1, '"'), (2, '#'), (3, 'm'), (4, '#'), (5, '#'), (8, '#'), (9, '#'), (10, 'm'), (11, '#'), (12, '"'), (15, '"'), (16, 'm'), (17, 'm'), (18, 'm'), (19, '"'), (23, '#'), (24, 'm'), (25, 'm'), (26, '#'), (29, '"'), (30, '#'), (31, 'm'), (32, 'm'), (33, 'm'), (34, '"'), (37, '#'), (38, 'm'), (39, 'm'), (40, '#'), (41, '"'), (43, '"'), (44, '#'), (45, 'm'), (46, 'm'), (47, '"'), (50, '#'), (51, '#'), (52, 'm'), (53, '#'), (54, '"'), (57, '#'), (58, '#'), (59, 'm'), (60, '#'), (61, '"'), (64, '#'), (65, '#'), (66, 'm'), (67, '#'), (68, '"'), (71, 'm'), (72, 'm'), (73, '#'), (74, 'm'), (75, 'm')], [], [], [], [(2, 'm'), (3, 'm'), (4, 'm'), (5, 'm'), (8, 'm'), (9, 'm'), (10, 'm'), (11, 'm'), (12, 'm'), (19, '#'), (24, 'm'), (25, 'm'), (26, 'm'), (29, '"'), (30, '"'), (31, 'm')], [(1, '#'), (2, '"'), (5, '"'), (6, 'm'), (8, '#'), (16, 'm'), (17, 'm'), (18, 'm'), (19, '#'), (22, 'm'), (23, '"'), (27, '"'), (31, '#')], [(1, '#'), (2, 'm'), (5, 'm'), (6, '#'), (8, '"'), (9, '"'), (10, '"'), (11, '"'), (12, 'm'), (13, 'm'), (15, '#'), (16, '"'), (18, '"'), (19, '#'), (22, '#'), (23, 'm'), (24, '"'), (25, '"'), (26, '#'), (27, 'm'), (31, '"'), (32, 'm'), (33, 'm')], [(2, '"'), (3, '"'), (4, '"'), (6, '#'), (13, '#'), (15, '#'), (19, '#'), (22, '#'), (27, '#'), (31, '#')], [(1, '"'), (2, 'm'), (3, 'm'), (4, 'm'), (5, '"'), (8, '"'), (9, 'm'), (10, 'm'), (11, 'm'), (12, '#'), (13, '"'), (15, '"'), (16, '#'), (17, 'm'), (18, '#'), (19, '#'), (23, '#'), (24, 'm'), (25, 'm'), (26, '#'), (27, '"'), (31, '#')], [(29, '"'), (30, '"')]]
+```
+
+明显是坐标，生成字符图像获得flag：
+
+```python
+import pickle
+
+list1=pickle.load(open(r'C:\Users\hp430\Desktop\1','rb'))
+for list in list1:
+	
+	temp=[' ']*100
+	for item in list:
+		#print(item)
+		temp[item[0]]=item[1]
+	print("".join(temp))
+```
+
+```
+   m""  ""#                    m""          mmmm  mmmmmm  mmmm    m""      #
+ mm#mm    #     mmm    mmmm    #     mmm   "   "#     #" "   "# mm#mm   mmm#
+   #      #    "   #  #" "#  mm"    "   #      m"    m"    mmm"   #    #" "#
+   #      #    m"""#  #   #    #    m"""#    m"     m"       "#   #    #   #
+   #      "mm  "mm"#  "#m"#    #    "mm"#  m#mmmm  m"    "mmm#"   #    "#m##
+                       m  #     ""
+                        ""
+
+            #    m""   mmmm      #  mmmmmm    mm    mmm          mmmm  mmmmmm
+  mmm    mmm#  mm#mm  "   "#  mmm#      #"   m"#  m"   "  mmm   #"  "m     #"
+ #"  #  #" "#    #      mmm" #" "#     m"   #" #  #m""#m #"  #  #m  m#    m"
+ #""""  #   #    #        "# #   #    m"   #mmm#m #    # #""""   """ #   m"
+ "#mm"  "#m##    #    "mmm#" "#m##   m"        #   #mm#" "#mm"  "mmm"   m"
+
+
+
+     #  #       mmmm   mmmm   mmmm    mmm         #      #      #      mmm
+  mmm#  #mmm   #"  "m m"  "m #    # m"   "  mmm   #mmm   #mmm   #mmm     #
+ #" "#  #" "#  #m  m# #  m # "mmmm" #m""#m #"  #  #" "#  #" "#  #" "#    #
+ #   #  #   #   """ # #    # #   "# #    # #""""  #   #  #   #  #   #    #
+ "#m##  ##m#"  "mmm"   #mm#  "#mmm"  #mm#" "#mm"  ##m#"  ##m#"  ##m#"  mm#mm
+
+
+
+  mmmm  mmmmm      #    mmm  ""m
+ #"  "m #       mmm#  m"   "   #
+ #m  m# """"mm #" "#  #m""#m   "mm
+  """ #      # #   #  #    #   #
+ "mmm"  "mmm#" "#m##   #mm#"   #
+                             ""
+```
+
+###### [XMAN2018排位赛]file
+
+删除文件恢复：
+
+```
+root@ubuntu:/home/ctf/misc/extundelete# ./go1.sh
+NOTICE: Extended attributes are not restored.
+Loading filesystem metadata ... 2 groups loaded.
+Group: 0
+Contents of inode 2:
+0000 | ed 41 00 00 00 04 00 00 fb ac f7 54 0d ad f7 54 | .A.........T...T
+0010 | 0d ad f7 54 00 00 00 00 00 00 03 00 02 00 00 00 | ...T............
+0020 | 00 00 08 00 18 00 00 00 0a f3 01 00 04 00 00 00 | ................
+0030 | 00 00 00 00 00 00 00 00 01 00 00 00 6e 01 00 00 | ............n...
+0040 | 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 | ................
+0050 | 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 | ................
+0060 | 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 | ................
+0070 | 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 | ................
+
+Inode is Allocated
+File mode: 16877
+Low 16 bits of Owner Uid: 0
+Size in bytes: 1024
+Access time: 1425517819
+Creation time: 1425517837
+Modification time: 1425517837
+Deletion Time: 0
+Low 16 bits of Group Id: 0
+Links count: 3
+Blocks count: 2
+File flags: 524288
+File version (for NFS): 0
+File ACL: 0
+Directory ACL: 0
+Fragment address: 0
+Direct blocks: 127754, 4, 0, 0, 1, 366, 0, 0, 0, 0, 0, 0
+Indirect block: 0
+Double indirect block: 0
+Triple indirect block: 0
+
+File name                                       | Inode number | Deleted status
+.                                                 2
+..                                                2
+lost+found                                        11
+cat.jpg                                           12
+cat2.jpg                                          13
+cat3.jpg                                          14
+cat4.jpg                                          15
+cat5.jpg                                          16
+cat6.jpg                                          17
+.cat.jpg                                          18             Deleted
+cat7.jpg                                          19
+cat8.jpg                                          20
+catdog.gif                                        21
+catgif.gif                                        22
+catsipsip.gif                                     23
+catreindeer.jpg                                   24
+catyum.gif                                        25
+catfunnyface.jpg                                  26
+catcuddle.gif                                     27
+catwindow.jpg                                     28
+root@ubuntu:/home/ctf/misc/extundelete# ./go2.sh
+NOTICE: Extended attributes are not restored.
+Loading filesystem metadata ... 2 groups loaded.
+Loading journal descriptors ... 151 descriptors loaded.
+root@ubuntu:/home/ctf/misc/extundelete# cd RECOVERED_FILES/
+root@ubuntu:/home/ctf/misc/extundelete/RECOVERED_FILES# ls
+file.18
+root@ubuntu:/home/ctf/misc/extundelete/RECOVERED_FILES# cat file.18
+flag{fugly_cats_need_luv_2}
+root@ubuntu:/home/ctf/misc/extundelete/RECOVERED_FILES# cd ..
+root@ubuntu:/home/ctf/misc/extundelete# cat go1.sh
+extundelete --inode 2 attachment.img
+root@ubuntu:/home/ctf/misc/extundelete# cat go2.sh
+extundelete --restore-inode 18 attachment.img
+```
+
+###### [UTCTF2020]sstv
+
+题目直接说了是sstv，给了一个wav文件，用qsstv播放后即可得到flag：
+
+![image-20210125162816030](/image-20210125162816030.png)
+
+###### 很好的色彩呃？
+
+![pass](/pass.gif)
+
+给了一张条纹图片，看RGB值的时候发现只有蓝色通道值不同，分别为97 97 112 106 101 115，转为ascii得到flag。
+
+###### greatescape
+
+给了个流量包，发现有tls数据，应该需要解密。
+
+追踪tcp流，发现key：
+
+```
+-----BEGIN PRIVATE KEY-----
+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
+xmZSEXjNvG9grjxwR96vp1PK/4Bq1jo=
+-----END PRIVATE KEY-----
+```
+
+按照编辑，首选项，proto，TLS，edit，key file的顺序导入rsa格式的解密文件。
+
+筛选tls协议，按照数据包大小从大到小排列，追踪tls流发现flag。
+
 ## crypto
 
 ###### Url编码
