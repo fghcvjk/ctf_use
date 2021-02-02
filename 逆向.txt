@@ -5,7 +5,7 @@
 ResourceHacker看文件中自带文件
 逆向字符串得到的数字太大，使用&0xff取低八位
 
-pyinstxtractor.py处理pyinstall打包的exe文件
+pyinstxtractor.py处理pyinstall打包的exe文件，文件头信息在struct文件里
 
 jar:
 XJad
