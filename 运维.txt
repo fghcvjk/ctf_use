@@ -20,5 +20,6 @@ ldd 二进制文件查看lib库
 生成.bak备份文件
 scp -P 12104 ctf@10.20.0.3:/home/ctf/challenge/pwn /home/pwn
 scp -P 12104 ./pwn2 ctf@10.20.0.3:/home/ctf/challenge
-tcpdump -i eth0 -w 2.pcap #抓包
+tcpdump -i eth0@if297 -w 2.pcap #抓包
 cp 可以覆盖正在执行的文件
+tar -cf /tmp/archive1.tar html 压缩备份
