@@ -4587,6 +4587,124 @@ M84
 
 g语言，用于数控、3D打印，https://ncviewer.com/在线解
 
+###### [XMAN2018排位赛]AutoKey
+
+给了个流量包，发现键盘流量：
+
+![image-20210228212704622](/image-20210228212704622.png)
+
+autokey爆破得到flag（脚本：https://github.com/Yoshino-s/breakautokey）：
+
+![image-20210228220807402](/image-20210228220807402.png)
+
+###### [DDCTF2018]第四扩展FS
+
+给了张图片，右键详情发现有一串字符串Pactera。
+
+formost得到一个zip文件，用Pactera解压得到：
+
+```
+whsa1TuaFe1FhToeDa1}aDTn{hn}CTsu!4Deni!i{DusTD{DF4{a1DTihD1DFwaw!nuweh{nDw}hiuD{{an1D}4CeueTDnh}hi1u4s4uu{CuF}1DC1iD{enC1!esC4u4nCi{hCin4TTwD4DF1aTFTh{ueniohihuDDehDssn1aDFeh1DTiC}hnuweDC!eenoea4T4ueTiuCs{aT411oss11nnnFDCskDu4swu!FuDa4hsCCun}41CsFie1a{k4iaDT{kkwaTkuCkwn}wD!TDuwDnDwCs{iCuFo1{ek{!ohCnTaaDTu!wF11eoDwu{aC{oC1C!khDkDwni1hok!ahusaTTwoowCa}e{i{hn{Tk4iD{ue}uFT}on{TTuswaFTaC4}4whwFsokoDFDoFDFaDahsTsohuCDFFFFen}{CCCD}CeuCTFkeDo1}kFsCoDDwnosC!!!}uCDCn}T!TuFnkCDnhasDnDkD4hsTieDsuusDiFh!aDa}nokFFs1D4DauD{F4u!hiCehas4o1Do1sCD1DekTnoTwhD4sDwCseFFaDhChiCCFThFsCuiCuosk{k4!usF!F{k{nkaueFDoeD!sFsiDsDhDnn{DC1C1sahTh1aa1DTTiDkw{{ia1Dnsi!DuCusCFFo!e4aCawF4hskkT!FihuC}1s!!DaC4o!!nuwn4{u44uTowaDi}DDhua}CDCohuTFiTD{ioi}nDCaaFDnkTTFk4TkTuaD}FTs}{oskn4!k}sDh{D4awhusD4n4aFw}1w1}ThDwDDFCTiF1DCn14{oCkT{h1hh}!uCh{s!DThhnouiohhewaD{}wn{h!{4weFCFFs}}ThCTTkC{wsuDwaoDD}FC!4{!TaeF!4}nDDk{CCC{osFun{FDkns{Tiun{k}euFs1hhDoeC{eh{n1isDCknhn{1w!!CT1DTe1hDn{4}!wno4eDanCnnsuhDFDanwCuDkhuFDDFsFw!uDaenihukTo}F{sCaksa!e14!DoaDDT1TwaDne{T}4e{h{aFnhTkk1!{aDC}4iDTFukaikF{aDsDs!DDsowenkwThkkTDwnnFCa{CT}s{oFwCDD}Da!u!1TD{FConenDsFw4DuD{Dkw{F1sueh4weho!{CDDwTkshu}snFTneesCu!!4i1wTsDnah}!TsuDhD{ae{}hDeaoF{a4hhen1{Dk4k{iwFw4Deen!FThnhahhwwwuDD1ownw!hw1nCsuw{{!DnFTCT1DTwFnu{!Csa1enT{TCDTD1ni1sTTTkCswC41DsaF}ChsCaDk1i{4www{uC{Dk}wuuiwknC!oDTkCwTwwFsso{F}aDni1snFu}eoDiD!eiiFC}wDwsD!uei!owkweuFn4e4kn!C1DDDT1DDnFFuCh1iF{wDa4a{u{{wuuC4DDnDeusu{hahneauuFD{DDsC1}nFhuni!D!T1wDsw1ouh{T{DD{u}s!wD4kkThe}a1D4Do{uCswDsCnik1hasw4ea!ih!CnuC{aannahs4DTsD141F{}iu!nD4{4D!s!T{C{oweF{aCow!wwDkenDTaFiThFD4us!FCCiF!{an1{}uke{DiDwwashushTuDuhD!CD{DThCu4aiDChDe{DDi1C{shwDaT4CiDeF4aiDuDTD}e1D4DDkDFkTT}T!hD4F}DTnFT{ke11}nCFDCkaaD{FkDF}{u{aaseoTiChDDe4C1uuDsDCk{!TouDe!oC1{w}aCDwDineDaDwCsk}wwF4a1n1{Fh{F{nioFe1nnChDa4hTaeTkFCkeD4uhCeDF1TDokwCDw4!{4CeaC4ki}wFuDeCC{{{iwuFhFDn{onuTsa1DD!Ce1DDTeoeeTDDFD!nekFswko{Te1e14TDCe1DuDaF1!hnssksoahhihFakkCa}nFDnTD4T4hCnsshosCCa{uueDD}i!D4F{F}noDDah!!{F4ui{Fw4eCsC{Cnu!wkCw1kTi!{DFCaDh}TD4{}T{u1oCC{ksFFnC4kCuksC1eDaFkDn4FaDh}w11ehF4un1TDwTF!uDk{DTDuDsnaueD{oFFn1FDCF}DainiCDsDDFueFDTFeh}s{nFk!oDDsseikT!{woC{Twh}n{uhTkaDTahoD{D!D!CC}1FDDo1iukCDFFauFhosiDhuFnoD!euFkoFToDh{kknC1awCe}sDDseDaTuoD}14T1unDaF{nTkeThh114CnTw4Fun1F!DF1a{4FDsu4{!ki{onTaaussunnCwi!{Cui{n}1DouhFaF{TDTa!TueTFahD!DTeD1h4s1nneiDsT!1DD44eDu1ouiD1hss}kTD!eChouDhhieT{{kCeDCoeuua1T4T!s}sT{kisi!CC}iCDaDCnsDh1aCshDDh{!DanCDekseD4TTeioFCwiw1eD1TnhDsC14aw}u4soi1nksi!{h}wCw4!Cie{ienhCnihDu!TDD!C}aDoTiDnaDD4wwF}hkDnC}keaeFwis!nCiaD4{4waC4DCDn1Dehks{akFFuoFT{Ce1aiFswTiaTC{oDFF{hwuaDFDeD}TTneoD}D{{Duwosh}4w!ahau}Fakai}}FT1wnD11i!1hh{4{TC!CFT4wahaF}hDCh1iniCiaD{TD4eo11uDiTi!D{Fnn4oD1FwesTk{Dw4husFCu{14eaoCDnD}Cwu!n{e{nuDD4wahnCCwFChu{CDa}hs1Dw4DTCun}TaDus4n4aFi!i{oFewaDD1Tu4D}uuDeiuhnF4DF!CniDh!DnhDTFD}uhei1si{ahCFhoDo{4oDueai!hn!4saD}4whwFD1!iT4DTwCwa4hiTDkn}aD4!{!DuDahswDCnC!1uDD!a1khsDuCaD4CweCi}u{uDo!DwohhDDn{{nnTDkDhDDo4nanFTuwFuTChu!s1FheDsCDhkwhFsFh1ukhTD}sCTTwTk!nheuiauD4DowuekFFh}TDi!aF4TnkD{uwhsD!h1hTTkuneea1Fs1e{uDCuh}uDwnCosDn4DDD!{Fnh4hassFak4h{TD!FTeDuFCTaaDs4Fon}DaoFa1eTh1esu}1FChwe4a1}}CDF}}FhDuwFF{uC!wh1us1DCCFwsTk4oFhFnF!D{{in1ss{kiwD4uwh}}4nDw4aDD!niaenoFDD}!nF1ioiFhua{}{Ds{DTDCakD}isCa{wwokn!FseeThe!iiC{DaD{DCD4wTD{n{o{1e}i!FwFTawwa{uC41{kTDTwnsDCh1kFuD!}DhuCuhihssanT!hFoDDDisDD}!!euneeF{1n!ieDCThi!TnwhD{iF1wwasCDDeuDnD4nh{Fn!o{DDownFininTwTDaT4iDF{D{wFTe}{{Chowu1Fs1sDsTshasCuCkCuk}!Fhwen{Duhuisw1nkskhe}{s1}usehTkDTFFuDCsCF}eoswhDF1eD!ihTww{eiuD4DTDhaa1DC}}C4F!F!uw4}aaDeoDun4DFnuuisnCaDTsTna4{aDCs{T{4ekDCTosnoDDi!DnDkTh4FnTu{4uiwD4nT!Du4hn{ouiae}DC4wso!FoasF4{TeaCa{TDFwauTCTDn}1shnDhk{sns1Daa14onDsTie1ueh!noaTnDFnoCn14CCDnTDDC!4ss4eh{kFDnhuehwniwu}hDCCaiu{F{DDh}41TTDCkD1DasDeunehTTho!DowiDTowuFDuso{{kossDiDkoCsiDiC{DsTsFk{euauuT}wu}TasuhDFT1TkahCCTksCheC}uDnuaD{aCC{eDDDoDDsD4su}CD1sasswFe{hs}4hu{TeaneDC!iThTTssDF}C41an!TnheoCTuaosihnnD44{Cek}uD!FD1DuoCeoCFnDhDDw!{ekss1!aniCDko4DFnnTCnsCFFDDCwou4{DsTeuF}4Di{eu4D}n{F4owwiaosDDCakChC{DaunuDui11eDu}TDDTChFDonD1ksDTT4}4nk1Tk1FksuDT!eF4un4oDwa4}{1F{ueD4}oTsDk{i{CFha!in4n4uDF!sFwDDuD4knFiuDksoCanDDC1wFCniTnaa1e!D1{DFDhC{{DuoowDnhnD1kwunuTkuDo1DDDDoT1}n}sFCaiCuCFan{144hek{}kksu!1}ikT!{CDsio1DakCenDese{n!keka}{eThwDsnkD{Dkaa1{CCwhDkaosTk!ehh!CkhD4hTFoThsCueCC4hTssokDeTFD{wDCh!CisiTwFTChsTDDF{CC4sasD1nCuuun4D{{FhaFDa!TThTawnshDaDwDD!4iF1D{oo!C{hsnDs1swFh{eenTTiF1skuCFnhFeehh!DkFkDehCiFa{sTwuDnnn{FTuiFu{a1ua!aaF!wnuCC{1iDwDwDFF{1nswwuk!i4DDCanDTak}CskoDF}asDDs!FFkau}DkuTTTnoiauo1Fhs4FaDDwne1neuwsoeoeouiuwe{Douhi{D!o1ieDiDnhooFoDDkFhiuCeCninwaCwDuuTwTa1FDCsDk{n4FD1{Cei{uiT{nhuwn1ah!FD!kDahCsFDsFCiTwasC!}4!DF4nTsw44ueau4kDhCCwiDhk4k}DwaFCeFTe{ek!!eeDD{TDsaa4{D}akDu}FF{nT1eaouCuwDFahFaChD4o{Dusk{weTn1ss1DkD{CCDe{kis1CiFTao{DCFDkw{e{CsDDT1F!CFDiu!{4!1TF{kChawiwF}{Fw{nahwe1DCTe1CiTCaoeeD1iCDDniCiDFhToDDnuDwkoD!Too{}T}in}k{uihiDDhsCDFDDD4uCFiCe4!i{CCeos{oD4uikDuh!FTnTTs1hh4uDanh41anuinhDh411iwuCDTDuTh}hkCsssC4wiFe}{nD1CeehnD4{C{{DkC!n{swTs!h41ua4oD}}D{!!uk4!CDoFeua11hF{To!o{!{nsDnnuChD{DDsiDkeD}aaDDDFDaa1eTFaFDu!ui4DkTT4oFFuDsF1CDs1aFesaiaDhieFoTuoDhskwC{DF1k1e11DFF{euehuC{Ckkko1{a}F!isuuCuFCeue1F{FDaskD1CoDTouC4sDFsoDsuF!wnn4aaFDTDC4ekkF{iCenD{u{uDeknTTD}oD114hDDe4hFDDhiCnFDDCs{44eusD}e!aeD}s4kFaFo{TskD{iC11iDT1w}eesTkDFw4kseC}F{1nF1h4Fnku4nniehu4CCsTww!}isnFC1a{k4{s{1iD!TD{CDCahTeDTC1ua!TwhFw{hCFDDaD4Tk4DCaeniiT!FDak1oD1}kuDskwnuiFCD{oDunhDDDe4DnaTDhussa1}DkDwouTwhTuDDoDowDCCCDukskhoewwaweh{hnFkn4kwDTiD1DohFeDhhehowC{e44}T1a4DaCD}wihCDFewuaTD!wks1!wDnhCew}uDC{FThDCasDoh1u{{w{1}Chnh{FsnDw{oDeDFwa}DioC}wTku!wh4uasCCDDDhhus}TTFwu!u1u!sDDFT1kDCks{ThDuDDFoTTouwoeswoa{aw1en}{nToDhC{4unDkanhTuaDhsDaiD1wFDuo{k1eahDsoweoohau1aFk{TDes{4sFDnTuwniTF11naoFT{Ta4T{w1F41eniThDk{huekoe1DoTFwon{!D{nuFuD1{DTeCT4DTF}iDun{Dik}CTiC}sueDDuDueih{hesnknTCnFnn{DesF!}aDunkiCkC1{}!Tii{nhs!uCwknDnT}hCiF}T{}uDnk!DTaFswe!FwDeD}iusFDao!hDC41{hDoTehk1ueF1Cih1!sDDu4DkTCDCoTaDk1FDDsF{CTD{oo}DD}kFa1!{!Tu!CDw{sTenDuwwFnouTCiaTnFa!nTDDDCwusDwFkeuiDiwh!nw4DoF1uuiF14hCD{Cai1TuhaaDiiwFhD!uD}shCT}aDFeDTno{F4i}C1Cn{oioFTDDaDoDi!ChC1uaiakFDhh{{oiaT4shuFsuk4D}ewhiD4!kn{DFa{kDoe{e}TT}{nF4Di}hnwCTC}ea}Cuhu}ohCuCe!un1hneaFsi1skCouhDCnhkoCiCon}eFT{ThT}sFnDaDFwkwCCFn{ew{Th1iuhk!uDFwTDwDDkiDToswFehaanCiCi}FDoC!D!1TDo1Tah!noD4sok{CoDD{souD14FDwwDo}Tokwe1eDDhiCsh1T1nai{CDh{knDDaaDu{DaFCo4{auh{FDo1oFDiDTeD1{}TTDs{koiDhiFF}1waikDTsuF}4i!1TTsouFn{C}DTkw!CDowhCoenswnCiFahwwuh4}nwsas{uiFeCeC4DhweuDDkChuknFFoFako!ou}TkoDnu!uC1DiuwChh{!uuC1haCeC{CDCksu!CFwn4nTTwTohDF4FaoFsnF4D}1F}huo!4snaCToT!ih4DThTs}iwuDwDwFDhDD1DCo4s4akok1n{iasC1aoui4ow{eoCTnD1w1i!hhDei{DC}ouD}hw4hD!1uC{oDkwoas4wCTau!uhaCDs4DD}ek1{4a!TwD}D4Tea{noTw{enDeFCswwkwTCw}}eDDe{wawnCs1i4kiwDCDuCT!}CeunC1DCCkDF{oeCi{{nknF}FCii{DnDDwkai}4wu{hsDa{i{!Dnan1kneCFDCa!suDCDwCikDDsnkaaDCs1D{swas{DC}{14wDuuswCFui{FoiiTiD1C{FsCsT{1!uku}DuwinohkhF{{1we{4FCsFnThsDF!aTDwi{DCkDa4nuh!DCwwhuhCa1u4DweFFTh}DhD{hnoouuD{{wi1aCkn444D{seewTaiDuThTsTo{u1hih1{nTD!F{ssh1siD!hn{}wukDD!Fo{a{FeDFFwa}CshDaua!eCD{}iaTDshns4T{1ahaikeDhTDiwh!Ds{iaDkhDa}ei1{TeC{FDFDuDCDo}}h{FahF}nCea{hkkC{wa1Fuwkoe{4D{esFDeinD4eD1Duha1{{1{DoT4k}wu41Dsw!ni{aDneCnnT4weDkikFTFsTenhT{}!1wTu4o1}C4Ck!CCDDaFsDFD{oT4aaThDkhkFFhw1!k!1wDDoi1}nTne}kkuwCn{{DFe{wsunkhak}DsTeo1uT1ekkaiCw{kT!nuCsoF!as4DDCFwTFwkea{n{CDsTDehenFewDiun1C!usknkF{eTsa{w4D4{{DCai{oeuw4{DiT!uneDnC4DDs!DwnoFFFiwChCwTuTkw4F}iT{Cs}}Fwi4}iD1oaTnhwFewDaD1TeknaDDui4kD}wekFCwhi4TTs1Dk!1T}ahD1oa{kaauwwsDas}hDkk}h1oiFTTnwk{eDT{weDC!isea}T}DDaTD!oDewoTTDC!!sFhn}DTeaC1owuD!nDuiwThkuii}waDs}e!F}}FwFnFeneCuowiF{s4{hae}}4hFu4{huTsnnkik}!o{!eD{nTainiDss1Canhse4nCssTTao1C1ChDh{Teuhanu!{Cen1F{ChDsDDhDTniu!i!o1owhDD1iTCTDD{hCCsse{{s1naienCeDFDhDD{}F!Ca{!s1swDiDDhh}oownCnDeso!T1F4iCh1iCFsTDDTwk4ohieaC4TiCD}{sawaDu}4nCFsi!DF{D!awhnw}s1{ak1n4enwDsD{DCFee4i1Du}{Cn}DoDDawno4ossDCDCneThFFDDh{iwnDk4FC}nFnDTDDDFs1ThDuDo!DF!DDswao!kuh{eDn1iTsFhs4TDDFTe!CDCw4TaDnn44F1ohuuT{TFTawDChD{DhsDwu!a}DFhuTwkin}ewiuTTkCCFnhDTsDDkwk{1n{ok1e4n{{4eDowihu1CCuTue1o!DeT}4k{Te4F4u4ak}TkT1oDk1Tn}u}}i!Tkh1CDD1D4kTDuCT4ueDioswo{oeoC}1CCkDeTiwak!}aDnDaTCn{e1{wnhaweDFFs}inise1{DnDw1nkuoaFD1wF4uDCw1{!DD!eaiisaT{{!FahaCTenia1ewhC1nD1}4wT{T4ToCknuuwsTuT{DDC{aDw11TDuTTa!FnT{wDuCDDD{}CaCia{nsukkhDs1Tn4!ihoDCnh!{oD!ekD!DouCD1DhawDie!{ok{u1h1i{nh{hiuDoD{hse}eioD4CiDekF{DDheo{ukoChC4saDs}CDDnDaFF{1DDTT4{!FiFCwDwihhFieC!FDFnsTaF4DuFhkD!w4Cw4u!FD1w1DCuDeikhC4nawoa{ne{}D{aFnC!CTThhnFDusDhww4F4!Dhsean1nahenhDoTF{DFaFiaDnuua1DDD14F1es{wkDhTFwk}FTC!aDsuaenTu{wDesas{eDeuih4{eko1DC1nDkwkDFDo!FFkCheh!sDD{s4hFThFoe44oCD{s!nCikDks4Fw!}Cs{DD1F{Dn1nssDweFCCn{ea{T!s4{w1F{4{DDnCTuDs{4nT{oT1DwuDueeun}uDaD{s1nTDiDnDT{eDehFeT4iD1uTssT}iu1!nwwDDahw!sih{hDo1!TTDokDnwn4CoTDDe!wCiDh}oT!{TuCCwFkow4n}!Dk{awwDsC1o!Dui{o4o{e4aT{DFwkshuhsah{eCD1e4hwDDnhDwCwCToFDDTu{4FCuT}Fs{aFT{!DnFh{hkkDDshD4eFD4e1wwCFDkTDFosawo4!1DDeih4wo1a{4T}!DChaFaeDoDCF{w}k{}DksDnTneD1o{ukiF{FnosD!Dka{eaFFnnFn!DoanTDikh!nha}FekhDFDhoe4Fu{FoeiCCuuaso}D1DDowwha}sT1FuCsaCD!D!4CCCsa14sh{keCDwkD4an{DDT4}TT{DwTFCDoehahsCFkCsw1w4{eChh1eCDha1D1wDiDaknninuDiw44FT1s4owsesFhsDin!uD!aD{DwC1T{TkwDC{FnDkuw14DwFaswwFDDhDDDTCaT{!TFeiuFDs!{1u{C1FTus4!uT4C}TkaDekCC!!DhnDi{TwneFhwiChCDeaousCF}uCnnhD!oaiDCeensiFeD4e1waC!iDknosT{F{h{eewiCFDCiih}hsioe!ahio}aFosehuaanD{h4nwF{suwDhuF1Fhhs}oCDe!nDD{on{kTD1ThTDuTaiTokCDDkFDahn4FDCna{DD!F1D}14hhnw1we!eeeFuDuDk!D!e{{{Fa1Fehi!D}D4{{T4CDDiD4DDh1!uD{1FiFTT{a{oun1wh4}CD}{iDC{nhT4DaiD{Dhes}TDCkiaeD!iTDDCC}FC4FFueCu1aDwF{4aTTh!aDCDeFTTshweCDhs}Twuk{Ca{hDiFTFa{Ckw1oi!Chw}o!Dwsouk1!kikiDuwih4whDDaFsDCDDwan1uDauwoDkDDuDokFkF1Dn1hwFDa{n{o{hnwD1aukiFsk1D4FDDCnDDCeDukDkeDa}s}u!D4w1uTCwDT1DFeahwiCeks!FiF1DD4{wkF{nohnTTku}uDk{4DC4CCoDFawT!DeD4wue!C!uaaiheTTkun!nue}FkTknenFhDas{haeDseeTn{unTDhCnuDiTD{FeDCaes!{i4ThCnwFuaF{!oe{h!{{oDae!hoeaD}D!TTCeDui}TnwD{saCFskoDTFkiunaD!kCi!Fhi!sC1CoCiuDoT{4DsDnoFDaD1D{wC{hC}DnhDshuTei4kTo}iDn{wDn1FaCF11DCihikk1ouDkFFn!i{euna1oFTTDiw!o{ass1TDohuoDTTDDDDksDD}14CwCF{aDn{oFiFFsnuwh}s}TkeCsw}s!aCowTsDhu1wD{DFoh11ukuD{CwCs!ushenn1{DDokaD1FDChuCwCoukDDsFDCwuFTwFCnuk!C{auDanui{enkDu{1C41D4wnhCCkos}sw4F1kFkFC1i4}k}}ikh1!{no1s1es1nDaauDDsDD}DenDhnkDhFkukuC!sFk1sD!wwsu!Ciio{!1}kFDs4CTDsD{DDhDoa1h!DC}{i!DDw{DFDe!{DD1e}1CDh{aT!C!TTCn{Fh1sD{F!Cwou4aseCwwC}Tss4F4TDuCeuwF}1eaCD{DDhT!oiuDDDnFsno!}k!D!wwDDFTC!s4hkss4T1wwCCDhDsCDTuDC1FhsoFDCFCCsDasw}nwDDuoioi4aCnDDDDCiDkhTCFh!Fi4TwohDD!DDo1CssawhihnhD1h!}w1euD}}nCDh1ewkiT1CTwF}i4awDDhCkn{okDsuCh4DkDn1}i!an11n{FeD}1ohkwniw4!CiD{DahhF1sn!4uC{}!oD1hhwo4D1i4FhDDCDCasiDCk{1FuF{eCe!C}T{Tnen{wikiD{eFkonFehCskkT}aDDDhTDsh1Dwu!T44enhThnh11oDsiuTChiD1kDkoh{{h!kT}wTD1!w!eiuFDn!awausehhDhu1FCC1eii{DoDDwe4nCeTs1DaDw4snCwhwTo}CCDFe}CDunwhFwhh4iCTFDCTwahaeDFwiD{DuDDkaok}D}TD{DTkFTC1CwTCTeTk}w{}FDCiDhTDwhonDDiCiDTwawweDDsFF1o4DTueTFiDnD{oDeiD4io!eeiFw{ei{hwTuuThDDhok1{DiiDC41usD1DsFe{shh1houTT4eaw4ssnaoa}FF{eksCk!ewnTuCnC!TniiwDCn!4C{{}eFnDDCuFnwTeTeuDneuha!Dun41Fs{TaTa}}aDeasnhuuh41ienu!nDoCa}1CiehDDiCneohwkiDna{De{{auDh1sDCDDwahwhawaTDia41skDhuDF!T!Tn!kkT}hue}Dh}inDsDsekoo{{}k{e!huaTu{{iD4e!eoiwuDDeT11un{1}kDuF1nFni!oFkTooC}wC{TouD1wkk4{eewC{DCFu4Ds!DFeue}T{DwThiD{DFinaiCe1DnDs1shT{{CwhD{CFDh}{n}iFswuwwCi1su{TD4wnCuC1CsFDFDesFni1!DDwoDTwwFau4euwasDns1ieo4!wnnwTiC{T{kooC4awFui{DonakouDDws{{uTFhCkDDs1DDF1uiskkT{CDDDiaak1!DDwTi{hDhweeFu1Ci{nTC!}D4nhDD4aDDhThn!!{FDasTCoCC{}Dseks1s}s4Te{Duu{aDTn}nnuhhkFFDewCTaakussCDo{TinTn4nsDDoT{4D{DknouCDa{}eF{1ikeunFe4{wsDTa!Ch1aDnDe!D}4oiDawuCn}FensCCFTi{swDsukThsaanCCwus{nF{e1ioTuho1niT{h1ak{sCuia!4D41iiaDTwTDws}F}FDCooFeonTCD!TnoD!aCD!oh1DhDTC1n!auDhhFuoFnFDh{FsiTknDkkaTDiTDFuauF{4n{wDTTa{TT{C!ThuCCuhCieiDuoFiihCksDF4DiFukkCnh1eFC{FFka{D4e4e1{sownei!sniCT4Dhso!hTiaekTkDihF!D4FTwew4TD1Coh{DnhkuDDFCaCoDeo}i1nnwoDToD{{4{iFTwFeskau4}TDuoaw{uuikTi}C4{Cwesi}C{wun1oeFwsFDkhiDCa{nhwFiuD{41i!TTDaCDsFD{!F4!41TDChC!i{i!!TnnkwahCe{CFaeC4ieCaeFThaDn4F1uTDiDDDDu!!T{TCFDuD!{aDC{FessDCw{{noow!uDnkkei!41kTF!!FnFwioC1iTD!4DDohTTe!h!TD4kCu44kDkwuFoeFD}F4oCshs{FwFaeh{k1nDwion1no}!1}CDik{{as{TDukwsDC4eCD1{sF}CCaDae{sask}!aCFFD}T4eTonFeF{oCFu{TuDTaFweaDw1os}FsiaT{Fawh4TCokhio1uaaoDu1Dh{i!!o4s44nC!4inhhh1w{TesT1!FaaaiDDnD}nsFi!1Cw1{{CTFukwFn!oThehau1es{}hoF}wCaDauDa!{uuTaiDFD4}FoTD}asokDiwCh{hw1DT}F4u4DkCi{iiFo}knwD1F!}C{FuTFswkiCiDh1}uaDhnh4TuFTF}44kTDnnuDDD}eD1kDhohwiT14ksCTe1w!F}{ns4uCn{DC}a4hD{4Ds}1h{!awTDk!Duwe!hTakhTe4DTw}Cn1{ok}awDahh{ni{iash!}TkDTaDkFnouiw1u!Dk{neTnhTTsohw}DCuDasknC{4waDs4uTakC4DswwDnTieuT{oCDao4e4wF!sDCwho}hnFDC!a{Tsunh{C4kssD{wiohDDu4F}DTnCDoieeoCD{osnC11u!aDw{C4nweu}Fsh}i{ihD}}eTeT}4Cou4i}!okDoT4{k1n}nu}wD}wwDiuCCwoes{D{k1TekoCn{}wFkTFCswsTsoa{F4CaknwDe4aa1nCaknTFDFDFDwh!D111DuTkhTDeahDDwkFahDuDnh!4D4CsnuDikDFF1kDk{eaC{!{1Dow{wCDawFenFw4hewFkhhnuDDosiua{FTuaiuw{e1{1a{1uwD{{}FkF11DisCDe}CuhaC{CaCwuDw}hisDFChDToh1i1hD1nTT!CFnT1uaa{wk}n1CDDo4DC4us{w1Caih{a!Fae4TaTDDDTsa1!CeshwoinDu}!CThsDaiiu1DnT}wCD!44wCaaCCC4auaTDieFnDssihe4FkiTDFuCDD41Fska{4DhunsChe1uDFa114D}D4DhaaDoFneCn}{oDTC{}Fui}eosTek!}}iC1ew4C1{a4eDCaDik!ihkniwu4sDkw4his1uFoDTi!DwF1h}ohnCwnuFDsTuusakkw}{ukDDaneh}!uDwDC4{sFkT{e4Dak}n1DaCFuoDe1TwD!n4ou{TsFoih{nD{TCDkDCCCFiCksswoaT{unChi1D!whihah{Dk{!F{eTeDuewDssi4oC!F11TwwDCw!u1DDDTsn!CT{nT}DaaoDiD!CkT}TkuuauCDDFw{D1a4DeFn{nCF1ioDaFkDTC1{DCT}CT}1saiFuT1us4wnCTD1C{sw}wD!!ho}oeD4ouFw4Cuesawkna{4oksDeDDDhkCi1auC}D}}kFT!onw}n}u{hDCaCeD4TDiiFe4wFD1hT}kk{o{Dsk}1ei4ehk{CDwDowCT!T!D}a{{ionhsinTTawhnDFF{CDsa4{Dsa{ha{4wuDC}esoiDhD1seaeCwCe1Tss11{oweFhwDnD!}ai1TaTwFwwk1!u4ku!F{Dw4uh{1D4eCakTTTC4eunnkCFCTDeF{}TeuhD1sTF4kFkhhoewnwshuFDskn1}DiDTTh}{DDkTwswFFwC{w!D1haDauhDn1DsiCh{FiDkDiaDTnDnkeCoiihnFCuTaDkuaFF1DhT!FohDToCDnTeFnk}eFi!CCCeD}soTFihTe{FD!uDeTFuw}h}CD!hswhD}1C{4shnFDsCDCa{{awTCChnh!skTuswCDuD1ihha{Ds1{TCwow{aDD!CDD}hnCFaDu}i4}sn4h}DDCCDnDoDCoDneDCCTeTe4uko}TF1w{u}}n1FuoiC}i{TuokasFDs{FnDkekT{FD4{FFFCinDFCeen1heCaw{FDsD4!k{u{iaua4}hCF{1}{CDu}}h{CwCah44T1nkkiFhisFunTTFs!DCDeFFFu1!DhunoT{4F4uk4e1iDaaTDDn}DonC}sDauuD1wsi{DCDwDwnFFnDDTuTTwasaaookDhe{sknaDiT}uuiDFw4}wso}Do1hDe{{e1hCwT4DTCeek1ChsT1ooDkD4CFaF4a1!Dn4hkTuDCD4DaT{iDaw!eaFC4{}e{!enns!o1DuahC!sCkuiunkDDhaCasaDk4Co{en{DTFeCsDTwaFCnoDua4sDFCDDFCheFCnhe!heF{nDFhTiw!}wuDuCD}TnT}wuFCFFoDw1!Du!eT!D1DTso!isaTheoTaoknwwDwsF{hDwuFTTsoho{}D4DD!F1Fe1u{DDDDThuDuCo}h}inTDahCDDwieD1C!iauDDoahe!oun}ai1DwFausa1TnswaDsD}Du!Ce1FowuT{uD!C}uawDFFFeDFDCunCen1DuF!C{i!CueaoDDheiu!DCu{aeFoDDnTTCTu}DhuhD4awnowohwDaDi4DenDuwFCnni{T{CTi1CTu{D!D{4neo{CTiwa}DT!kDisC{aDs4hoCewsDhFaoDniu{1DuiTu{uC}FFoo!C!Fee{oa1F4wCTh1ToCT!uh{4us{DhhTDw{D1a}!!Dw1hFCDuDTDhkTTh4{DC}DanDDhsDaiTT!Dwwhi{hahTwe{uFT14sTD}sTaCaaDa}n!eTDsah!n{C}T4Fuin14F{CDCs1wDaDDki44ouseDu4hk1oDT1Fus{4eDwu!To1DniensoksuDw11uu!e1aeTekukD1hhaDDCaDue}aka1DunwCh1a}a{oeFso1iu{F1k4T11D1}sh{hT!Fo!oTDoek4h!e!eioshh}4T{ueTCiThT4Daaawonsskk1e{Tuhe{}!4TeiDDTaCTFh1CehhnnwiD{{CD}DanwDFw!wDDho}TD4kh!uukDsnn1{hwD{!CauF44oD!Tii4hiT4{uninnDskwosh{1iDC{w!1TTu{{{u{wisD{u{ahCCn{D!uDDFDa{u{F1h!TTieu{nwaFhn4DDFhFs{1D1oThwsehaCTsaDh1aTwiCCDF1Do{{uDkhsu1D{DkusCki4F1euT1T1kn1aaiDDTDhDhTeo!}DhD4uiwnDhoDs4eT4oTwoiDuwueaiF!wDDDTunDDuiaD1enFeDDCuoDFiD!oDT!s1TCFF}1kwhewk4k4kT!uek!eukDDsFuDCFTwD!u4h{Dauiko{1iuTFeo1huTaauDDaksaTTwF4FueiC{eCaawwaDowawi{uFsiuFkD{kue}TkwhTTnDnTDDT}sDeCTnDiwkTs4e1T!{s4Te4kTDDThDnehu{s1hieCwh11D1!o{TnT{aFDDDiu{oiFFCDo{uihu1hDesFawDwkDk{DeswDC!iwT{wswnwD{DhFDT1FDuiCn!Cans4oD}i!FTnnDC4hDwenheaueissD}F!FhTwFeCiFDC{nhni}14Dk1Ds1ih{en{euDueF1DCiDuunTD!4DDk}w!FDo}iTaFnn!siDDiFDF4D{h{DF1C!n{FuFhk}iDT4e!wFe!kDwnDwD111D}ThDDhuoa{Dseuse4kF}ek44DDhuwsC}niDaCC{{hDksDnCFnhFh{DDsaeCuo{w}DDs!aThDse1uiDnTeDwihoDCse{wwiC}wD1Cunhi}D{FwFD}T{DwuwuT1Cn}euCF1auk}}{CThDkTeTCwnnD}ewh14sFTF}!iCT}uaD1Tww!awFoeTD4woiuDhe}TDFhDiehoF{uCahk{kkhwDsDDiiDi}{k}ekTwh}1{iuaehFCh{hD1uswCku4Fiw!Dnikoe4DTDn41DkTkFTnui4h!!o}!TaTF{k1!Dhhh4oe!!CTwiooDiauDDo{k{FiCi{!1k1Doakwnukwu{F}nsisTDCCDFe4soTFkkD{hDhFe{DCkTkChkToaChh!T1uTi1uwwiFoDnoFFh{uF{unThhsFnowTTe1naTe}F{}1DFCoiTe{{CDkuDankD1o1}uwe!awDsFCii1CDuuuha!kuh}FCDC1!CC{no{}1DCuaCsaDh}haaDeCD!Tn{sDas4T{TCs4uuu{TuC{hnaenk1hCC!hkoCn1{D}eDhwweusu}CeiiTDToDo1FoeDFuDhaneC}D4Cseh1s}nDh!}4sh{hsT1}4aa4kuCk4DF!oaD{!o{oahi!uC1TTnueo{Thu{DDD1okh{DaesCiwwhDukTnesu{TuhaTTeFFTCiDsDCDFiTnwn}kTDiowkaTCCCDwk1C!aohahkF{oDTFTFFuonD!ah4u4hTF{eukaioThosD{DFuwhkkeDD4Doo{hDu}{u4Ch4h{D!shTFu!FC{hTCn4koDoea1oDuuF1!DnhhwuTwsa}{DFh{TFoknswk1Dhse{k}suuaaCD1iCDni!hDCkDDFCC4Cki4{waFFsFFwChwkTu{CDCoF1eCT!{4Fne}wDFT{Cnoinh}eTF}n{a{oDD!CFsFhDoCsa!DCs!uosso1D1{aFT4i1F1we!}}ToF{1Ds!41TsFsD!ooCDDCCwDaoun4CDuCDouw}1F4Fu{uu4ahwaFe4}hueDDT!}DwFFDDD4Tk{Feu11h{aeiwhkDo1iuhhDiD4wDsiwTD41Dekhk{TF{hCCT1iFsine1nT1nDnsTnuDeanDTnuDuCnCCDukuoeC1}TDFkassDiCh{sF}CnuFh{eT}{whDCnF!hT}D}hDD11CDTeei!CuuuknDCC!wFkToDwiThsTnuiooDD{aD!wu4hFDnh}kTne4DoDnai{hCo4unF!DCFCDChCsDDCCknTwehhhDhnu!DDnCTaiTsFa{TChka{{hu{1DoDnuDwhiie!ihTeisiewko}T}FD1uauTFkTFnC1hFi1DkwDeCw{{aTnD{s4{nDDoDDn!1hskuuFaC{1D}wseDaTukhiTCDskTu!s!weh}eTD{CC44CCDTC!isThD4wiC1CuaFwn!eDTheDDiCoDC1FwTCDowiF4DuC}wu1!oD{4hwC{4iuCiwD!nkaFDThChw}Ti}DiFh{}{es}!wD1swae{Do4aiTDaiD!a4o1u}DhFkF!1TkkkuuooCkuinFFhuiuhwT!DFawTDwChanTCeaeD{h{D}sDDC!DhFsnDCeTCsuTDouDCa1}iuTFCTuC4kFDuuFkaDCDeo}CnuaiuDDDTuDFoDTTD4Fean4{hDihFeaTDsC{hCChe44h!DiC}{khn1hswiTu4D1uDCwFwFh41DT!}DiT1ii1eDChiwC4Di4CC1wuihDDo}1iuCw!h4DeFoFD!D4Ts{D1D4hosTDwaDDFesw{i}ku4FiiDDaTCFawD}sok}k1{CeaTuosunhnnFDT{1eeasDnDT{nFkhFhF!auC4D{Dn}uDFFsswDTk{{F{4TDhha!44C4T4{aCwDwFwF!{FhsskuDD1os4wnC!khniTh}D!D!i4ew}aaCshT11iaTis4uDehi41Twhio1w}wTTaC{CCDFkFaDaieT4sa1Dia{C1TToDs4!snF1nTwhDCoCio4DiTa{uiDTDFwkTuu{saesssF4D4n{T!}C{e}eDwThCwiF1DDT4wne!k}{TDFes{iiuD4wDD!hDaasoCanDuhCkDa}{1Fak!CwDi1T!huDTo!h}D11kDT1hDaiu}D1nn11TTCk}DCDT!FDu}ena!4DwoiDDDooeseCu}kwi{ahhsiFuCwouD}kCCDsDDD{TDTC1na1}uTDCD1DwFDinno4Duue}n{awwsCeDikCF1}k1kh{Di}!}ei{TD44s1uFuFD{anD{DkFsFhnhhuTuD1whFw}uiwCDDoC4w4k!TaTCDno!DuTsoT1}u}1Da1TeTeeD{}CDukDFwTDhsnTuFii}Dkahweai{4a1CwCDu4FsTCuDFsewwFee1FnwCTD4u4CT}}nw{FDuk{}CkaDhouhDii}waFoC4iFCD1aFDhDCTF{kkwe{s1h!nD}}D1DDouDewnD{w!!}}}DoDCia{o{ooDFiaiDC}a1CC1!ui!aesDFieeC{nFFT{i}{{!FkDhihDFsaCak!h}DTaaTeDoou!nk4CTeDa{}DTkhnFanFkTekiCi}nue4hhs}wDo1uoe{Dh{FuFwu!o1hDu{DeoCeD1D4!}sCniFFTshD1}nnuauTssak!u{!aC{uwChD{k1k1DDahsC{!a1nwa{se!Dh!D{e!4sF{aF14FD4aFe!1{aDehFwDw11swuFenD1ueCaDDse1e!sFnThkkoDiwus{a!hCeTonhsn{nChDi}Fnwhann1eDaDaTsTT414sowuwhnsFiFuDas{u!1osF}DDD{nTsD{keuFhFuohok1CTDi{FDC{eFuTFhs41iT}1iDDiuek{iaFDhD!a4aTek}}!}C{iFna{wasDFhewh{uDaCinCieDn{!iCawThFuC4shaFwDhDFD1wCeDueDFsDDwkhwnakeCi4uCae4CewDsk{D4DweF!nFFhk4ihCwCeeaDCnFTwsT1FD}CDi}u1isDh!oukC{en{4sTDT}iC!sF1aT4{a{CTsosDsuisDkD!uT4iFa!{D{wsaF!1DesewwFenaD!1Dwi!CCkosF}eesTDCoaDFuh{FFuCChnhwkn!TC{DTFsan1FDw4hFwDwhaD!DD!ua}Fwnk}!seo4nkeF{1{sDhChC11inuDCF1ewkDDFaFkisDi}!suFkFDniua!oF{{}iF!sDheDDnTn4h{ee}TCCssaoiDwTCaw{DTDei}!a}okDDkkenhknoCsa1ueTuwahhaDikuao!nCsens}soFanne1n{uiuCnwT!}Deohnei!TeDeFnnFDFknw}DT4T}kuhoDeDnwk{{1F4nC1uwFD{e4D1nDe!kuDuCFns4T{awCChsio41T{1o4uuauDaDTokwohDuT44auCenuhTFkw4wo{T1}C4n1CkTeTDDTknTTeaw1CDsTeah!wkw{suaDF{whi!Co!w}iFa1{we{haTiTa1u1DD4hiCaTwn}iCTkwTT{uDFk1hh1h1}{DoTisF1T1CFsh!FneDTa}FwiuTeDni!kD1}hhC!1CDuFe{DuehF1Fhwa!siF}nunCFDF{DeuaaCsTie}1huanDaFCannu{4Fi1DuDCauCsk1TsFTuhneF1ihahDC4uwD{CDFhhCkCCF4!!o1D{s}w{44De}kw4aDiTnaC4hhkswsunFeCDe{D}F{4FDCuhF4!uTkku{!4uDDahDuTe11onnC1uFseChwThkCeoDDwaDkho1{1w}uoF!DCD!DDiheC!{!weCn}euFnuDTsC4FDue!h{noTi4DeCDnCa!1DowknTnDw!D1uuD44CneDFF{hs4h4DCa}kCuhwiDhT{4C!kF{n}DCuhoF!Da}hiDwkh4h{i}CCwhoaF{aoo{D!{wT{TTs{FhDT1hkC4sD1{4oTDFhsauDCe4uCuT!iw}DDuu{{aniu}C1o1e{4huoCokahnkDaTFasksTDuC4uuuiDTiD4D44C4hD1wF}e1!i{1uwwwTh{uoCwD1ehwk!kD4{DTi1enuhkeuFsDCnouC1}w{oTDa!sFDi1TiCFs}awow4F!DeaC4CT1iiweD{DTD{CDT{{saDsiD}uh1uTuwTewa!kiFDninDoawwCT1Cauw1e}FD1i}w{usoiTsneihusnDnDwDnD}FioaeDDT1DhsnhwauCw{nuuFuhDwDh1}hi!{uFa!}4wTDh1u1u44!1e!T}ka}nDFonhuweFD11D{DC{F{!F1knDhw4kDFT}nkTF}ThCDC1oCwwD!nakDFw{awTh1u{TouiTuae}uuhnhwoCDDDikTksTaT}aTook1DDFFF{1h{1Fh{DuDTTFk{DeDTonTCa{iCnwFawi1sDnhaw!nFD{kks4{}{e{eDhD!i{wDDhDiwaeknoDT1eTkDi4k1DnkDuF1!DDFhnFDC!hCeoseeCDF{{aF}!sno!DCDuu}ui1}TDTaTiiDkDTi4aTDDnDhDnDFk4DCTaDTDiCon1Fke{hTnn!kss1D}Fnuk}kDDFe1ssD{nwDwDDkuD4h{whkCw11wwaau{eu14h}eTFsehToToaCsaknuwCwDianhTwTTkwCshaC{hDuFTkTDD{hnuawh!}DFh1kCnDCw{Daou!huTeuDsDnTnksu1{oeFnThiD}h{4wnkD}{4Fe{iTCe{oonCnCaeuDsCa4w!Ta1eCnTCwTD{4CaihuauDDe4CsiwFueD4iFDha!neeunkhTD{ssiChwCuwDT1waDhDkDshenaoiF{suD}sDwCi!{iDCenFo1!eokCi!1Deusne1D41sTnDD{w{1{aoheFwCkk1DDi4}k{aokeawouaew4wCDaeTu}hDan}ue4{au4n4}wwFDDTD{ho}DDauCiCaTws4oDawn}DTo14iDT{Co{aDDTiTs!T}a44CFaC{en4DahweF44ihsTioD{wwu!{whDDC}nhC{euDoDDo{aDoeFihaiDs1}F!4nkDanDk4F!1a{uDeDauikDosDksTuT{D4oaCi}eh{eoDDC1aFDnDDDDasCDiFoFwF4e!Do{TwFDD}4eehahe{nT4{CinCaussDn}DknTDCkF41uu}!nDh4Dh{eFhn}soT}}DDewhishoeh!TDFCDCCTDa{ChuT}aCw411{FwesT1hFea!ehsenkihC}oa11w4hsnenuuCa1}TeDkww1akT11F1nnkkoieh{DhaFeDFeDuDakDD{{suDDC!iDwk{De}oa!D1FoCha1Ca4{C}kT4h{iuweT!w!CTs4i}e{aTDFTkh!!4eDDDs{nhFo}wa1i}TTakFnFh}akaDC4aFD!ahwCD}4hDDFDe!n{w{D!e1FFFn!iD1C}uiD4saDkuis}wkDhDeknDu!w}uisiD{a!uFD}D}FoouDhTnFDDaheF{}{esDeskCeunD4uDw}DnCDiCDoCn4wak1D{hDDCasDoDF4ouFDu{C{C4sw4o!DFknDw1s1D!TaiDhsDhFun}Ds4Dwa{wFFa!Du{iihsDD4ieTToTh!Dsh!T4u4uF}uu4kD!h1FFaaDkou1iT4}hFC{us{DCaCa}u}o{FDaa4Fu}}}T4eDFe{wa!DewT}uakn{TikssTwo1DC4FTku{aak1iiTnnukDnoak{TkDhaFwskiT{}uaiDD41Cw}411FhanTo!nuFFhsTi}nu{Ce!DuFenTwwFi4!1w{FDwsD}Cnk{ee1wFhkos1n{suTeTDk{DFCwTw{i!wisi!s4!Dk44Dha}{TC!nuaDnnanTk{TTs4Coe!eh4{iTeF1huhhD!nDahwwk11hD!}FDDFe1wnihC1}u{an1huT!w4{DFD4{kuT1CkkuT}kn1eT}4swensn{Cnsni1wTuT{!{}CCu}aTC{sDF{isku}Te{ss1{hDiD{Cwk!Tsha1k1hFCiui4DaaeT1FuDDn!{kD1kuaFsDu{w4DCaFhneFwussui4}eaniCwke1DDuCsFnaaa{4D4h}Cie{TTwaCu1!DukT{D{sahhDoneuwahD!eFaCDTDhhD!Tew1Tw{he}TuTaDuuCnFTDaFen1{kC4DiF!DDFhkDnhF!hDnTun1w}oDTCkkue}{iuonnDaws{CheC1TDoT}ikD}}oooh1{Ca!1{4eTkhuC}os{nanFFDTsDCe{niuDFCkDaD444FD}nankiui4CCiFuko!kDshTTDekhT!FDna}aTuw{khD1{Cn4e!4hTi{Dh!ninThoeaasD!1hDDeF1uekTD{wuDhCnC{F!!!DFDTC11souD}hTkCCoFCs44DD!1!k{{Ti}wF4D!D{DCue4aFnD}DDn!wCwTDn{CeTo4eT{1Cs{DouiD{oFDuD41aCouuTi}eTa{aTaDn4konF41suCwD{iDoD4!u}u!DT4uF4nCTDiw4i1haek}DCTo4k1CCak{Deuie1Dh1}w1C{C!uTC!eehT1FFFD4ThhFTaiuunCoDDhe{s!onwi{eeFDuTiaFDo1kDenFhkCa}ssTDDieisFnFaDahT}eDahnna{eFskoekCkn}nhwDe{a!hTsw4141DFsT11TC!uDTT141o!Dk!nhskCu}eaui{k4n1FDukC41CDiCC1!FC!FTn1iFha4DFiC{4ukD{kTkss}aDeiewwTenCD1sThh4eD{4nCDTaeTo{wns{hTCoaihiFDwku{FkC!wF1o4{FC!hT!ee!no!FnDTDD4!i!Th}C{o!unDw1wue!!h1}wkisuehhnD4D}nw4!TF{4iCunuFsDeoawask}n4DsTsha4swuDFDT1DsahnwFDD4nDo{uhwFaaD1asDhD!wuaohhiFDkknFahuuuie{h4eau!nF1CTD{n!wuhkuaa}sFuikkkkD!D{ak41uiaDT!i!eeFCCuCuDD4aFew41hD1}FuaF44s{4hssaksDCD}!D1{nnensenu4aaFs14TeaCoTF{TDDDaeD!{i1Tn!FeenkFDkDeFDie{ahC}uhF}CDia4!Do}FaTs{FDw4a}{oD1hk1naFD{e1DCsDeihTooue!F{4uC1aon4uD}CuoeTDwTCDF!1ik!eDT{{FDTDD4DD14nDFT}eTnoiwFFTu!niwCDhC!kT1hFwDwiFiTFTTDwTCoDFsnDkDDC}D4hieC}nieFCouDhn{wkwDeiw4TDahn4{}hh{Cou}h{1eDsTeCCs{uiuDaaD}!iuanoea}u{o!D4eCDwnnk1}DDCnuFaiwaiDnDi{saC!DCoDh1ku!hiDh{uDFC4{D1{Dwu4}e{!uhuwk1nFF1uwDwuC{Dsnok}FTDuh1khDoa}F!i4a!suu1hFwTk1nDnsD4D41uwu4F{D1uC{FD1{noD}DhahnnFheh{an}sniwnCD4!nhhD1wewuDhww1s4weneikTFnDeFTwuuFie}hC1FDwukDeh{CheD1skDsTDwo4DD1DDasuwTkDnD}DDoDnDuiD{unoe!sh1hTsaahs{4hkC!{Ch4ak1DaDFCn1{FsDoTCiwkFinDoeCTDhsDsww{nehCDCnDsDhauFi{ueaw4{DTn{}sCTTauaeDC{noeDawk}!e{1ae4heks!kDwww}enTii!owDDw1koDk!hD1eaw{ouen}ChaC41wThekh}euskoiTThDDDe{ukh{wwwooFiw4eiFwkDs}DT1h!aDaas4kek4{Dnk{n!ukuDTnasFaD!e4Cua}wuFsh14oie1kkF{1Te1{Dko{FiDF4keu!ni!nuCs{{sDw11u1T1awhwo!uFesCskisa{n!weFDT}{}4in1aeFn1TC4C4huFDesw{T{1a}Tsh{a4FC1h14CFknehiuDwokuhihFsDD{a!14w}ow4ue4D{1TunF44is{Cusun1}4C{u1FDFnowD1DuT{hw{w{u{TDn4!Ck!!F1wh{{eF}DhoD{eokD1i!iasT4uk1D{DkDuDhD4iwFn1nhDnw4Fn!FehD}hs4hikTsD4k}uCTueDCkn{oih4!C{{Tuu4TkDsDD!wanCTTCauisk!!DD{ann1!ssakT1knDToTDwewuheoekF{wes!wkFw{ihFTo!}}1hFia4wo4{Deaoiwwska{TDwshiTuaT!DeFk!no1oTFD{Fnaoa1{auFC}DC{TCwe!eoDDCoF!DaTwCeeu1kCCDCisC!weiDe!1woeiDDnD!DDk!F{n1{CsiTeC{41n{Cheai1saekuh4FFDCnTDTDaoCuanaFCCnkeDhanhF4e4TnT4TuT1o!}DDk}as1nniD4{n4DCFD1uFuuDek{CCwDh1{C{DFinehDhD{iT{nD14hD4sFiTi1oDn!11Doniih}Dnikw1Caw1iuskuDhw4uaF{{FoCohuDF!wa1DDTDhDnsh1oFuTwCwnDhDnDDsCF{unoah{aaCauoD{Csa!Da}o1e}DDhwi{usno{uF!4DFou!C{1iankDDi!DDs}aTD}ownCniTCa4ikDThDD{1Fw{DFeF4CsTDw1n!!CF4eia}u11wao!a4nuueDn!}aDsCaia1n{aao!nhk4unnw4DD}iwi{eDa4C1keh4ehie!woDDTDDDDaFkokT{h{aDoC1{4DkwoD{}1}hu1ih1sDDhnaT}FskTonuT{{!hTs4D}TaTnCThwCTahCnTFakunDouooaku1aDeTeTe4CDToea4wn!4Doah4!Fh1shs1u{TFw!1C!TT!uhThkFnunewnewaFaihhsunFDkoe41DTDiT{uCeies{{kT}ehwwDT1nnsDn11Dh1D{FDihCDo11e!hwkwkk4CD}}4hDFi}DwksF!{ahkuswsnii{ni1uCTTDDsho1uDnTh4TF{wwswFnaD{4DTwaeo{e{uDihTiC{DoDeDnC1i{4Tos14DuoFhFCD{C}u1{uiCD{ihCCs}DwCDDhDeDDhwnwFnDCk11{1kkDhhDFhuw}ss1Chuen{whDDDnh!}DiouTo!T}seu1ana}Fh4DuDu4Di!T}hD{wDC4ioD1Da}{!DDF1kawChaF!1TDsiDFDwo{{kTushDewT1aCie1!aDF}CTsC!1Fi1k!4i}e11{aiwD41n1oF{k!aC{4hC}{kweDFkDwCT{khe{nCwuT}swu{eh1uaCs{i1{!TunCi1D{{uDT!heDhhs!wCk{Fh1D{1oo1aDh!{4FossDuDCC1h!T}!u1kD1oekD1DeTTanuFTDT!DThFDhhwkwnw!nFeCaiFiCeFiDkkieiDe4whFk!nDhashuw44DuCD{aao1n1k4}{DesnCCCD4eu!}1TioaD{CeTD1euoTh{Dhs}1na1s!so4nh41aien}a}1FTCkDs{1TisTuDe}waFDuoTkia{w}1DaD4DaeaaCDuio{a11eshFon11Fo{eaaDneDnFD{4hhD!nnwoa4DTChwiwaekD11sDa{}u{}s{ao}CT}FFDhw14hCahw{hCDeCw!TnkhwFekDuF{s{CoankDDsuwokkuhkC{CiCsCFuoDDC!!1ienwwwa4CDuhhDiDuwDnan1FssD1D{Dwniiih}TuCo}DTh4DsoCs!hw1T4sDkiDTnwFCoDuu1hsossaDFiaDDesuDa4!au!kDneCk{hasneahTo{{Dn4FseDasDDwTihkDDDTo!{T1F}uaDkh{Ds{iC1sT4TnTwuTCD}uTFhaTDo{!1Caw1swni{hDT{1Cao11k4aTaFD4CDTTeFw1}TCCT!inke11CnneDCwCn4TF{D41hhTi!iDDsDo{a}FoT{ConTFwFwaTDC!1o4wThDDaw!F}DwDCue}De}}aTuwD{{uTuunTokChDuFF4uosDa1}T{CiwDw4aha1!akTknFn}ekDwDC!wD!}ToF{4TwDos}{{D}wFhDTshuohFTnhanDnD1wwCFD{D{1nn1Fns}{CFw{swuT}uaFDaDDun}}shD1Ckhaw!uTuaskCuo4CTDwnCw1Co}Twa!u{h1iDe4DD}TD4T{iCFTDawon{iD!sTk{kksD4Twk!hDu4iak1DeTDwhawDT}DFDueFTwana!ehuea}FueeTFaDuhi!CoCFn}!TDhTiei!1nC}Dei1Fun4nDsDo{FD1aaTDwCDFTCT1CD4kh1sD{DDu!T{hFTihD{TCuh{hkn4e{aai}okDnsu{iDsCDn}Ci!i4eiF{}DwaD{C!a4C{skFuDD!eD4!h1inFeFe1Du{nCTT!Ta{1D{TnhwCwkC}{Ch}}euFDi{nseTu}1FFDhFTDDDFeww!4w!a!CsCDDD}4i!T{}uso{wu4DhTn1anCDDe1T}TCF!C11D4Fa4n}!kDDi1hCTTkeuwDFokT{k1iCDDF{DFiTTTD1sThkuuDehDuT}heihCT!wFCi4aTDiinCDh{aekDhCFeDDFTaahCDTooiT!{1D}CDTkhuawoi1e1DD{n1k!}4FuDDno!4FDnC}DC!1{41eDCskDu4oD{w1TwDFeT4}o}DeiD1aeo1DoseFi{DwDn{D1!ahTswkeeDh4DDoDD4{Dui1}nDoohTo}onTCuaDT{khuDD4DFwDT1skTD}n1Ch}nkeDDaaonDiaaF!enoTnhwen1kDC4}Dohann{T{nCn!h{TT}shiCkD{sFDe4aDsFTsaoT{DuuDaiuDoiC!!TTDT{4CnaDwnCwo}oD1CDDDi4a1n}F{!ThFDhk{DoneCuse{}}FCTDiD!DD1oCuCD4DDFsDn!{eT{sDCThhhsDe}ua{T}eT!DC}T4iu4F4has}sCTCo1CDakoewoknks!i1DDDs4{h414T4eeTDTFn}FCFwk!i4okssFD44hno1Dn1D!kawTDDkFDu1n}h4ChheiCDF{DoDTD}ia!auk1k}w1nTDDeD{sFChTa1TD}w1sCnDDDeCuTF1waF4nFeCniwDnDhTksunasw1D1DsDD1n{{41ke{FCw1Fn11F1{!nTookoFaC{Dou1u1Daaeas{a4hD!FD!TnahwuowF1saF{CFkT41DTn4Fe1huu4anF!uwCoe4iD4inF4iuDuDhsaD{Fwis!kFoaaD!C1oDDhCnhDkhF{Dh{F}CoTTwok{aDCC11CDDD1koDDi{inheh{}41D14DTTDuouauDChweCn1o}{TTCsh1}ha1T4{kki!TDei4}wuD1DkDnkTk{D{wiDu!wa4aaewTu!iFn{wk{uoaniC4h{{T{{DnohCaDkDoniwh4uFnDnF!owFiekeha{CekaDkhaiunCChCDohkho4T{euhki!DoiuanhaouD!uwesniuFn{ah!F{T{eD4uDahh}DDDF}TiwC!sCTTi{snD4sDoD!sDne{uuC}FCC}}!DTTDisDFusiuF414wDTTDi1h{s14a1wFnD4aTasu}uF4a{DuhT{!TwkDaTDTwina4hDnFDah{i}T{Cnk{uheC1C!ChksoDCwDDDe}k{ka{k{i{FuDDssFeoaT{{eDDTsa{}DwwnhDokwohawDiD!D4DFa{FFhCFue{saha4a!s4!4Dk{ihe{1eo1DiDD!ko{s{D{D4e!D}DDFhFD1!a{shCCoeDCDwTukwueCFi}oDDDC1uD4ossh4aFsFnu{!uahnTehn}a!eeD1CeD}}Fs4Dws{iTT{!4khikTTDDkiuhekhouuC{Dsnne{DaFChn1sFDiDh{FoFC4FuF{enshFD{{C1aeoinsnhnu4iDDs}s4DDsnTDoaT{DwisaCuss!{kTkh1au4DFakDakh{oDwahoukunnCDieah!e{4!}awinDFk4FaDo1!!1DDnuwwwa!ikCnDsw1eD}{1TiDuoDkDk4FnFwakhD{{1DTke1haTiD}!DDCs}1DF1oCwT{eThCDa1F1u1aiFk!CF}DuDTTTDDahiToaiDkD!eCuwsaw4D1oikaeDD!kDw{!Dnn{}C1nCakhh4ihanhesoFuoDDDTCwosD}To1sDCiDDF!os44ia1ui4wDh1wihFDF4Di1h}11Ts14nCFDTTkoTesua}T1ae1Teaenaeho{FDsF!F{Do}D!TnniCChiFhFsFsTTsTwhF}ueT!1wnDkuiD!sC1CsuDa4TaDus{a}}nk{kw}F}uDeTFCuDs4{{FCaeaunTC}FFDnFFu!DaDCD4kukoC1ChCDawuTuD1ua{C4aiDenka4hakwswDhF{FweDDoF14k{e{sn4DDue{FnaDTsan}nFhusa4Th1wsDD}nn4h1CDFhwD1FDDn}a{iohT1Dia{oDFauTo!DTDCin{D1aDwohCoke!iCF}DhwDC1!DkwTFk{aCuiF!wnwFaFFwC!iiaDuCkDDnFk{Du{ns1Cuno1}aDkuuso!aoF{h{w!T1hFDnokD1Ce{wewiC{o1}D1hneDhwuuDe{a4DT4{DFCDTwTCikoD4n4C1TesT4FsuDuk{4aCaoT1s4Ds{C1C4DTawDDDnninu1io4T4!DekT!eD1wuTn4hiDeD1{FhFw4!snDDFsseuDD{De{un}uFDFiFD!{ehnCDC1ehCDo1D}hTuasCsFnF1CDhT1n4F4}DwnDDenD}ewDw{D11e41DDFhCueDFwniDawwiko{F{sDaCkk4khDnDDshhDh1{k}eoCThhnDakFkTuDDewkaToDnnwFh!CTko{CnsCCuoDha4ieuDh}uesinawsDiD4{ewsk}DTsFahawo{{hwioeCCeuDDCs}kioDwhe}ian{wnn1444wCiD{uos{1hiDe{hs!kie{iD}DkTaConwi41{FkD{Tsu}hikei}uC!w}ih}si{heTeiuDi}TT1uo1es{TC11sennnnuehhDCCTDCF{41sa}DFDwwCakDkkkwiFuhTTa44u!FFhFTisDuaiCiCkFTDeaTF1!oThuu4s!!e4DT{eTDnnTDe}FCD{enC!}aF4kD!hhTkoFoDnuDCu1ie{a41D{F{CF!CinkCaasDuwnk1DD!{suF{wCkDoew4CCDhFwshwhukiaCTwh1iis4{k!FFe{CC{{Too4}TuCwioiaaTh!{DF!FnDDDn{DhaTChDCwTC}oT}Dk1FTuC1nkFu{TwCDkkneDo!wuFC{DTFF}eT{wCTheCuksukiC{eDnCi1DwDT}owCaDTTsoCFahD}ukT!wFu!wDn}o{FD{{w{DCuDuTCwD}iFohhiD{nwneu{wDwDDDaaDDCDuwh{4Daia4{hu}FFsFikeT!4{ooC!iaehFioFDuDhaaaDD4i41CsokaenoC{CCF!k{u4}TDnDTkoCT1s}DFhnTCuehCDFaT}1kFwiehusukw4{u1{hDkh}{CnFhDai4sskuCTiaD{oueohDuaF4h}FCD{heu{aun1CeFDFTT{TD4}e{Du4CFoDa44wDn{4!}nDnsik}aiahkDshFu{DDDTh!senuwD{uTDehCDFDa{{iD4h4D4}{C4CT}4Di{CsnDaau!CDkoT1!Dw4n{so1CTCeuC{CF!CTF!sT1s4aaaauw}oanDFhCnF1iD!Dwh4huDshinsC}asFeio{k!aawFCeDsF}D}eennhDus4FaTDa1as{hhoiCDkDanweu}u{D{!hCDwFeDDhCDTT1TCD!hsDDhFne{sDhCi{nTo1oeFs11aTiTk{neeaTne4D{uo{oFn{FuDCa1iThsnTeTassFFCs441n4o1DaFe!T{Fkw4nD1iuaTshuDFoawwoDDueD4DT}eDuTFawDFinF!T}De!kDauhFDuD4FDaiwn{oD{{sDea!Tnoe}TDa4{uT1DeCDDFkhDw{eeDhoTn1}FTD4no1C!he4nkuuDDCisaakneioD1{ou}eC!Dni{wseCTsC1he4sw{FFwo{nThwCFCD{DhDFuFFD{eDh1!au1iTkw1CCaFDinFnDD}F{ieCuFshFCnCFDi{DC4eiD!aT{FaT}1nDDTkDawiDn4wn{CFaCekDCaDhCn{Ds}4sehia}Dk{!Th{TksoDCkCkTDDaauaik{ueDu!{wFweTwC!eDehhFTewhoF4DnCT}}eDF4hhsC{}{uDikDaD!au444Tu141FD!{1i{u1suewCw1annCD41ouDF1CF14iDDF!D}!1k}hnF4D!!4DDin}1ee{k4aDhkokFDeh4Twnwwk!{hhuCaTwsD}iDwwwiha{DwFuC1DwsuhDuFsehe!uFuDTnT{4hDkeTDFF!CsisCa}hTs1Doi{hnenCnhwaDFDuC!CTwF{sDCwwTDT{u{1iDaDe{a}hDDD1au{{Due!oDD!nFCoe1iDwswaDokk}C}Ch{DCDFuawTeDCe4nki1wCD}ahoooDnT!T4uDuFDh}FkoTn{kCFD!kw4D4!FnThiCoCnnFoDunwowaDk1nTewkuhnwiTseo!DehDFDCT4he{}CkCuh4wC1nCCD}k1DDn}DFDhiwhhwinea!DoswnaD!aDn}{DDDCCwi{4u{4TF}huDo{{kCDkD}{CCDFCDiFsia1seCFDTD{C{eiFask4uCskaTnC4soiDT{uDui}}{1eiFaTo{TnhkeDDD!{ssw1oFoa{4u}kuu!!a!nueesisCnawCDeT{CwwieeD4wnDaT4oD1Twi4DDaihkCan{Dhu{4waoTTku}CDTwawa}oniTh{o{k{DhnDwknh4ehhw44}{D}DwCThC4so}n4wTDhnkhTnC{ikTFDhnDhDFD{!41kk{oiDs}D!TD}e4DChTC}Fw1i!{1{CCi4Dsh1{TuaTFa!e{TFsDTD{DTTuwknekDDs{{Dasuaeh{hFsD1uDiTuD!DD!DueneDwhTek}4{CTDswkno{}}Dh4ueeFDTwwDCCsniDk!{FeFuCDDwTD}uThnDDawniFna{Dwi4o}s!FhhaTkCD!u}C!FTk4wa{T{1aoFoo1in1!aCniFsTnDaehueF4huF}Te!C{DD}}sTFn1hD1DD4kTwwTesD{iiFk}Duu{eh!sw{FCD{eFwiCwFie4DFw}T!1w!{}esTsi!noaseC{}{CD1ehCaDCDuDDuTa}soTT}D{!4T!wDaonuCo1nFw}DC1{FhFuheCFCnuoeuTCFknuuwDFkna{{sDnD{{khCunDDTC4wkw{u4DDDDTaa11h1F}CaahC4oi!DFu4DskDoTowawk1ueT{kaakhCDkFuFF4TwDk4Dao{e}D4wFhw{sDFCnw{DseD41heT{}TDenD!{aDeTuksT1s1Dk{D!e{4DuD{{kD{nnCi141seeksioew44TeDDD4eC{n{{Tu{DnwT1oaFCsFiDi}eF!DwCw{{neT}D4}{TuhoD{Dk!iDu1F{s4!u!hs4ha}CaaFFs{suFuDCiTDDasiDCh!CaC{{TFhDkDDuku1!iuT!hTnohFknki1Fnu1ah1Tk}11DsTDwD{oiDDeow4eF{{TDhoh!}CDCDoTDaFihCk1iFn1DnkC}DaCTwi
+```
+
+统计频次得到flag：
+
+```python
+from collections import Counter
+
+f=open(r'C:\Users\hp430\Desktop\00014133\file.txt','r')
+f_read=f.read()
+
+print(Counter(f_read))
+```
+
+```
+Counter({'D': 3950, 'C': 1900, 'T': 1850, 'F': 1800, '{': 1750, 'h': 1700, 'u': 1650, 'a': 1600, 'n': 1550, 'w': 1500, 'e': 1450, '1': 1400, 's': 1350, 'i': 1300, 'k': 1250, '4': 1200, 'o': 1150, '!': 1100, '}': 1050})
+```
+
+###### [INSHack2018]42.tar.xz
+
+给了堆tar.xz文件，查看发现是套娃，批量解压即可得到flag：
+
+```
+while [ "`find . -type f -name '*.tar.xz' | wc -l`" -gt 0 ]; do find -type f -name "*.tar.xz" -exec tar xf '{}' \; -exec rm -- '{}' \;; done;
+
+root@ubuntu:/home/test# ls
+10.tar.xz  14.tar.xz  18.tar.xz  21.tar.xz  25.tar.xz  29.tar.xz  32.tar.xz  36.tar.xz  40.tar.xz  5.tar.xz  9.tar.xz  flag2  flag6
+11.tar.xz  15.tar.xz  19.tar.xz  22.tar.xz  26.tar.xz  2.tar.xz   33.tar.xz  37.tar.xz  41.tar.xz  6.tar.xz  flag      flag3
+12.tar.xz  16.tar.xz  1.tar.xz   23.tar.xz  27.tar.xz  30.tar.xz  34.tar.xz  39.tar.xz  42.tar.xz  7.tar.xz  flag1     flag4
+13.tar.xz  17.tar.xz  20.tar.xz  24.tar.xz  28.tar.xz  31.tar.xz  35.tar.xz  3.tar.xz   4.tar.xz   8.tar.xz  flag10    flag5
+root@ubuntu:/home/test# cat flag
+INSA{04ebb0d6a87f9771f2eea4dce5b91a85e7623c13301a8007914085a91b3ca6d9}
+```
+
+###### 大流量分析（一）
+
+```
+某黑客对A公司发动了攻击，以下是一段时间内我们获取到的流量包，那黑客的攻击ip是多少？（答案加上flag{}）附件链接: https://pan.baidu.com/s/1EgLI37y6m9btzwIWZYDL9g 提取码: 9jva 注意：得到的 flag 请包上 flag{} 提交
+```
+
+给了堆巨大的流量包，下载其中一个利用Wireshark的统计功能提交访问次数最多的外网ip即可。
+
+###### 大流量分析（二）
+
+```
+黑客对A公司发动了攻击，以下是一段时间内获取到的流量包，那黑客使用了哪个邮箱给员工发送了钓鱼邮件?（答案加上flag{}）附件链接: https://pan.baidu.com/s/1EgLI37y6m9btzwIWZYDL9g 提取码: 9jva 注意：得到的 flag 请包上 flag{} 提交
+```
+
+筛选smtp，info里面可以看到MAIL FROM信息，挨个邮箱试着提交即可。也可追踪tcp流，可以看到邮件内容，发现钓鱼内容即是该邮箱。
+
+###### [BSidesSF2019]diskimage
+
+给了一张png图片，zsteg发现有磁盘数据：
+
+```
+root@ubuntu:/home/ctf/misc/zsteg# cat go.sh
+zsteg attachment.png -a
+root@ubuntu:/home/ctf/misc/zsteg# ./go.sh
+imagedata           .. text: ["w" repeated 10 times]
+b1,b,msb,xy         .. file: MPEG-4 LOAS, 8 or more streams
+b2,r,lsb,xy         .. text: "UUUUUUUUUUUUUUT"
+b2,b,lsb,xy         .. text: "7wwwwwwwwwwwwwwwwwwwwwp"
+b3,g,lsb,xy         .. file: PGP\011Secret Key -
+b4,g,lsb,xy         .. text: "\"\"\"\"3333DDDDUUUUffffwwww"
+root@ubuntu:/home/ctf/misc/zsteg# vi go.sh
+root@ubuntu:/home/ctf/misc/zsteg# ./go.sh
+imagedata           .. text: ["w" repeated 10 times]
+b1,b,msb,xy         .. file: MPEG-4 LOAS, 8 or more streams
+b2,r,lsb,xy         .. text: "UUUUUUUUUUUUUUT"
+b2,b,lsb,xy         .. text: "7wwwwwwwwwwwwwwwwwwwwwp"
+b3,g,lsb,xy         .. file: PGP\011Secret Key -
+b4,g,lsb,xy         .. text: "\"\"\"\"3333DDDDUUUUffffwwww"
+root@ubuntu:/home/ctf/misc/zsteg# vi go.sh
+root@ubuntu:/home/ctf/misc/zsteg# ./go.sh
+imagedata           .. text: ["w" repeated 10 times]
+b1,b,msb,xy         .. file: MPEG-4 LOAS, 8 or more streams
+b2,r,lsb,xy         .. text: "UUUUUUUUUUUUUUT"
+b2,b,lsb,xy         .. text: "7wwwwwwwwwwwwwwwwwwwwwp"
+b3,g,lsb,xy         .. file: PGP\011Secret Key -
+b4,g,lsb,xy         .. text: "\"\"\"\"3333DDDDUUUUffffwwww"
+b8,r,lsb,xy         .. text: "iin btldk eenraoaelpa\rrsnk  ygn.\r"
+b8,g,lsb,xy         .. text: "/NNE A2 "
+b8,g,msb,xy         .. text: ["@" repeated 8 times]
+b8,b,lsb,xy         .. text: ")WOA  T "
+b8,rgb,lsb,xy       .. file: DOS/MBR boot sector, code offset 0x3c+2, OEM-ID "~mitsumi", root entries 224, sectors 2880 (volumes <=32 MB), sectors/FAT 9, sectors/track 18, serial number 0x7e572f0f, unlabeled, FAT (12 bit)
+```
+
+导出：
+
+```
+root@ubuntu:/home/ctf/misc/zsteg# cat go_dc.sh
+zsteg -e "b8,rgb,lsb,xy" attachment.png >1.dat
+root@ubuntu:/home/ctf/misc/zsteg# ./go_dc.sh
+root@ubuntu:/home/ctf/misc/zsteg# ls
+1.dat  attachment.png  go_dc.sh  go.sh
+root@ubuntu:/home/ctf/misc/zsteg# file 1.dat
+1.dat: DOS/MBR boot sector, code offset 0x3c+2, OEM-ID "~mitsumi", root entries 224, sectors 2880 (volumes <=32 MB), sectors/FAT 9, sectors/track 18, serial number 0x7e572f0f, unlabeled, FAT (12 bit), followed by FA
+```
+
+用testdisk查看，按照Proceed>None>Advanced>Boot>Rebuild BS>List的顺序一路回车，能看到一个标红的被删除文件_LAG.ICO，按c复制出来得到flag图片。
+
 ## crypto
 
 ###### Url编码
@@ -6746,4 +6864,305 @@ for i in range(153):
 Azdecrpt得到flag：
 
 ![image-20210228195419290](/image-20210228195419290.png)
+
+###### puzzle
+
+拼图题，给了原图供对比，导致拼图难度，降低理论上可以手动拼，同时也可用对比方式进行拼图。
+
+尝试了常规工具及脚本均无效，检查图片发现存在噪点干扰了自动拼图工具：
+
+![0bHCKyBp3v](/0bHCKyBp3v.JPG)
+
+于是用脚本去除噪点：
+
+```python
+import cv2
+from PIL import Image
+import numpy as np
+import os
+import cv2
+import numpy as np
+def median_filter(img, K_size=3):
+    H, W, C = img.shape
+    pad = K_size // 2
+    out = np.zeros((H + pad*2, W + pad*2, C), dtype=np.float)
+    out[pad:pad+H, pad:pad+W] = img.copy().astype(np.float)
+    tmp = out.copy()
+    for y in range(H):
+        for x in range(W):
+            for c in range(C):
+                out[pad+y, pad+x, c] = np.median(tmp[y:y+K_size, x:x+K_size, c])
+    out = out[pad:pad+H, pad:pad+W].astype(np.uint8)
+    return out
+#被噪声污染图片文件夹
+dirs_path=r"C:\Users\hp430\Desktop\output"
+count = 0
+dirs = os.listdir(dirs_path)
+threads = []
+for k in dirs:
+    print(k)
+    if k.endswith('JPG'):
+        count += 1
+        print("processing on pic" + str(count))
+        img = cv2.imread(dirs_path+'\\'+k)
+        out1 = median_filter(img, K_size=3)
+        cv2.imwrite(r"C:\Users\hp430\Desktop\other\\"+str(count)+".jpg", out1)
+        # cv2.waitKey(0)
+        # cv2.destroyAllWindows()
+```
+
+去噪巨慢，慢慢挂吧。
+
+然后用脚本自动拼图：
+
+```python
+import cv2
+from PIL import Image
+import numpy as np
+import os
+import shutil
+import threading
+# 读取目标图片(原图)
+source = cv2.imread(r"C:\Users\hp430\Desktop\demo.jpg")
+# 拼接结果
+target = Image.fromarray(np.zeros(source.shape, np.uint8))
+# 图库目录(切片后的1100张图片)
+dirs_path = r"C:\Users\hp430\Desktop\other"
+# 差异图片存放目录(跑的时候生成的图片)
+dst_path = r"C:\Users\hp430\Desktop\v1"
+def match(temp_file):
+    # 读取模板图片
+    template = cv2.imread(temp_file)
+    # 获得模板图片的高宽尺寸
+    theight, twidth = template.shape[:2]
+    # 执行模板匹配，采用的匹配方式cv2.TM_SQDIFF_NORMED
+    result = cv2.matchTemplate(source, template, cv2.TM_SQDIFF_NORMED)
+    # 归一化处理
+    cv2.normalize(result, result, 0, 1, cv2.NORM_MINMAX, -1)
+    # 寻找矩阵（一维数组当做向量，用Mat定义）中的最大值和最小值的匹配结果及其位置
+    min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(result)
+    target.paste(Image.fromarray(template), min_loc)
+    return abs(min_val)
+class MThread(threading.Thread):
+    def __init__(self, file_name):
+        threading.Thread.__init__(self)
+        self.file_name = file_name
+    def run(self):
+        real_path = os.path.join(dirs_path, k)
+        rect = match(real_path)
+        if rect > 6e-10:
+            print(rect)
+            shutil.copy(real_path, dst_path)
+count = 0
+dirs = os.listdir(dirs_path)
+threads = []
+for k in dirs:
+    if k.endswith('jpg'):
+        count += 1
+        print("processing on pic" + str(count))
+        mt = MThread(k)
+        mt.start()
+        threads.append(mt)
+    else:
+        continue
+# 等待所有线程完成
+for t in threads:
+    t.join()
+target.show()
+# 跑出来后的图片
+target.save(r"C:\Users\hp430\Desktop\demo1.jpg")
+```
+
+![demo1](/demo1.jpg)
+
+###### old_driver
+
+```
+随着深度学习技术的发展，基于深度学习技术的自动驾驶已经成为了当下一大热门。但深度学习很容易受到对抗样本的攻击，这也会为自动驾驶带来安全隐患。附件中给出了一个路标识别系统的模型和一些输入的路标图片，在输入的路标中被黑客混入了一些对抗样本，你能否帮忙检测出其中的对抗样本呢？
+
+Note: 数据集文件夹名为ground truth label，而不是模型输出。
+```
+
+```python
+from glob import glob
+import torch
+from torch import nn, optim
+import torch.nn.functional as F
+import torchattacks # https://github.com/Harry24k/adversarial-attacks-pytorch
+from torchvision import transforms
+from PIL import Image
+import random
+import os
+from hashlib import md5, sha256
+
+class Model(nn.Module):
+    def __init__(self):
+        super(Model, self).__init__()
+        self.conv1 = nn.Conv2d(3, 100, 5)
+        self.conv1_bn = nn.BatchNorm2d(100)
+        self.pool = nn.MaxPool2d(2, 2)
+        self.conv2 = nn.Conv2d(100, 150, 3)
+        self.conv2_bn = nn.BatchNorm2d(150)
+        self.conv3 = nn.Conv2d(150, 250, 1)
+        self.conv3_bn = nn.BatchNorm2d(250)
+        self.fc1 = nn.Linear(250 * 3 * 3, 350)
+        self.fc1_bn = nn.BatchNorm1d(350)
+        self.fc2 = nn.Linear(350, 10)
+        self.dropout = nn.Dropout(p=0.5)
+
+    def forward(self, x):
+        x = self.pool(F.elu(self.conv1(x)))
+        x = self.dropout(self.conv1_bn(x))
+        x = self.pool(F.elu(self.conv2(x)))
+        x = self.dropout(self.conv2_bn(x))
+        x = self.pool(F.elu(self.conv3(x)))
+        x = self.dropout(self.conv3_bn(x))
+        x = x.view(-1, 250 * 3 * 3)
+        x = F.elu(self.fc1(x))
+        x = self.dropout(self.fc1_bn(x))
+        x = self.fc2(x)
+        return x
+
+
+# load pretrained model
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+transform = transforms.ToTensor()
+model = Model().to(device)
+check_point = torch.load('model.pt', map_location=device)
+model.load_state_dict(check_point)
+model.eval()
+
+# untargeted CW attack
+atk = torchattacks.CW(model, c=1, kappa=0.3)
+
+# generate an adversarial example for each class
+pairs = []
+for cl in range(10):
+    while True:
+        origin_image = random.choice(glob(f'test/{cl}/*.png'))
+        image = transform(Image.open(origin_image)).to(device)[None, ...]
+        label = torch.tensor(cl, device=device)
+        adv_image = atk(image, label)
+        origin_output = model(image)
+        adv_output = model(adv_image)
+        origin_label = torch.argmax(origin_output, axis=1).item()
+        adv_label = torch.argmax(adv_output, axis=1).item()
+        if adv_label == origin_label:
+            continue
+        transforms.ToPILImage()(adv_image[0]).save(f'adv_{origin_label}_{adv_label}.png')
+
+        # confirm that the generated adversarial example is working
+        image = transform(Image.open(f'adv_{origin_label}_{adv_label}.png')).to(device)[None, ...]
+        output = model(image)
+        if torch.argmax(output, axis=1).item() != adv_label:
+            continue
+        pairs.append((origin_image, f'adv_{origin_label}_{adv_label}.png', origin_label, adv_label))
+        break
+
+# remove origin images and move adversarial examples into target classes
+for origin_fname, adv_fname, origin_label, adv_label in pairs:
+    os.rename(adv_fname, f'test/{adv_label}/{adv_fname}')
+    os.remove(origin_fname)
+
+# shuffle all the images to hide adversarial examples
+os.mkdir('imgs')
+adversarial_images = []
+for cl in range(10):
+    images = glob(f'test/{cl}/*.png')
+    os.mkdir(f'imgs/{cl}')
+    random.shuffle(images)
+    for idx, image in enumerate(images):
+        os.rename(image, f'imgs/{cl}/{idx}.png')
+        if 'adv' in image:
+            adversarial_images.append(idx)
+
+# You can get the flag if you find all the adversarial examples :)
+flag = 'flag{' + md5(str(sorted(adversarial_images)).encode()).hexdigest() + '}'
+
+# Give you some hints though you can solve this challenge without them
+hint1 = [(row[2], row[3]) for row in pairs]
+hint2 = sha256(str(sorted(adversarial_images)).encode()).hexdigest()
+
+print('flag:', flag)
+print('hint1:', hint1)
+print('hint2:', hint2)
+
+# flag: flag{*********REDACTED**********}
+# hint1: [(0, 1), (1, 0), (2, 6), (3, 4), (4, 3), (5, 6), (6, 5), (7, 8), (8, 7), (9, 1)]
+# hint2: 502e0423b82c251f280e4c3261ee4d01dca4f6fe0b663817e9fd43dffefc5ce9
+```
+
+对抗样本，原理是在一堆样本中混入微量修改的样本干扰学习。说实话不懂处理，于是投机取巧按修改时间排序，在每个文件夹最后修改的图片中找到比较相似的图片得到flag：
+
+```python
+from hashlib import md5, sha256
+adversarial_images = [171,34,214,273,116,391,293,127,59,128]
+hint2 = sha256(str(sorted(adversarial_images)).encode()).hexdigest()
+flag = 'flag{' + md5(str(sorted(adversarial_images)).encode()).hexdigest() + '}'
+print(flag)
+```
+
+# HGAME2021
+
+###### DNS
+
+给了个流量包，追踪http流发现一个可疑包：
+
+```
+GET / HTTP/1.1
+Host: flag.hgame2021.cf
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+HTTP/1.1 200 OK
+Date: Sat, 06 Feb 2021 12:15:30 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Set-Cookie: __cfduid=d4f20b5f06c4703abeda2e89b3a9c35531612613730; expires=Mon, 08-Mar-21 12:15:30 GMT; path=/; domain=.hgame2021.cf; HttpOnly; SameSite=Lax
+Last-Modified: Sat, 06 Feb 2021 12:01:05 GMT
+CF-Cache-Status: DYNAMIC
+cf-request-id: 0818ddda88000099ad76a41000000001
+Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=Mwq202XAe1SF17%2FfS%2BzNTrU5%2BOsU79i%2BU4TQNHIJi7sz0fE%2Bxcce83ItrnFnQd5Msa2A%2BBJNu35cU76sw0KSHwUiqwR8aJzNWaGL6lFrNCXISw%3D%3D"}],"group":"cf-nel","max_age":604800}
+NEL: {"report_to":"cf-nel","max_age":604800}
+Server: cloudflare
+CF-RAY: 61d4cc0a79ed99ad-LAX
+Content-Encoding: gzip
+
+<html>
+<head>
+</head>
+<body>
+<script>
+            while(true){
+                alert("Flag is here but not here")
+            }
+        </script>
+<b>Do you know SPF?</b>
+</body>
+</html>
+```
+
+SPF的完整意思为 "Sender Policy Framework"。翻译过来就是发送方策略框架，是一项跟 DNS 相关的技术，它的内容写在 DNS 的 txt 类型记录里面，关于更详细的信息请参考 RFC4408: http://www.ietf.org/rfc/rfc4408.txt
+
+```
+C:\Users\hp430>nslookup
+默认服务器:  UnKnown
+Address:  192.168.1.1
+
+> set type=TXT
+> flag.hgame2021.cf
+服务器:  UnKnown
+Address:  192.168.1.1
+
+非权威应答:
+flag.hgame2021.cf       text =
+
+        "hgame{D0main_N4me_5ystem}"
+>
+```
 
