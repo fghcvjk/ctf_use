@@ -4705,6 +4705,158 @@ root@ubuntu:/home/ctf/misc/zsteg# file 1.dat
 
 用testdisk查看，按照Proceed>None>Advanced>Boot>Rebuild BS>List的顺序一路回车，能看到一个标红的被删除文件_LAG.ICO，按c复制出来得到flag图片。
 
+###### [NPUCTF2020]碰上彩虹，吃定彩虹！
+
+给了两个txt一个二进制文件，两个txt文件内容如下：
+
+```
+achnrvxzzuglarucalznwcygfggrufryvbzqjoxjymxvchhhdmliddcwmhghclpebtzwlojvew
+
+
+
+
+
+
+
+
+
+ 	
+  	
+	
+			
+	 	
+ 
+	 		
+```
+
+```
+emmmmm...
+something important was hidden in txt​​​​​​‌​‍​‌​​​​​​‌‌​‌​​​​​​​​‌​‌‍​​​​​​‌‌‌​​​​​​​​​‌​‌‍​​​​​​‌​‍‍‍​​​​​​‌‌​​‍​​​​​​‌‌​‌​​​​​​​‌‌‌​‍​​​​​​​‌​‌‍​​​​​​​‍‍‍​​​​​​​‌​​‌​​​​​​​​‍‌‍‌​​​​​​‌​​​‍​​​​​​​‍‌​​, but I can't find it!
+```
+
+看到一长串回车加空格，果断考虑空格和tab组成二进制/摩斯密码，空格换位.，tab换为-，得到：
+
+```
+.-
+..-
+-
+---
+-.-
+.
+-.--
+```
+
+摩斯密码解密得到AUTOKEY。
+
+于是用breakautokey爆破achnrvxzzuglarucalznwcygfggrufryvbzqjoxjymxvchhhdmliddcwmhghclpebtzwlojvew：
+
+```
+E:\安全竞赛\my-tool\脚本\python脚本\AutoKey爆破>python2 break_autokey.py
+-500.692248912 autokey, klen 3 :"ICU", SANVRICIRSYUITAUHLFGLXSVIOLJGUISBTHPQHITR
+EEEYDDJAJCIUBUCLNEWPHTPUAKCLEHKAP
+-470.18750871 autokey, klen 4 :"XHPS", DVSVOAFELUBHPXTVLOGSLOSOUSODANDVVOWVOABOK
+MWHSVLALRAISMCOUVETIQLLTDOLSLVKML
+-472.570175967 autokey, klen 5 :"UOEAX", GODNUPJWMARCEFULYHUTLERMMVCAITWWVTGUNTE
+DEZERZDIDMNIAARPOMHPSOZIPJFAOWFEVQA
+-454.313492589 autokey, klen 6 :"WBTPZD", EBOYSSTYLWOTHTJGMSSUNWMONMTVIREMCGRZFC
+VDHNSTHEAULTEEDJRDIDDYLIHBYVOOENLAQI
+-408.229829982 autokey, klen 7 :"BUVSNVJ", ZIMVEAOARILHADULSASNTINOFOTYMSDTHIBER
+LECQLTERDFRSTHRAYLETAPHEALLBESSLDYUAE
+-439.943813433 autokey, klen 8 :"EAPMVSOZ", WCSBWDJADSOKEOLCXTLDSONEINVOCREUNOEC
+HXTPLYTTVKOSSOSPITOEUTOSUSBAHALERWIVXW
+-416.391490514 autokey, klen 9 :"OZHPEPWRO", MDAYNGBILIDLCEOBSARKLAUSEOGAKUREDXL
+KJEDSUJAKSYDELSCITLETIWOFUSEAILDIGURREO
+-404.132802851 autokey, klen 10 :"QZPULNXFMW", KDSTGIAUNYWIIYOUARMPAUQIRMGAIQREF
+TIEDOPTHISCUDETOTEALBITIOSOYLEDTARITALKAT
+-397.956818395 autokey, klen 11 :"AWJTHHQLUSS", AGYUKOHOFCOLUTASMELIUONMMGOFQUJE
+HONEDASTEDTOOUDEDUSEAKOISECEITLERFREHMFNLL
+-397.905189537 autokey, klen 12 :"OLPZERMIRFOT", MRSONELRIPSSOACONHOWONGORGEDHYD
+CHOTCSITGROUTVTOFLESCMPIDROSCRHXCPERTUARTNP
+-379.065592256 autokey, klen 13 :"JBHYGHRLIQBHY", RBAPLOGOREFECATCLALHILUBBEGYSU
+RNOTOWINTDAUDEPTOTHEYPADITISNTJELGMTWOSGRILN
+-306.922325592 autokey, klen 14 :"YOUHAVEFOUNDME", CONGRATULATIONSONFINDINGMYSEC
+RETNOWIWILLGIVEYOUTHEPASSWORDITISIAMTHEPASSWD
+```
+
+得到密码IAMTHEPASSWD。
+
+到此思路中断，于是接下来查看另外一个文件，txt后面有大串隐藏字符，vi看一下：
+
+![image-20210328211857483](/image-20210328211857483.png)
+
+包含200bcd，用Zero-Width处理下：
+
+![image-20210328211954440](/image-20210328211954440.png)
+
+![image-20210328212002200](/image-20210328212002200.png)
+
+ntfs导出隐藏文件（解压的时候发现有报错，其实也可以猜到需要ntfs）：
+
+![image-20210328212137442](/image-20210328212137442.png)
+
+得到：
+
+```
+=wwZlZ=8W=cndwljcdcG8wdj8W8Z8dZllGjZc=8lWjnlWd8WwZ5j=l8ccWZcZGjd5ZwZ5WZ8d=Zcwjwl5Gnn=WdwcwlnWd5lGnZWlnnwdnjnw8ndnc58d5cndl=njZl=WddjwWWwZllj5c5jGwZnZ5W=cZljdwd8c=85ndGGljcl5ccwd=W=l8w=5lwWn8WnwnWlGZwdcnGGl5G=8W==cnnWZnWjZ=wWcGwZcWc8ncWW=5jnWwcZl8W=8cdwWldlnwW5ddwlnlwncWlcwGZddj5djZWc5jcWdn5jdjwnj85GWGjnjwGd=jZGj5j==jwjlw8dlwWj5Wjn5n8dwwdjZlc5lZwdWldZlnGwl85cWnjd=WcWlwj8WGdlGncnZWGGd5ZncW5d55nW5wl=Wj8jGWnWj8jwZ=ZwWZ88nWG5nn5WlWnGdWw5Zn8jdl=nGcnll8WncZjnGn=dlwn5W8wlWjlnl5ccnGWGnnnc58WnjlGnG55Zwdn5cZdjdZZ5WljG5G5wcldd=Wlc8Z=8nGj=jWd8w8Wd=w8nccc8wZdjcnGdljZnnj5ww8885=lcWW8W8j5dG8jZZwG55GjnwZ=W5Z8G5ZlGc5ZZncZ5cd8j85GW5nj=WWncn55Gj5nj5nwnW58jG8GcnjZdWcl8wj8n=cj=8l8cn5jjcjn8lldn=Gjw8=cjcdWWjGddZljdjdZnG8djnZccZldlWllw5ZZ8wj5Gn==5w8Z=j55n=ZZ5wdww8lndwd8Wlj8WGjnl=nncZ=W8ZZWZnjjlwWGZZlZc5c==d8Zl855wZn=W=w8wWjZ85cGc==5Z8ccjdw5GnZWnGjcdGGnZ5wwwWGG5d=W5ldjwGZZdZwdG5cGGnZGlGc=W5ccWZ8=cGljdGcdld=8cj8jwn=lj88ZZ5jn5lcZ=Gdw=Zl58WZZl5ccwccwG5d5w8Z5wllj5ddnn=5=w8588WwGj=l5G55dWG8cl=GcjWwlwG=lWWnZ=dZG85Gcjc5=wnw=j==Gndnddjwn5c=c5W5wwdWlG5nWZwnGw8=lcWldcwnG5Wcjj=cWlGZc8Gn58ZWjZ85ljlncZj5cc=dZWGjd=d8ncZ8www55=cw=GWZn5ZZlnWld=cWcnclWlZG5djGW=cl8=ZG8cZwwc8wl=88W5ZwZ=jwZGGlcWcWnZZ5Zj5w5ZdZclZZWnccGw==cG8W8ZWlc8wcZ555Z85ljWG5jZ=8=wllWjWjlZc5lG8cwWlnjlGlW=l5=n=lGwnjGGjGdwj85ddW5ZwZ=ddjWldj=cjljjGwndZjWWZGcdWcZW5cdldj8WZjGljlWncZ5=8jnZWjl8wjZG5Zwlcl5dd
+```
+
+看起来不像是常规加密，考虑词频：
+
+```python
+from collections import Counter
+
+f=open(r'C:\Users\hp430\Desktop\out.txt','r')
+f_read=f.read()
+
+result = ''
+for i in Counter(f_read).most_common():
+    result += i[0]
+print(result)
+
+
+ZW5jcnlwdG8=
+```
+
+base64得到encrypto。于是将二进制文件后缀名改为.crypto用encrypto解密：
+
+![image-20210328214556773](/image-20210328214556773.png)
+
+输入之前得到的密码iamthepasswd，但是搞不出来，丢去010看一下，检查了很久发现中间夹着一句话：
+
+![image-20210328215748134](/image-20210328215748134.png)
+
+删掉后解密成功，得到一个png图片：
+
+![彩虹](/彩虹.png)
+
+gimp查看发现每个黄色html标记最后两位不同：
+
+![image-20210328220325630](/image-20210328220325630.png)
+
+得到70、40、73、73、57、64，hex一下得到p@ssWd。
+
+既然有密码了就考虑图片是压缩文件，改后缀名后用密码解压得到一个docx文件，取消隐藏后得到：
+
+```
+eeeeeeeeeepaeaeeeaeAeeeeeeaeeeeeeeeeeccccisaaaaeejeeeeeejiiiiiiLiiiiijeeeeeejeeeeeeeeeeeeeeeeeeeejcceeeeeeeeeeePeeeeeeeejaaiiiiiiijcciiiiiiiiiijaaijiiiiiiiiiiiiiiiiiiiijeeeeeeHeeeeeeeeeeeeeeeeejcceeeeeeeeeeeejaaiiiijeeeeeeejceeeeeeeeeeeeeeeeeeeeeeeeejceeeeeeeeeeeeeeeeejaeeeeeejciiUiiiiiiiiiiiiiiiiijaeeeejceeeeeeeeeCeeeeeeeeejajciiiiiiiiiiiiiiiiiiijaaiiiijiijeeeeeeeeeeejKcciiiiiiiiiiiiiiijaaij
+
+
+
+
+
+就算你看到了我，也没有什么提示了哦~
+
+
+
+
+
+好好看一看上面的内容叭~
+```
+
+发现其中有几个大写字母，组合起来得到ALPHUCK，去掉大写字母用ALPHUCK解密得到flag：
+
+![image-20210328221129220](/image-20210328221129220.png)
+
 ## crypto
 
 ###### Url编码
