@@ -1,0 +1,108 @@
+NepCTF-2021（官方wp全）
+============================================
+============================================
+UMassCTF-2021
+----------------
+-----crypto-----
+WeirdRSA
+malware
+Factoring is Fun(缺)
+-----forensics-----
+chicken
+easy as 123
+notes
+Webserver
+-----misc-----
+ekrpat
+Jeopardy
+Scan me
+-----web-----
+Hermit part 1
+Heim 
+Hermit - Part 2
+PikCha
+PikCha2
+-----rev-----
+easteregg
+chains
+babushka(缺)
+lambda(缺)
+scarymaze(缺)
+-----steg-----
+warandpieces
+============================================
+============================================
+UTCTF-2021（ctftime wp全）
+----------------
+-----Beginner-----
+stringy things
+HTML
+Magic Bytes
+Run Elf
+Cipher Gauntlet
+Sizzling Bacon
+Various Vernacular
+-----Forensics-----
+SHIFT
+Doubly Deleted Data
+Sandwiched
+smol data
+-----OSINT-----
+OSINT Part 1
+OSINT Part 2
+-----Cryptography-----
+Matrices（缺）
+Small P Problems
+A Bit Weird
+Delphi
+sleeves
+Illegal Prime
+Prove No Knowledge
+-----Binary Exploitation-----
+Linker Machine Broke(缺)
+Messy UTF-8（缺）
+2Smol
+AEG
+resolve
+Monke
+functionalprogramming
+-----Reverse Engineering-----
+algorithm
+recur
+peeb_poob
+File.tetr
+UTCTF Adventure ROM Part 3
+-----Networking-----
+Hack Bob's Box
+Be My Guest
+-----Miscellaneous-----
+rf is spOOKy
+Emoji Encryption
+Virtual Machine Monitor UWU
+Farmers Only
+Python Shell
+-----Web-----
+Tar Inspector
+It's wasm time
+Fastfox
+Source it!
+Oinker
+Cutest Cookie Clicker Rip-Off
+============================================
+============================================
+GKCTF X DASCTF应急挑战杯（官方wp全）
+============================================
+============================================
+asterisk-ctf-2021（官方wp全）
+============================================
+============================================
+NEWSCTF-2nd（官方wp全）
+============================================
+============================================
+NewsCTF-2021（官方wp全）
+============================================
+============================================
+CTFshow baby杯（wp全，其他均缺）
+============================================
+============================================
+WeCTF 2021（官方wp全）
